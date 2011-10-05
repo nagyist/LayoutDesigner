@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   version = "1.3">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3BE24826143C54C000ED2176"
+               BuildableName = "LDServer.app"
+               BlueprintName = "LDServer"
+               ReferencedContainer = "container:LDServer.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      buildConfiguration = "Debug">
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3BE24847143C54C100ED2176"
+               BuildableName = "LDServerTests.octest"
+               BlueprintName = "LDServerTests"
+               ReferencedContainer = "container:LDServer.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "3BE24826143C54C000ED2176"
+            BuildableName = "LDServer.app"
+            BlueprintName = "LDServer"
+            ReferencedContainer = "container:LDServer.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+   </TestAction>
+   <LaunchAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Debug"
+      debugDocumentVersioning = "YES"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "3BE24826143C54C000ED2176"
+            BuildableName = "LDServer.app"
+            BlueprintName = "LDServer"
+            ReferencedContainer = "container:LDServer.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+      <AdditionalOptions>
+      </AdditionalOptions>
+   </LaunchAction>
+   <ProfileAction
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Release"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "3BE24826143C54C000ED2176"
+            BuildableName = "LDServer.app"
+            BlueprintName = "LDServer"
+            ReferencedContainer = "container:LDServer.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>
