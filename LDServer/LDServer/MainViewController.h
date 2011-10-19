@@ -14,7 +14,7 @@
 #import "LDMessage.h"
 #import "LDCommand.h"
 
-@interface LDRootViewController : NSViewController<NSOutlineViewDelegate,NSOutlineViewDataSource,LMHostDelegate,NSComboBoxDelegate,NSComboBoxDataSource>
+@interface MainViewController : NSViewController<NSOutlineViewDelegate,NSOutlineViewDataSource,LMHostDelegate,NSComboBoxDelegate,NSComboBoxDataSource>
 {
     LDView *subviewRoot;
     LDView *selectedItem;
@@ -30,6 +30,8 @@
 - (IBAction)optionsBoxValueChanged:(id)sender;
 - (IBAction)refreshButtonClicked:(id)sender;
 
+@property (assign) IBOutlet NSWindow *logWindow;
+- (IBAction)showLogButtonClicked:(id)sender;
 
 -(void)sendHighlightForViewId:(NSInteger)viewId;
 @end
