@@ -6,10 +6,11 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "LDRootViewController.h"
+#import "MainViewController.h"
 #import "LDProperty.h"
-
-@implementation LDRootViewController
+#import "Logger.h"
+@implementation MainViewController
+@synthesize logWindow;
 @synthesize viewTreeOutlineView;
 @synthesize refreshButton;
 @synthesize optionsBox;
@@ -37,7 +38,7 @@
     viewTreeOutlineView.dataSource = self;
     actionsBox.dataSource = self;
     actionsBox.delegate = self;
-
+    
 }
 
 - (IBAction)optionsBoxValueChanged:(id)sender {
@@ -182,6 +183,23 @@
     
 }
 
+
+- (IBAction)showLogButtonClicked:(id)sender {
+    
+    static NSString *titleForHideLog  = @"hide logs";
+    static NSString  *titleForShowLog = @"show logs";
+    NSButton *button = (NSButton*)sender;
+    NSString *title = button.title;
+    if ([title isEqualToString:titleForHideLog]) {
+        [button setTitle:titleForShowLog];
+        [logWindow setIsVisible:YES];
+    }
+    else
+    {
+        [button setTitle:titleForHideLog];
+        [logWindow setIsVisible:NO];
+    }
+}
 
 -(void)sendHighlightForViewId:(NSInteger)viewId
 {

@@ -7,7 +7,9 @@
 //
 
 #import "LDAppDelegate.h"
-#import "LDRootViewController.h"
+
+#import "Logger.h"
+#import "RootViewController.h"
 @implementation LDAppDelegate
 
 @synthesize window = _window;
@@ -19,9 +21,10 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
-    LDRootViewController *fvc = [[LDRootViewController alloc] initWithNibName:@"LDRootViewController.nib" bundle:[NSBundle mainBundle]];
+    RootViewController *fvc = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:[NSBundle mainBundle]];
+    
     [_window setContentView:fvc.view];
+
 }
 
 @end
