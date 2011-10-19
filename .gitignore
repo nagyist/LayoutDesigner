@@ -8,6 +8,7 @@ Build
 #Per user artifacts
 *.pbxuser
 *.mode1v3
+*.xcuserstate
 
 #repository stuff
 svn
