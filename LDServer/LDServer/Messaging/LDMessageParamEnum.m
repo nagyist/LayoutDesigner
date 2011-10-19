@@ -78,5 +78,10 @@
     return &selectedValue;
 }
 
+-(NSString*)getCode
+{
+    return [NSString stringWithFormat:@"%d",self.selectedValue];
+}
+
 
 @end

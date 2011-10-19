@@ -21,8 +21,19 @@
 
 #import "LDProperty.h"
 #import "LDHost.h"
+
+NSString* const LDPropertyChangedNotification    = @"LDPropertyChangedNotification";
+NSString* const LDPropertyChangedNotificationPropertyInstanceKey    = @"LDPropertyChangedNotificationPropertyInstanceKey";
+
+
+
+@interface LDProperty(Private)
+-(void)despatchNotification;
+@end
+
 @implementation LDProperty
-@synthesize name,getter,setter,param,selectedView;
+@synthesize name,getter,setter,param,selectedView,dirty;
+
 - (id)init
 {
     self = [super init];
@@ -86,6 +97,29 @@
     [packet setObject:self forKey:@"exc"];
     
     [[LDHost sharedInstance] broadcastPacket:packet];
+    self.dirty = YES;
+    [self despatchNotification];
+    NSLog([self getCode]);
+}
+
+-(NSString*)getCode
+{
+   
+    if(self.selectedView == nil)
+    {
+        return @"selectedView is nil. Cannot generate LHS code.";
+    }
+    
+    NSString *rhs = self.param.getCode;
+    NSString *variableName = selectedView.name;
+    NSString *code = [NSString stringWithFormat:@"%@.%@ = %@;",variableName,self.name,rhs];
+
+    return code;
+}
+
+-(void)despatchNotification
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:LDPropertyChangedNotification object:nil userInfo:[NSDictionary dictionaryWithObject:self forKey:LDPropertyChangedNotificationPropertyInstanceKey]];
 }
 
 

@@ -22,6 +22,26 @@
 #import <Foundation/Foundation.h>
 #import "LDMessageParam.h"
 #import "LDView.h"
+
+/*! @defgroup LDMessageNotifications */
+/*! @{ */
+/*!
+ @var           LDNewMessageSentNotification
+ @brief         Notification that is posted when a new message is sent to a client object.
+ @details       Whenever any operation by user leads to a message beign sent to the remote object (usually a view) on iPhone, this notification is raised.
+ */
+extern NSString* const LDMessageSentNotification;
+
+
+/*!
+ @var           LDNewMessageNotificationMessageInstanceKey
+ @brief         Key name for obtaining the @ref LDMessage object from the notification's userInfo
+ dictionary
+ */
+extern NSString* const LDMessageNotificationMessageInstanceKey;
+
+/*! @} */
+
 @interface LDMessage : NSObject<NSCoding,LMMessageParamDelegate>
 
 {
@@ -42,4 +62,10 @@
 
 
 -(void)populateControls:(NSView*)viewToBeUpdated;
+
+
+/*!
+ @brief     returns the code for setting the propertyValue to latest value.
+ */
+-(NSString*)getCode;
 @end

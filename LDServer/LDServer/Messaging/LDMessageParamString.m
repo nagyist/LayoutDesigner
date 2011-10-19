@@ -79,4 +79,13 @@
     return &text;
 }
 
+-(NSString*)getCode
+{
+    if (text!= nil) {
+            return [NSString stringWithFormat:@"@\"%@\"",self.text];
+    }
+    return @"nil";
+    
+}
+
 @end

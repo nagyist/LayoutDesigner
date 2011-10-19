@@ -21,9 +21,7 @@
 @interface ImageControlView : ControlView {
     NSImageView *imageView;
     NSButton *browseButton;
-    IKImageView *advancedImageView;
 }
-@property (assign) IBOutlet IKImageView *advancedImageView;
 
 @property (assign) IBOutlet NSImageView *imageView;
 @property (assign) IBOutlet NSButton *browseButton;

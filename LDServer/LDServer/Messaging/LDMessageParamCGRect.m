@@ -88,4 +88,8 @@
     }
 }
 
+-(NSString*)getCode{
+    return [NSString stringWithFormat:@"CGRectMake(%f,%f,%f,%f)",rect.origin.x,rect.origin.y,rect.size.width,rect.size.height];
+}
+
 @end

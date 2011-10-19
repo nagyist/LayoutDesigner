@@ -77,6 +77,9 @@
         [delegate valueChanged:self];
     }
 }
+-(NSString*)getCode{
+    return [NSString stringWithFormat:@"[UIColor colorWithRed:%f green:%f blue:%f alpha:%f]",self.red,self.green,self.blue,self.alpha];
+}
 
 
 

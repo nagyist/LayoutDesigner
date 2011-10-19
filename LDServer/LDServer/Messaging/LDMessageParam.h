@@ -30,6 +30,13 @@
 -(void*)value;
 -(ControlView*)viewForCollectingData;
 -(void)sendUpdate;
+
+/*!
+ @brief     generate the rhs of the code
+ @details   All subclasses should implement this method and return the code for right hand side of the expression.
+ Example: for LDMessageParamCGRect the code will be "CGRectMake(x,y,w,h)" 
+ */
+-(NSString*)getCode;
 @end
 
 

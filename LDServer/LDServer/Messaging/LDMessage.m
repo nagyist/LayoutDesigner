@@ -18,6 +18,18 @@
 
 #import "LDMessage.h"
 #import "LDHost.h"
+#import "LDMessageParam.h"
+
+
+NSString* const LDMessageSentNotification    = @"LDNewMessageSentNotification";
+NSString* const LDMessageNotificationMessageInstanceKey    = @"LDNewMessageNotificationMessageInstanceKey";
+
+
+@interface LDMessage(Private)
+-(void)despatchNotification;
+@end
+
+
 @implementation LDMessage
 @synthesize displayName,params,selectorAsString,selectedView;
 - (id)init
@@ -110,7 +122,36 @@
     [packet setObject:self forKey:@"exc"];
     
     [[LDHost sharedInstance] broadcastPacket:packet];
+    [self despatchNotification];
+    NSLog([self getCode]);
 }
+
+-(NSString*)getCode
+{
+    if(self.selectedView == nil)
+    {
+        return @"selectedView is nil. Cannot generate LHS code.";
+    }
+    //this will break the selector into parts for each parameter
+    NSArray *tokenizedSelectorStrings = [selectorAsString componentsSeparatedByString:@":"];
+
+    //where oneLine code will be saved
+    NSMutableString * code = [[[NSMutableString alloc] init] autorelease];
+    
+    int index = 0;
+    for(LDMessageParam *param in params){
+        NSString *codeForParam = param.getCode;
+        [code appendString:[NSString stringWithFormat:@"%@:%@",[tokenizedSelectorStrings objectAtIndex:index],codeForParam]];
+    }
+    
+    return [NSString stringWithFormat:@"[%@ %@];",selectedView.name,code];
+}
+
+-(void)despatchNotification
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:LDMessageSentNotification object:nil userInfo:[NSDictionary dictionaryWithObject:self forKey:LDMessageNotificationMessageInstanceKey]];
+}
+
 
 -(void)dealloc
 {

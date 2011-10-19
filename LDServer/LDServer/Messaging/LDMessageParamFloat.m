@@ -66,4 +66,8 @@
 {
     return &aFloat;
 }
+-(NSString*)getCode
+{
+    return [NSString stringWithFormat:@"%f",self.aFloat];
+}
 @end

@@ -82,6 +82,12 @@
     }
 }
 
+//TODO: add support!!!
+-(NSString*)getCode
+{
+    return @"Not suppoerted YET!!";
+}
+
 
 
 @end

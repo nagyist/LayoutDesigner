@@ -38,7 +38,7 @@ static NSArray *openFiles()
 
 
 @implementation ImageControlView
-@synthesize advancedImageView;
+
 @synthesize imageView;
 @synthesize browseButton;
 

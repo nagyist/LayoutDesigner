@@ -68,4 +68,10 @@
 {
     return &integer;
 }
+
+
+-(NSString*)getCode
+{
+    return [NSString stringWithFormat:@"%d",self.integer];
+}
 @end

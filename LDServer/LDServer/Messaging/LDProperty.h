@@ -20,6 +20,29 @@
 #import "LDMessageParam.h"
 #import "LDView.h"
 
+
+/*! @defgroup LDPropertyNotifications */
+/*! @{ */
+/*!
+ @var           LDNewMessageSentNotification
+ @brief         Notification that is posted when a new message is sent to a client object.
+ @details       Whenever any operation by user leads to a proprty modified on the remote object (usually a view) on iPhone, this notification is raised.
+ */
+extern NSString* const LDPropertyChangedNotification;
+
+
+/*!
+ @var           LDPropertyChangedNotificationPropertyInstanceKey
+ @brief         Key name for obtaining the @ref LDProperty object from the notification's userInfo
+ dictionary
+ */
+extern NSString* const LDPropertyChangedNotificationPropertyInstanceKey;
+
+/*! @} */
+
+
+
+
 @interface LDProperty : NSObject<NSCoding,LMMessageParamDelegate>
 {
     NSString *name;
@@ -27,8 +50,10 @@
     NSString *setter;
     
     LDMessageParam  *param;
-    
+    LDMessageParam *originalParam;
     LDView *selectedView;
+    
+
     
 }
 
@@ -37,8 +62,18 @@
 @property(nonatomic,retain)NSString *setter;
 @property(nonatomic,retain)LDMessageParam *param;
 @property(nonatomic,retain)LDView *selectedView;
-
+/*!
+ @property      dirty
+ @brief         true if the value was modified from the server, false otherwise.
+ @details       this value is true IF the value was modified. Refreshing the view tree will reload values from the device and this will be set to false.
+ */
+@property(nonatomic,getter = isDirty)BOOL dirty;
 
 -(void)populateControls:(NSView*)viewToBeUpdated;
+
+/*!
+ @brief     returns the code for setting the propertyValue to latest value.
+ */
+-(NSString*)getCode;
 @end
 

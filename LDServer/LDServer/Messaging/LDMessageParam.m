@@ -74,4 +74,8 @@
 {
     
 }
+
+-(NSString*)getCode{
+    return @"Not implemented by the parameter!!!";
+}
 @end
