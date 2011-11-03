@@ -34,4 +34,7 @@
 - (IBAction)showLogButtonClicked:(id)sender;
 
 -(void)sendHighlightForViewId:(NSInteger)viewId;
+
+
+-(LDView*)viewForId:(NSInteger)anIdentifier inRoot:(LDView*)aRoot;
 @end

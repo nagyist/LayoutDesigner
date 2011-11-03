@@ -9,6 +9,52 @@
 #import "MainViewController.h"
 #import "LDProperty.h"
 #import "Logger.h"
+
+
+@implementation NSOutlineView (Additions)
+
+- (void)expandParentsOfItem:(id)item {
+    while (item != nil) {
+        id parent = [self parentForItem: item];
+        if (parent == nil) {
+            return;
+        }
+        if (![self isExpandable: parent])
+            break;
+        if ([self isItemExpanded: parent])
+            [self expandItem: parent];
+        //item = parent;
+        //now expand parent of this parent
+        [self expandParentsOfItem:parent];
+    }
+}
+
+-(void)expandAllSubItems:(id)item
+{
+    
+}
+
+- (void)selectItem:(id)item {
+    NSInteger itemIndex = [self rowForItem:item];
+    if (itemIndex < 0) {
+        [self expandParentsOfItem: item];
+        itemIndex = [self rowForItem:item];
+        if (itemIndex < 0)
+            return;
+    }
+    
+    [self selectRowIndexes: [NSIndexSet indexSetWithIndex: itemIndex] byExtendingSelection: NO];
+}
+@end
+
+
+
+
+
+
+
+
+
 @implementation MainViewController
 @synthesize logWindow;
 @synthesize viewTreeOutlineView;
@@ -25,7 +71,7 @@
         host = [LDHost sharedInstance];
         host.delegate = self;
         [host start];
-
+        
     }
     
     return self;
@@ -49,7 +95,7 @@
     NSString *commandId = [NSString stringWithFormat:@"%d",[[LDCommand broadcastViewTreeCommand] identifier]];
     [packet setObject:commandId forKey:@"cmd"];
     [host broadcastPacket:packet];
-
+    
 }
 
 
@@ -60,14 +106,69 @@
 -(void)receivedNewPacket:(NSDictionary*)packet
 {
     LDView *treeObject =  [packet objectForKey:@"data"];
-    subviewRoot = [treeObject retain];
-    if (viewTreeOutlineView!= nil) {
-        [viewTreeOutlineView reloadData];
+    if(treeObject != nil){
+        subviewRoot = [treeObject retain];
+        if (viewTreeOutlineView!= nil) {
+            [viewTreeOutlineView reloadData];
+        }
+    }
+    else if([packet objectForKey:@"selectedview"] != nil)
+    {
+        LDView *selectedView = [packet objectForKey:@"selectedview"];
+       
+        LDView *item = [self viewForId:selectedView.identifier inRoot:subviewRoot];
+        
+        NSArray *parents = [self getParents:item fromRoot:subviewRoot];
+        for(id parent in parents)
+        {
+            [viewTreeOutlineView expandItem:parent];   
+        }
+        [viewTreeOutlineView selectItem:item];
+        [self sendHighlightForViewId:item.identifier];
+
     }
     
 }
 
+-(NSArray*)getParents:(LDView*)view fromRoot:(LDView*)root
+{
+    //start finding form the root with backtracking
+    
+    if([root.children containsObject:view])
+        return [NSArray arrayWithObject:root];
+    else{
+        for(LDView* child in root.children)
+        {
+            NSArray * parents = [self getParents:view fromRoot:child];
+            if(parents != nil)
+            {
+                NSMutableArray *parentsToReturn = [[NSMutableArray alloc] init];
+                [parentsToReturn addObject:root];
+                [parentsToReturn addObjectsFromArray:parents];
+                return [parentsToReturn autorelease];
+            }
+        }
+        
+    }
+    return nil;
+}
 
+
+-(LDView*)viewForId:(NSInteger)anIdentifier inRoot:(LDView*)aRoot
+{
+    if (aRoot.identifier == anIdentifier)
+        return aRoot;
+    else if(aRoot.children != nil){
+        for(LDView *v in aRoot.children)
+        {
+            LDView *viewToBeReturned = [self viewForId:anIdentifier inRoot:v];
+            if (viewToBeReturned != nil) {
+                return viewToBeReturned;
+            }
+        }
+    }
+    return nil;
+}
 
 #pragma mark -
 #pragma mark NSOutLineView datasource
@@ -127,7 +228,7 @@
     selectedItem = treeNode;
     [actionsBox reloadData];
     
-  //  NSView *viewToBeUpdated = [[[myTabView tabViewItems] objectAtIndex:0] view];
+    //  NSView *viewToBeUpdated = [[[myTabView tabViewItems] objectAtIndex:0] view];
     for(NSView *v in [controlViewContainer subviews])
     {
         if ([v isKindOfClass:[ControlView class]]) {
