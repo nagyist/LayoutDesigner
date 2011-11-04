@@ -59,29 +59,4 @@
     return  self;
 }
 
-
--(NSMutableDictionary*)toDictionary
-{
-    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
-    [dictionary setObject:self.name forKey:@"name"];
-    [dictionary setObject:[NSString stringWithFormat:@"%d",self.identifier] forKey:@"id"];
-    [dictionary setObject:[NSString stringWithFormat:@"%f",frame.origin.x] forKey:@"x"];
-    [dictionary setObject:[NSString stringWithFormat:@"%f",frame.origin.y] forKey:@"y"];
-    [dictionary setObject:[NSString stringWithFormat:@"%f",frame.size.width] forKey:@"width"];
-    [dictionary setObject:[NSString stringWithFormat:@"%f",frame.size.height] forKey:@"height"];
-    
-    if (children != nil) {
-        NSMutableArray *arrayOfChildDicts = [[NSMutableArray alloc] init];
-        for(LDView *t in children){
-            [arrayOfChildDicts addObject:[t toDictionary]];
-        }
-        [dictionary setObject:arrayOfChildDicts forKey:@"children"];
-    }
-    
-    return  dictionary;
-}
-
-
-
-
 @end

@@ -133,6 +133,7 @@ static LDHost *sharedInstance = nil;
 
 // One of connected clients sent a chat message. Propagate it further.
 - (void) receivedNetworkPacket:(NSDictionary*)packet viaConnection:(Connection*)connection {
+    NSLog(@"received newtwork packet");
     if (delegate != nil && [delegate respondsToSelector:@selector(receivedNewPacket:)]) {
         [delegate receivedNewPacket:packet];
     }

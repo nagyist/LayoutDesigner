@@ -9,51 +9,9 @@
 #import "MainViewController.h"
 #import "LDProperty.h"
 #import "Logger.h"
+#import "TreeUtil.h"
 
-
-@implementation NSOutlineView (Additions)
-
-- (void)expandParentsOfItem:(id)item {
-    while (item != nil) {
-        id parent = [self parentForItem: item];
-        if (parent == nil) {
-            return;
-        }
-        if (![self isExpandable: parent])
-            break;
-        if ([self isItemExpanded: parent])
-            [self expandItem: parent];
-        //item = parent;
-        //now expand parent of this parent
-        [self expandParentsOfItem:parent];
-    }
-}
-
--(void)expandAllSubItems:(id)item
-{
-    
-}
-
-- (void)selectItem:(id)item {
-    NSInteger itemIndex = [self rowForItem:item];
-    if (itemIndex < 0) {
-        [self expandParentsOfItem: item];
-        itemIndex = [self rowForItem:item];
-        if (itemIndex < 0)
-            return;
-    }
-    
-    [self selectRowIndexes: [NSIndexSet indexSetWithIndex: itemIndex] byExtendingSelection: NO];
-}
-@end
-
-
-
-
-
-
-
-
+#import "NSOutlineView+Additions.h"
 
 @implementation MainViewController
 @synthesize logWindow;
@@ -132,42 +90,46 @@
 
 -(NSArray*)getParents:(LDView*)view fromRoot:(LDView*)root
 {
-    //start finding form the root with backtracking
-    
-    if([root.children containsObject:view])
-        return [NSArray arrayWithObject:root];
-    else{
-        for(LDView* child in root.children)
-        {
-            NSArray * parents = [self getParents:view fromRoot:child];
-            if(parents != nil)
-            {
-                NSMutableArray *parentsToReturn = [[NSMutableArray alloc] init];
-                [parentsToReturn addObject:root];
-                [parentsToReturn addObjectsFromArray:parents];
-                return [parentsToReturn autorelease];
-            }
-        }
-        
-    }
-    return nil;
+   return [TreeUtil allParentsOfNode:view inTreeRootedAt:root];
+
+//    //start finding form the root with backtracking
+//    
+//    if([root.children containsObject:view])
+//        return [NSArray arrayWithObject:root];
+//    else{
+//        for(LDView* child in root.children)
+//        {
+//            NSArray * parents = [self getParents:view fromRoot:child];
+//            if(parents != nil)
+//            {
+//                NSMutableArray *parentsToReturn = [[NSMutableArray alloc] init];
+//                [parentsToReturn addObject:root];
+//                [parentsToReturn addObjectsFromArray:parents];
+//                return [parentsToReturn autorelease];
+//            }
+//        }
+//        
+//    }
+//    return nil;
 }
 
 
 -(LDView*)viewForId:(NSInteger)anIdentifier inRoot:(LDView*)aRoot
 {
-    if (aRoot.identifier == anIdentifier)
-        return aRoot;
-    else if(aRoot.children != nil){
-        for(LDView *v in aRoot.children)
-        {
-            LDView *viewToBeReturned = [self viewForId:anIdentifier inRoot:v];
-            if (viewToBeReturned != nil) {
-                return viewToBeReturned;
-            }
-        }
-    }
-    return nil;
+    
+    return (LDView*)[TreeUtil findNode:anIdentifier inTreeRootedAt:aRoot];
+//    if (aRoot.identifier == anIdentifier)
+//        return aRoot;
+//    else if(aRoot.children != nil){
+//        for(LDView *v in aRoot.children)
+//        {
+//            LDView *viewToBeReturned = [self viewForId:anIdentifier inRoot:v];
+//            if (viewToBeReturned != nil) {
+//                return viewToBeReturned;
+//            }
+//        }
+//    }
+//    return nil;
 }
 
 #pragma mark -

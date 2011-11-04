@@ -18,7 +18,8 @@
 
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
-@interface LDView : NSObject<NSCoding>
+#import "Tree.h"
+@interface LDView : NSObject<NSCoding,TreeNode>
 {
     NSString *name;
     NSInteger identifier;

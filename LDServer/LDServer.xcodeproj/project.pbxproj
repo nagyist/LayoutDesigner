@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3B2B99C2143C5CEA008889D1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B99C0143C5CEA008889D1 /* MainViewController.m */; };
 		3B2B99C3143C5CEA008889D1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B2B99C1143C5CEA008889D1 /* MainViewController.xib */; };
+		3B39A602146274F1009B7A7E /* NSOutlineView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B39A601146274F1009B7A7E /* NSOutlineView+Additions.m */; };
+		3B39A60714627A54009B7A7E /* TreeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B39A60614627A54009B7A7E /* TreeUtil.m */; };
 		3B56406A144C525D00F1C427 /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B564069144C525D00F1C427 /* Logger.m */; };
 		3B56406E144C5F7800F1C427 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B56406C144C5F7800F1C427 /* LogViewController.m */; };
 		3B56406F144C5F7800F1C427 /* LogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B56406D144C5F7800F1C427 /* LogViewController.xib */; };
@@ -71,9 +73,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3B2B99BF143C5CEA008889D1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; name = MainViewController.h; path = ../MainViewController.h; sourceTree = "<group>"; };
+		3B2B99BF143C5CEA008889D1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ../MainViewController.h; sourceTree = "<group>"; };
 		3B2B99C0143C5CEA008889D1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ../MainViewController.m; sourceTree = "<group>"; };
 		3B2B99C1143C5CEA008889D1 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = ../MainViewController.xib; sourceTree = "<group>"; };
+		3B39A600146274F1009B7A7E /* NSOutlineView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSOutlineView+Additions.h"; path = "UI/NSOutlineView+Additions.h"; sourceTree = "<group>"; };
+		3B39A601146274F1009B7A7E /* NSOutlineView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSOutlineView+Additions.m"; path = "UI/NSOutlineView+Additions.m"; sourceTree = "<group>"; };
+		3B39A60414627939009B7A7E /* Tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tree.h; sourceTree = "<group>"; };
+		3B39A60514627A54009B7A7E /* TreeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeUtil.h; sourceTree = "<group>"; };
+		3B39A60614627A54009B7A7E /* TreeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeUtil.m; sourceTree = "<group>"; };
 		3B564068144C525D00F1C427 /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
 		3B564069144C525D00F1C427 /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
 		3B56406B144C5F7800F1C427 /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
@@ -81,7 +88,7 @@
 		3B56406D144C5F7800F1C427 /* LogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogViewController.xib; sourceTree = "<group>"; };
 		3B564070144C659D00F1C427 /* LogMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogMessage.h; sourceTree = "<group>"; };
 		3B564071144C659D00F1C427 /* LogMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogMessage.m; sourceTree = "<group>"; };
-		3B9E5DF5144E059D007526A0 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; name = RootViewController.h; path = ../RootViewController.h; sourceTree = "<group>"; };
+		3B9E5DF5144E059D007526A0 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = ../RootViewController.h; sourceTree = "<group>"; };
 		3B9E5DF6144E059D007526A0 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = ../RootViewController.m; sourceTree = "<group>"; };
 		3B9E5DF7144E059D007526A0 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RootViewController.xib; path = ../RootViewController.xib; sourceTree = "<group>"; };
 		3BE24827143C54C000ED2176 /* LDServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LDServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +195,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B39A5FE146274AF009B7A7E /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				3B39A600146274F1009B7A7E /* NSOutlineView+Additions.h */,
+				3B39A601146274F1009B7A7E /* NSOutlineView+Additions.m */,
+			);
+			name = Additions;
+			sourceTree = "<group>";
+		};
+		3B39A60314627916009B7A7E /* TreeAlgos */ = {
+			isa = PBXGroup;
+			children = (
+				3B39A60414627939009B7A7E /* Tree.h */,
+				3B39A60514627A54009B7A7E /* TreeUtil.h */,
+				3B39A60614627A54009B7A7E /* TreeUtil.m */,
+			);
+			name = TreeAlgos;
+			sourceTree = "<group>";
+		};
 		3B564066144C51F500F1C427 /* logging */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +270,7 @@
 		3BE24831143C54C000ED2176 /* LDServer */ = {
 			isa = PBXGroup;
 			children = (
+				3B39A5FE146274AF009B7A7E /* Additions */,
 				3BF4C9F4144E950F00697DCC /* UI */,
 				3B564066144C51F500F1C427 /* logging */,
 				3BE24862143C551500ED2176 /* Messaging */,
@@ -290,6 +317,7 @@
 		3BE24862143C551500ED2176 /* Messaging */ = {
 			isa = PBXGroup;
 			children = (
+				3B39A60314627916009B7A7E /* TreeAlgos */,
 				3BE24863143C551500ED2176 /* LDCommand.h */,
 				3BE24864143C551500ED2176 /* LDCommand.m */,
 				3BE24865143C551500ED2176 /* LDLayerProperty.h */,
@@ -534,6 +562,8 @@
 				3B56406E144C5F7800F1C427 /* LogViewController.m in Sources */,
 				3B564072144C659E00F1C427 /* LogMessage.m in Sources */,
 				3B9E5DF8144E059D007526A0 /* RootViewController.m in Sources */,
+				3B39A602146274F1009B7A7E /* NSOutlineView+Additions.m in Sources */,
+				3B39A60714627A54009B7A7E /* TreeUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
