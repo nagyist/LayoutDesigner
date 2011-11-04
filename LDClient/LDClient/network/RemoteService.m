@@ -158,12 +158,72 @@ static RemoteService *sharedInstance = nil;
 
 -(void)sendViewUpdate:(NSDictionary*)packet
 {
+   
     root = [[LDView alloc] init];
     id appDelegate  = [[UIApplication sharedApplication] delegate];
     root.view = [appDelegate window];
     [client broadcastPacket:[NSDictionary dictionaryWithObject:root forKey:@"data"]];
+    UIGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(screenTapped:)];
+    [[appDelegate window] addGestureRecognizer:gestureRecognizer];
 }
 
+
+-(void)screenTapped:(UIGestureRecognizer*)sender
+{
+    //this is the point in Window
+    CGPoint point = [sender locationInView:root.view];
+    
+    
+    LDView * touchedView = [self getTouchedViewIn:root sender:sender]; //[root.view hitTest:point withEvent:nil];
+    if (touchedView != nil) {
+        NSLog(@"touched %@",[touchedView.view class]);
+        [self sendSelectViewCommand:touchedView];
+    }
+}
+
+-(LDView*)getTouchedViewIn:(LDView*)rootView sender:(UIGestureRecognizer*)sender
+{
+    //this is the point in Window
+    UIView *view = rootView.view;
+    CGPoint point = [sender locationInView:view];
+    if (point.x <0 || point.y < 0 || point.x > view.frame.size.width || point.y > view.frame.size.height) {
+        return nil; //this was not touched
+    }
+    //touch is inside the view
+    //find if any descendants contain the point
+    //iterate from opposite end because last index is where the topmost subview is
+    
+    //but WAIT!! we don wanna go into internal iOS classes, so check if we wanna go inside or not!!!
+    
+    if ([self shouldGoInside:rootView.view] && rootView.children != nil) {
+        for(int i=rootView.children.count -1; i>=0; i--)
+        {
+            LDView *subview = [rootView.children objectAtIndex:i];
+            LDView *touchedSubview = [self getTouchedViewIn:subview sender:sender];
+            if (touchedSubview != nil) {
+                return touchedSubview;
+            }
+        
+        }
+    }
+    return  rootView;
+}
+
+-(BOOL)shouldGoInside:(UIView*)view
+{
+    NSMutableArray *arrayOfClassNames = [[NSMutableArray alloc] init];
+    [arrayOfClassNames addObject:[[UITextView class] description]];
+    
+    return !([arrayOfClassNames containsObject:[[view class] description]]);
+}
+
+-(void)sendSelectViewCommand:(LDView*)selectedView
+{
+    NSMutableDictionary * packet = [[NSMutableDictionary alloc] init];
+    [packet setObject:selectedView forKey:@"selectedview"];
+    [client broadcastPacket:packet];
+    
+}
 
 -(void)updateFrame:(NSDictionary*)packet
 {

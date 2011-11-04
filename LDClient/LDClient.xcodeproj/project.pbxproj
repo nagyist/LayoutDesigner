@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B39A6141462CA31009B7A7E /* EnumHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B39A6121462CA30009B7A7E /* EnumHelper.h */; };
+		3B39A6151462CA31009B7A7E /* EnumHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B39A6131462CA30009B7A7E /* EnumHelper.m */; };
 		3BE24740143C4A5F00ED2176 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE2473F143C4A5F00ED2176 /* Foundation.framework */; };
 		3BE24746143C4A5F00ED2176 /* LDClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24745143C4A5F00ED2176 /* LDClient.m */; };
 		3BE2474E143C4A5F00ED2176 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE2474D143C4A5F00ED2176 /* SenTestingKit.framework */; };
@@ -71,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B39A6121462CA30009B7A7E /* EnumHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumHelper.h; sourceTree = "<group>"; };
+		3B39A6131462CA30009B7A7E /* EnumHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnumHelper.m; sourceTree = "<group>"; };
 		3BE2473C143C4A5F00ED2176 /* libLDClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLDClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BE2473F143C4A5F00ED2176 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3BE24743143C4A5F00ED2176 /* LDClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LDClient-Prefix.pch"; sourceTree = "<group>"; };
@@ -235,6 +239,8 @@
 				3BE247CF143C516300ED2176 /* MessageHelper.m */,
 				3BE247D0143C516300ED2176 /* LDProperty.h */,
 				3BE247D1143C516300ED2176 /* LDProperty.m */,
+				3B39A6121462CA30009B7A7E /* EnumHelper.h */,
+				3B39A6131462CA30009B7A7E /* EnumHelper.m */,
 			);
 			path = messages;
 			sourceTree = "<group>";
@@ -314,6 +320,7 @@
 				3BE24816143C516300ED2176 /* LDMessageParamImage.h in Headers */,
 				3BE24818143C516300ED2176 /* LDMessageParamInt.h in Headers */,
 				3BE2481A143C516300ED2176 /* LDMessageParamString.h in Headers */,
+				3B39A6141462CA31009B7A7E /* EnumHelper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +442,7 @@
 				3BE24817143C516300ED2176 /* LDMessageParamImage.m in Sources */,
 				3BE24819143C516300ED2176 /* LDMessageParamInt.m in Sources */,
 				3BE2481B143C516300ED2176 /* LDMessageParamString.m in Sources */,
+				3B39A6151462CA31009B7A7E /* EnumHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

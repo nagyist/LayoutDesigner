@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LDMessageParam : NSObject<NSCoding>
+@interface LDMessageParam : NSObject<NSCoding,NSCopying>
 {
     NSString *displayName;
 
@@ -18,5 +18,4 @@
 
 
 -(void*)value;
--(void)setValue:(void*)val;
 @end

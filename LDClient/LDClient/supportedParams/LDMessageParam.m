@@ -45,5 +45,11 @@
 {
     
 }
+-(id)copy
+{
+    LDMessageParam  *copy = [[LDMessageParam alloc] init];
+    copy.displayName = displayName;
+    return copy;
+}
 
 @end

@@ -44,5 +44,15 @@
     return &selectedValue;
 }
 
+-(id)copy
+{
+    LDMessageParamEnum  *copy = [[LDMessageParamEnum alloc] init];
+    copy.displayName = displayName;
+    copy.displayNames = displayNames;
+    copy.integerValuesAsString = integerValuesAsString;
+    copy.selectedValue = selectedValue;
+    return copy;
+}
+
 
 @end

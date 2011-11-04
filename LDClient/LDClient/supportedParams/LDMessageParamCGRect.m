@@ -48,5 +48,12 @@
     return &rect;
 }
 
+-(id)copy
+{
+    LDMessageParamCGRect  *copy = [[LDMessageParamCGRect alloc] init];
+    copy.displayName = displayName;
+    copy.rect = rect;
+    return copy;
+}
 
 @end

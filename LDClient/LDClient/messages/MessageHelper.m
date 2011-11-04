@@ -9,18 +9,79 @@
 #import "MessageHelper.h"
 #import "LDProperty.h"
 #import "LDLayerProperty.h"
+#import "EnumHelper.h"
+static NSMutableSet *supportedClasses;
 
 @implementation MessageHelper
+@synthesize targetObject;
 
-- (id)init
++(void)initialize
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
+    supportedClasses = [[NSMutableSet alloc] init];
+    [supportedClasses addObject:[UIView class]];
+    [supportedClasses addObject:[UILabel class]];
+    [supportedClasses addObject:[UIImageView class]];
     
-    return self;
 }
++(NSArray*)propertiesForObject:(id)object
+{
+    DLog(@"%@",object);
+    NSMutableArray *properties = [[NSMutableArray alloc] init];
+    MessageHelper *helper = [[MessageHelper alloc] init];
+    helper.targetObject = object;
+    for(Class type in supportedClasses)
+    {
+        if ([object isKindOfClass:type]) {
+            NSString *selectorString = [NSString stringWithFormat:@"propertiesFor%@",type];
+            SEL selector = NSSelectorFromString(selectorString);
+            if ([helper respondsToSelector:selector]) {
+                NSArray *propertiesForType = [helper performSelector:selector];
+                [properties addObjectsFromArray:propertiesForType];
+            }
+            else
+            {
+                NSLog(@"%@ method not found! Implement and return property list",selectorString);
+            }
+        }
+    }
+    DLog(@"Property Count = %d", [properties count]);
+    [properties makeObjectsPerformSelector:@selector(readExistingValueFromObject:) withObject:object];
+    return properties;
+}
+
+-(NSArray*)propertiesForUIView
+{
+    NSMutableArray *arrayOfProperties = [[NSMutableArray alloc] init];
+    
+    [arrayOfProperties addObject:[LDProperty propertyWithName:@"frame" type:[LDMessageParamCGRect class]]];
+    [arrayOfProperties addObject:[LDProperty propertyWithName:@"backgroundColor" type:[LDMessageParamColor class]]];
+    [arrayOfProperties addObject:[LDProperty propertyWithName:@"alpha" type:[LDMessageParamFloat class]]];
+    [arrayOfProperties addObject:[LDLayerProperty propertyWithName:@"cornerRadius" type:[LDMessageParamFloat class]]];
+    //TODO: test with testCase
+   // [arrayOfProperties addObject:[LDLayerProperty propertyWithName:@"cornerRadiues" type:[LDMessageParamFloat class]]];
+    return arrayOfProperties;
+}
+
+-(NSArray*)propertiesForUILabel
+{
+    NSMutableArray *arrayOfProperties = [[NSMutableArray alloc] init];
+    
+    [arrayOfProperties addObject:[LDProperty propertyWithName:@"text" type:[LDMessageParamString class]]];
+    [arrayOfProperties addObject:[LDProperty propertyWithName:@"textColor" type:[LDMessageParamColor class]]];
+    [arrayOfProperties addObject:[LDProperty propertyWithName:@"textAlignment" param:[EnumHelper enumForTextAlignment]]];
+    return arrayOfProperties;
+}
+
+-(NSArray*)propertiesForUIImageView
+{
+    NSMutableArray *arrayOfProperties = [[NSMutableArray alloc] init];
+    
+    [arrayOfProperties addObject:[LDProperty propertyWithName:@"image" type:[LDMessageParamImage class]]];
+    return arrayOfProperties;
+}
+
+
+
 +(NSArray*)messagesForObject:(id)object
 {
     NSMutableArray *messages = [[NSMutableArray alloc] init];
@@ -30,6 +91,7 @@
     }
     
     if ([object isKindOfClass:[UILabel class]]) {
+        
         [messages addObjectsFromArray:[MessageHelper messagesForUILabel:object]];
     }
     
@@ -47,7 +109,7 @@
     {
         LDMessageParamCGRect *param = [[LDMessageParamCGRect alloc] init];
         param.displayName = @"frame";
-        param.rect = aView.frame;
+       param.rect = aView.frame;
         LDMessage *message = [LDMessage messageWithName:@"setFrame" selector:@"setFrame:" param:param];
         [arrayOfMessages addObject:message];
     }
@@ -88,6 +150,11 @@
 +(NSArray*)messagesForUILabel:(UILabel*)aLabel
 {
     NSMutableArray *arrayOfMessages = [[NSMutableArray alloc] init];
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    [dictionary setObject:[LDMessageParamString class] forKey:@"text"];
+    [dictionary setObject:[LDMessageParamEnum class] forKey:@"textAlignment"];
+    [dictionary setObject:[LDMessageParamColor class] forKey:@"textColor"];
+    
     
     //textColor
     {
@@ -113,10 +180,11 @@
     
     //text
     {
-        LDMessageParamString *param = [[LDMessageParamString alloc] init];
-        param.displayName = @"text";
-        LDProperty *property =     [LDProperty propertyWithName:@"text" param:param];
-        [property readExistingValueFromObject:aLabel];
+        //LDMessageParamString *param = [[LDMessageParamString alloc] init];
+        //param.displayName = @"text";
+  //      LDProperty *property =     [LDProperty propertyWithName:@"text" param:param];
+        LDProperty *property = [LDProperty propertyWithName:@"text" type:[LDMessageParamString class] target:aLabel];
+        //[property readExistingValueFromObject:aLabel];
         [arrayOfMessages addObject:property];
     }
     

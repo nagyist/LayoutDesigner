@@ -24,6 +24,8 @@
 
 
 +(LDProperty*)propertyWithName:(NSString*)pName param:(LDMessageParam*)param_;
++(LDProperty*)propertyWithName:(NSString*)pName type:(Class)type;
++(LDProperty*)propertyWithName:(NSString*)pName type:(Class)type target:(id)target;
 -(NSInvocation*)invocationForObject:(id)object selector:(SEL)selector;
 -(NSInvocation*)getterInvocationForObject:(id)object;
 -(NSInvocation*)setterInvocationForObject:(id)object;

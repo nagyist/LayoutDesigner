@@ -25,6 +25,12 @@
     return aProperty;
 }
 
++(LDLayerProperty*)propertyWithName:(NSString*)pName type:(Class)type
+{
+    LDMessageParam *param = [[type alloc] init];
+    return [LDLayerProperty propertyWithName:pName param:param];
+}
+
 -(void)setOnObject:(id)object
 {
     UIView *view = (UIView*)object;

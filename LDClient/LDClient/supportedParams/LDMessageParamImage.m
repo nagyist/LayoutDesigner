@@ -42,4 +42,12 @@
     return &image;
 }
 
+-(id)copy
+{
+    LDMessageParamImage  *copy = [[LDMessageParamImage alloc] init];
+    copy.displayName = displayName;
+    copy.imageData = imageData;
+    return copy;
+}
+
 @end

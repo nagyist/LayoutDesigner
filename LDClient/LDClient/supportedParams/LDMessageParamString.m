@@ -39,9 +39,12 @@
 {
     return &text;
 }
--(void)setValue:(void*)val
-{
-    text = (__bridge_transfer NSString*)val;
-}
 
+-(id)copy
+{
+    LDMessageParamString  *copy = [[LDMessageParamString alloc] init];
+    copy.displayName = displayName;
+    copy.text  = text;
+    return copy;
+}
 @end

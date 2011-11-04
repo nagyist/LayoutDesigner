@@ -107,6 +107,7 @@
 // New service was found
 - (void)netServiceBrowser:(NSNetServiceBrowser *)netServiceBrowser didFindService:(NSNetService *)netService moreComing:(BOOL)moreServicesComing {
   // Make sure that we don't have such service already (why would this happen? not sure)
+    NSLog(@"Found a service");
   if ( ! [servers containsObject:netService] ) {
     // Add it to our list
     [servers addObject:netService];

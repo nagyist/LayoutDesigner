@@ -46,4 +46,16 @@
     return &color;
 }
 
+
+-(id)copy
+{
+    LDMessageParamColor  *copy = [[LDMessageParamColor alloc] init];
+    copy.displayName = displayName;
+    copy.red = red;
+    copy.green = green;
+    copy.blue = blue;
+    copy.alpha = alpha;
+    return copy;
+}
+
 @end

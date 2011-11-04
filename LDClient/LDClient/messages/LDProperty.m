@@ -8,7 +8,7 @@
 
 #import "LDProperty.h"
 #import "MessageHelper.h"
-
+#import "LDMessageParam.h"
 
 @implementation LDProperty
 @synthesize name,getter,setter,param;
@@ -28,6 +28,41 @@
     aProperty.param = param_;
     return aProperty;
 }
+
++(LDProperty*)propertyWithName:(NSString*)pName type:(Class)type target:(id)target
+{
+    NSAssert(pName!= nil && pName.length >0, @"Property Name should have one or more characters");
+    LDProperty *aProperty = [[LDProperty alloc] init];
+    aProperty.name = pName;
+    aProperty.getter = pName;
+    NSString *firstCharacterInUppercase = [[NSString stringWithFormat:@"%c",[pName characterAtIndex:0]] uppercaseString];
+    NSRange range = {0,1};
+    aProperty.setter = [NSString stringWithFormat:@"set%@:",[pName stringByReplacingCharactersInRange:range withString:firstCharacterInUppercase]];
+    
+    LDMessageParam *param =  [[type alloc] init];
+    param.displayName = pName;
+    aProperty.param = param;
+    [aProperty readExistingValueFromObject:target];
+    return aProperty;
+}
+
+
++(LDProperty*)propertyWithName:(NSString*)pName type:(Class)type
+{
+    NSAssert(pName!= nil && pName.length >0, @"Property Name should have one or more characters");
+    LDProperty *aProperty = [[LDProperty alloc] init];
+    aProperty.name = pName;
+    aProperty.getter = pName;
+    NSString *firstCharacterInUppercase = [[NSString stringWithFormat:@"%c",[pName characterAtIndex:0]] uppercaseString];
+    NSRange range = {0,1};
+    aProperty.setter = [NSString stringWithFormat:@"set%@:",[pName stringByReplacingCharactersInRange:range withString:firstCharacterInUppercase]];
+    
+    LDMessageParam *param =  [[type alloc] init];
+    param.displayName = pName;
+    aProperty.param = param;
+    return aProperty;
+}
+
 
 
 - (id)init
@@ -74,10 +109,14 @@
     NSInvocation *invocation = [self getterInvocationForObject:object];
     [invocation invoke];
     
+    [invocation getReturnValue:[param value]];
+    return;
+   
+    
     if ([param isKindOfClass:[LDMessageParamCGRect class]]) {
         CGRect returnValue;
         [invocation getReturnValue:&returnValue];
-        [(LDMessageParamCGRect*)param setRect:returnValue];
+        //[(LDMessageParamCGRect*)param setRect:returnValue];
     }
     else if ([param isKindOfClass:[LDMessageParamColor class]]) {
         ;      //do nothing for now

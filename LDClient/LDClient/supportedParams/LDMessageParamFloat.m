@@ -37,4 +37,12 @@
 {
     return &aFloat;
 }
+
+-(id)copy
+{
+    LDMessageParamFloat  *copy = [[LDMessageParamFloat alloc] init];
+    copy.displayName = displayName;
+    copy.aFloat = aFloat;
+    return copy;
+}
 @end

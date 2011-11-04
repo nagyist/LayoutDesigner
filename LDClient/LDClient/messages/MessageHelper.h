@@ -19,8 +19,13 @@
 #import "LDMessage.h"
 #import <QuartzCore/QuartzCore.h>
 @interface MessageHelper : NSObject
+{
+   
+}
+@property(weak)id targetObject;
 
 
++(NSArray*)propertiesForObject:(id)object;
 +(NSArray*)messagesForObject:(id)object;
 +(NSArray*)messagesForUIView:(UIView*)aView;
 +(NSArray*)messagesForUILabel:(UILabel*)aLabel;

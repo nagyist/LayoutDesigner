@@ -37,4 +37,12 @@
 {
     return &integer;
 }
+
+-(id)copy
+{
+    LDMessageParamInt  *copy = [[LDMessageParamInt alloc] init];
+    copy.displayName = displayName;
+    copy.integer = integer;
+    return copy;
+}
 @end

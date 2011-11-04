@@ -10,4 +10,5 @@
 #import <QuartzCore/QuartzCore.h>
 @interface LDLayerProperty : LDProperty
 +(LDLayerProperty*)propertyWithName:(NSString*)pName param:(LDMessageParam*)param_;
++(LDLayerProperty*)propertyWithName:(NSString*)pName type:(Class)type;
 @end

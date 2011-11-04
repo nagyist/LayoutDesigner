@@ -34,9 +34,9 @@
 -(UIView*)viewForId:(NSInteger)anIdentifier inRoot:(LDView*)aRoot;
 -(LDView*)treeNodeForView:(UIView*)aView searchInTree:(LDView*)rootNode;
 
-
-
-
+-(LDView*)getTouchedViewIn:(LDView*)rootView sender:(UIGestureRecognizer*)sender;
+-(BOOL)shouldGoInside:(UIView*)view;
+-(void)sendSelectViewCommand:(LDView*)selectedView;
 
 
 //private methods for handling commands from server.
