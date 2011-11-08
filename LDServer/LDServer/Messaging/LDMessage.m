@@ -19,7 +19,7 @@
 #import "LDMessage.h"
 #import "LDHost.h"
 #import "LDMessageParam.h"
-
+#import "InputViewMap.h"
 
 NSString* const LDMessageSentNotification    = @"LDNewMessageSentNotification";
 NSString* const LDMessageNotificationMessageInstanceKey    = @"LDNewMessageNotificationMessageInstanceKey";
@@ -93,7 +93,7 @@ NSString* const LDMessageNotificationMessageInstanceKey    = @"LDNewMessageNotif
    
     for(NSView *v in [viewToBeUpdated subviews])
     {
-        if ([v isKindOfClass:[ControlView class]]) {
+        if ([v conformsToProtocol:@protocol(InputView)]) {
             [v removeFromSuperview];
         }
     }
@@ -103,13 +103,12 @@ NSString* const LDMessageNotificationMessageInstanceKey    = @"LDNewMessageNotif
     if (params != nil) {
         for (LDMessageParam* aParam in params) {
             aParam.delegate = self;
-            ControlView *aView = [aParam viewForCollectingData];
+            NSView<InputView> *aView = [[InputViewMap defaultMap] viewForType:[aParam.value class]];
             if (index++ == 0) {
                 frame = aView.frame;
             }
             [viewToBeUpdated addSubview:aView];
             frame.origin.y += frame.size.height +20;
-            
         }
     }
 }

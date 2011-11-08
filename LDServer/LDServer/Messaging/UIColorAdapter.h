@@ -8,9 +8,9 @@
 
 
 #import "TypeAdapter.h"
-#import "InputRendering.h"
+
 #import "CodeGenerating.h"
-@interface UIColorAdapter : NSObject<TypeAdapter,InputRendering,CodeGenerating>
+@interface UIColorAdapter : NSObject<TypeAdapter,CodeGenerating>
 {
     CGFloat red;
     CGFloat blue;

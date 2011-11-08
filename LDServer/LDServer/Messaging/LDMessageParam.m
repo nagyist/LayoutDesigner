@@ -67,10 +67,6 @@
     }
 }
 
--(ControlView*)viewForCollectingData
-{
-    return nil;
-}
 
 -(void)sendUpdate
 {

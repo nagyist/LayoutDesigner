@@ -8,9 +8,8 @@
 
 
 #import "TypeAdapter.h"
-#import "InputRendering.h"
 #import "CodeGenerating.h"
-@interface EnumAdapter : NSObject<TypeAdapter,InputRendering,CodeGenerating>
+@interface EnumAdapter : NSObject<TypeAdapter,CodeGenerating>
 {
     NSArray *displayNames;
     NSArray *integerValuesAsString;

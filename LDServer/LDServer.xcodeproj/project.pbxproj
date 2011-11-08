@@ -42,19 +42,18 @@
 		3BE248B0143C551600ED2176 /* LDMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2487A143C551500ED2176 /* LDMessage.m */; };
 		3BE248B1143C551600ED2176 /* LDProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2487C143C551500ED2176 /* LDProperty.m */; };
 		3BE248B2143C551600ED2176 /* CGRectControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE2487E143C551500ED2176 /* CGRectControl.xib */; };
-		3BE248B3143C551600ED2176 /* ColorControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE2487F143C551500ED2176 /* ColorControl.xib */; };
-		3BE248B4143C551600ED2176 /* ColorControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24881143C551500ED2176 /* ColorControlView.m */; };
-		3BE248B5143C551600ED2176 /* ControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24883143C551500ED2176 /* ControlView.m */; };
-		3BE248B6143C551600ED2176 /* EnumControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE24884143C551500ED2176 /* EnumControl.xib */; };
-		3BE248B7143C551600ED2176 /* EnumControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24886143C551500ED2176 /* EnumControlView.m */; };
-		3BE248B8143C551600ED2176 /* FloatControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24888143C551500ED2176 /* FloatControlView.m */; };
-		3BE248B9143C551600ED2176 /* FloatControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE24889143C551500ED2176 /* FloatControlView.xib */; };
-		3BE248BA143C551600ED2176 /* FrameControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE2488A143C551500ED2176 /* FrameControl.xib */; };
-		3BE248BB143C551600ED2176 /* FrameControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2488C143C551600ED2176 /* FrameControlView.m */; };
-		3BE248BC143C551600ED2176 /* ImageControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE2488D143C551600ED2176 /* ImageControl.xib */; };
-		3BE248BD143C551600ED2176 /* ImageControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2488F143C551600ED2176 /* ImageControlView.m */; };
-		3BE248BE143C551600ED2176 /* StringControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE24890143C551600ED2176 /* StringControl.xib */; };
-		3BE248BF143C551600ED2176 /* StringControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24892143C551600ED2176 /* StringControlView.m */; };
+		3BE248B3143C551600ED2176 /* UIColorInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE2487F143C551500ED2176 /* UIColorInput.xib */; };
+		3BE248B4143C551600ED2176 /* UIColorInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24881143C551500ED2176 /* UIColorInputView.m */; };
+		3BE248B6143C551600ED2176 /* EnumInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE24884143C551500ED2176 /* EnumInput.xib */; };
+		3BE248B7143C551600ED2176 /* EnumInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24886143C551500ED2176 /* EnumInputView.m */; };
+		3BE248B8143C551600ED2176 /* FloatInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24888143C551500ED2176 /* FloatInputView.m */; };
+		3BE248B9143C551600ED2176 /* FloatInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE24889143C551500ED2176 /* FloatInput.xib */; };
+		3BE248BA143C551600ED2176 /* CGRectInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE2488A143C551500ED2176 /* CGRectInput.xib */; };
+		3BE248BB143C551600ED2176 /* CGRectInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2488C143C551600ED2176 /* CGRectInputView.m */; };
+		3BE248BC143C551600ED2176 /* UIImageInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE2488D143C551600ED2176 /* UIImageInput.xib */; };
+		3BE248BD143C551600ED2176 /* UIImageInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2488F143C551600ED2176 /* UIImageInputView.m */; };
+		3BE248BE143C551600ED2176 /* NSStringInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE24890143C551600ED2176 /* NSStringInput.xib */; };
+		3BE248BF143C551600ED2176 /* NSStringInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24892143C551600ED2176 /* NSStringInputView.m */; };
 		3BE248C0143C551600ED2176 /* AppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24895143C551600ED2176 /* AppConfig.m */; };
 		3BE248C1143C551600ED2176 /* Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24897143C551600ED2176 /* Connection.m */; };
 		3BE248C2143C551600ED2176 /* LDHost.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2489A143C551600ED2176 /* LDHost.m */; };
@@ -105,7 +104,6 @@
 		3B62F8C514640B6300773D7C /* UIImageAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageAdapter.h; sourceTree = "<group>"; };
 		3B62F8C614640B6300773D7C /* UIImageAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageAdapter.m; sourceTree = "<group>"; };
 		3B62F8D01465154B00773D7C /* CodeGenerating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeGenerating.h; sourceTree = "<group>"; };
-		3B62F8D1146515C100773D7C /* InputRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputRendering.h; sourceTree = "<group>"; };
 		3B62F8D21467B92D00773D7C /* InputViewMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewMap.h; sourceTree = "<group>"; };
 		3B62F8D31467B92D00773D7C /* InputViewMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewMap.m; sourceTree = "<group>"; };
 		3B9E5DF5144E059D007526A0 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = ../RootViewController.h; sourceTree = "<group>"; };
@@ -143,26 +141,25 @@
 		3BE2487B143C551500ED2176 /* LDProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDProperty.h; sourceTree = "<group>"; };
 		3BE2487C143C551500ED2176 /* LDProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDProperty.m; sourceTree = "<group>"; };
 		3BE2487E143C551500ED2176 /* CGRectControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CGRectControl.xib; sourceTree = "<group>"; };
-		3BE2487F143C551500ED2176 /* ColorControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorControl.xib; sourceTree = "<group>"; };
-		3BE24880143C551500ED2176 /* ColorControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorControlView.h; sourceTree = "<group>"; };
-		3BE24881143C551500ED2176 /* ColorControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorControlView.m; sourceTree = "<group>"; };
-		3BE24882143C551500ED2176 /* ControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlView.h; sourceTree = "<group>"; };
-		3BE24883143C551500ED2176 /* ControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlView.m; sourceTree = "<group>"; };
-		3BE24884143C551500ED2176 /* EnumControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnumControl.xib; sourceTree = "<group>"; };
-		3BE24885143C551500ED2176 /* EnumControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumControlView.h; sourceTree = "<group>"; };
-		3BE24886143C551500ED2176 /* EnumControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnumControlView.m; sourceTree = "<group>"; };
-		3BE24887143C551500ED2176 /* FloatControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatControlView.h; sourceTree = "<group>"; };
-		3BE24888143C551500ED2176 /* FloatControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloatControlView.m; sourceTree = "<group>"; };
-		3BE24889143C551500ED2176 /* FloatControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatControlView.xib; sourceTree = "<group>"; };
-		3BE2488A143C551500ED2176 /* FrameControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FrameControl.xib; sourceTree = "<group>"; };
-		3BE2488B143C551500ED2176 /* FrameControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameControlView.h; sourceTree = "<group>"; };
-		3BE2488C143C551600ED2176 /* FrameControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrameControlView.m; sourceTree = "<group>"; };
-		3BE2488D143C551600ED2176 /* ImageControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageControl.xib; sourceTree = "<group>"; };
-		3BE2488E143C551600ED2176 /* ImageControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageControlView.h; sourceTree = "<group>"; };
-		3BE2488F143C551600ED2176 /* ImageControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageControlView.m; sourceTree = "<group>"; };
-		3BE24890143C551600ED2176 /* StringControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StringControl.xib; sourceTree = "<group>"; };
-		3BE24891143C551600ED2176 /* StringControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringControlView.h; sourceTree = "<group>"; };
-		3BE24892143C551600ED2176 /* StringControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringControlView.m; sourceTree = "<group>"; };
+		3BE2487F143C551500ED2176 /* UIColorInput.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIColorInput.xib; sourceTree = "<group>"; };
+		3BE24880143C551500ED2176 /* UIColorInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorInputView.h; sourceTree = "<group>"; };
+		3BE24881143C551500ED2176 /* UIColorInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorInputView.m; sourceTree = "<group>"; };
+		3BE24882143C551500ED2176 /* InputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputView.h; sourceTree = "<group>"; };
+		3BE24884143C551500ED2176 /* EnumInput.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnumInput.xib; sourceTree = "<group>"; };
+		3BE24885143C551500ED2176 /* EnumInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumInputView.h; sourceTree = "<group>"; };
+		3BE24886143C551500ED2176 /* EnumInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnumInputView.m; sourceTree = "<group>"; };
+		3BE24887143C551500ED2176 /* FloatInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatInputView.h; sourceTree = "<group>"; };
+		3BE24888143C551500ED2176 /* FloatInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloatInputView.m; sourceTree = "<group>"; };
+		3BE24889143C551500ED2176 /* FloatInput.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatInput.xib; sourceTree = "<group>"; };
+		3BE2488A143C551500ED2176 /* CGRectInput.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CGRectInput.xib; sourceTree = "<group>"; };
+		3BE2488B143C551500ED2176 /* CGRectInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRectInputView.h; sourceTree = "<group>"; };
+		3BE2488C143C551600ED2176 /* CGRectInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRectInputView.m; sourceTree = "<group>"; };
+		3BE2488D143C551600ED2176 /* UIImageInput.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIImageInput.xib; sourceTree = "<group>"; };
+		3BE2488E143C551600ED2176 /* UIImageInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageInputView.h; sourceTree = "<group>"; };
+		3BE2488F143C551600ED2176 /* UIImageInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageInputView.m; sourceTree = "<group>"; };
+		3BE24890143C551600ED2176 /* NSStringInput.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NSStringInput.xib; sourceTree = "<group>"; };
+		3BE24891143C551600ED2176 /* NSStringInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringInputView.h; sourceTree = "<group>"; };
+		3BE24892143C551600ED2176 /* NSStringInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringInputView.m; sourceTree = "<group>"; };
 		3BE24894143C551600ED2176 /* AppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
 		3BE24895143C551600ED2176 /* AppConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConfig.m; sourceTree = "<group>"; };
 		3BE24896143C551600ED2176 /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connection.h; sourceTree = "<group>"; };
@@ -253,7 +250,6 @@
 				3B62F8C614640B6300773D7C /* UIImageAdapter.m */,
 				3B62F8C214640B6300773D7C /* TypeAdapter.h */,
 				3B62F8D01465154B00773D7C /* CodeGenerating.h */,
-				3B62F8D1146515C100773D7C /* InputRendering.h */,
 			);
 			name = supportedParams;
 			sourceTree = "<group>";
@@ -379,27 +375,26 @@
 		3BE2487D143C551500ED2176 /* Inputviews */ = {
 			isa = PBXGroup;
 			children = (
-				3BE24882143C551500ED2176 /* ControlView.h */,
-				3BE24883143C551500ED2176 /* ControlView.m */,
+				3BE24882143C551500ED2176 /* InputView.h */,
 				3BE2487E143C551500ED2176 /* CGRectControl.xib */,
-				3BE2487F143C551500ED2176 /* ColorControl.xib */,
-				3BE24880143C551500ED2176 /* ColorControlView.h */,
-				3BE24881143C551500ED2176 /* ColorControlView.m */,
-				3BE24884143C551500ED2176 /* EnumControl.xib */,
-				3BE24885143C551500ED2176 /* EnumControlView.h */,
-				3BE24886143C551500ED2176 /* EnumControlView.m */,
-				3BE24887143C551500ED2176 /* FloatControlView.h */,
-				3BE24888143C551500ED2176 /* FloatControlView.m */,
-				3BE24889143C551500ED2176 /* FloatControlView.xib */,
-				3BE2488A143C551500ED2176 /* FrameControl.xib */,
-				3BE2488B143C551500ED2176 /* FrameControlView.h */,
-				3BE2488C143C551600ED2176 /* FrameControlView.m */,
-				3BE2488D143C551600ED2176 /* ImageControl.xib */,
-				3BE2488E143C551600ED2176 /* ImageControlView.h */,
-				3BE2488F143C551600ED2176 /* ImageControlView.m */,
-				3BE24890143C551600ED2176 /* StringControl.xib */,
-				3BE24891143C551600ED2176 /* StringControlView.h */,
-				3BE24892143C551600ED2176 /* StringControlView.m */,
+				3BE2487F143C551500ED2176 /* UIColorInput.xib */,
+				3BE24880143C551500ED2176 /* UIColorInputView.h */,
+				3BE24881143C551500ED2176 /* UIColorInputView.m */,
+				3BE24884143C551500ED2176 /* EnumInput.xib */,
+				3BE24885143C551500ED2176 /* EnumInputView.h */,
+				3BE24886143C551500ED2176 /* EnumInputView.m */,
+				3BE24887143C551500ED2176 /* FloatInputView.h */,
+				3BE24888143C551500ED2176 /* FloatInputView.m */,
+				3BE24889143C551500ED2176 /* FloatInput.xib */,
+				3BE2488A143C551500ED2176 /* CGRectInput.xib */,
+				3BE2488B143C551500ED2176 /* CGRectInputView.h */,
+				3BE2488C143C551600ED2176 /* CGRectInputView.m */,
+				3BE2488D143C551600ED2176 /* UIImageInput.xib */,
+				3BE2488E143C551600ED2176 /* UIImageInputView.h */,
+				3BE2488F143C551600ED2176 /* UIImageInputView.m */,
+				3BE24890143C551600ED2176 /* NSStringInput.xib */,
+				3BE24891143C551600ED2176 /* NSStringInputView.h */,
+				3BE24892143C551600ED2176 /* NSStringInputView.m */,
 			);
 			name = Inputviews;
 			path = views;
@@ -514,12 +509,12 @@
 				3BE2483C143C54C000ED2176 /* Credits.rtf in Resources */,
 				3BE24842143C54C100ED2176 /* MainMenu.xib in Resources */,
 				3BE248B2143C551600ED2176 /* CGRectControl.xib in Resources */,
-				3BE248B3143C551600ED2176 /* ColorControl.xib in Resources */,
-				3BE248B6143C551600ED2176 /* EnumControl.xib in Resources */,
-				3BE248B9143C551600ED2176 /* FloatControlView.xib in Resources */,
-				3BE248BA143C551600ED2176 /* FrameControl.xib in Resources */,
-				3BE248BC143C551600ED2176 /* ImageControl.xib in Resources */,
-				3BE248BE143C551600ED2176 /* StringControl.xib in Resources */,
+				3BE248B3143C551600ED2176 /* UIColorInput.xib in Resources */,
+				3BE248B6143C551600ED2176 /* EnumInput.xib in Resources */,
+				3BE248B9143C551600ED2176 /* FloatInput.xib in Resources */,
+				3BE248BA143C551600ED2176 /* CGRectInput.xib in Resources */,
+				3BE248BC143C551600ED2176 /* UIImageInput.xib in Resources */,
+				3BE248BE143C551600ED2176 /* NSStringInput.xib in Resources */,
 				3B2B99C3143C5CEA008889D1 /* MainViewController.xib in Resources */,
 				3B56406F144C5F7800F1C427 /* LogViewController.xib in Resources */,
 				3B9E5DF9144E059D007526A0 /* RootViewController.xib in Resources */,
@@ -565,13 +560,12 @@
 				3BE248AF143C551600ED2176 /* LDView.m in Sources */,
 				3BE248B0143C551600ED2176 /* LDMessage.m in Sources */,
 				3BE248B1143C551600ED2176 /* LDProperty.m in Sources */,
-				3BE248B4143C551600ED2176 /* ColorControlView.m in Sources */,
-				3BE248B5143C551600ED2176 /* ControlView.m in Sources */,
-				3BE248B7143C551600ED2176 /* EnumControlView.m in Sources */,
-				3BE248B8143C551600ED2176 /* FloatControlView.m in Sources */,
-				3BE248BB143C551600ED2176 /* FrameControlView.m in Sources */,
-				3BE248BD143C551600ED2176 /* ImageControlView.m in Sources */,
-				3BE248BF143C551600ED2176 /* StringControlView.m in Sources */,
+				3BE248B4143C551600ED2176 /* UIColorInputView.m in Sources */,
+				3BE248B7143C551600ED2176 /* EnumInputView.m in Sources */,
+				3BE248B8143C551600ED2176 /* FloatInputView.m in Sources */,
+				3BE248BB143C551600ED2176 /* CGRectInputView.m in Sources */,
+				3BE248BD143C551600ED2176 /* UIImageInputView.m in Sources */,
+				3BE248BF143C551600ED2176 /* NSStringInputView.m in Sources */,
 				3BE248C0143C551600ED2176 /* AppConfig.m in Sources */,
 				3BE248C1143C551600ED2176 /* Connection.m in Sources */,
 				3BE248C2143C551600ED2176 /* LDHost.m in Sources */,

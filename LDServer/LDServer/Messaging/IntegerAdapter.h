@@ -7,9 +7,9 @@
 //
 
 #import "TypeAdapter.h"
-#import "InputRendering.h"
+
 #import "CodeGenerating.h"
-@interface IntegerAdapter : NSObject<TypeAdapter,InputRendering,CodeGenerating>
+@interface IntegerAdapter : NSObject<TypeAdapter,CodeGenerating>
 {
     NSInteger integer;
 }

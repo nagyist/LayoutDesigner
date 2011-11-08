@@ -10,7 +10,7 @@
 #import "OutlineViewWithKeyDownHandling.h"
 #import "LDHost.h"
 #import "LDView.h"
-#import "ControlView.h"
+#import "InputView.h"
 #import "LDMessage.h"
 #import "LDCommand.h"
 

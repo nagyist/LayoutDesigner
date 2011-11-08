@@ -8,7 +8,7 @@
 
 
 #import "TypeAdapter.h"
-#import "InputRendering.h"
+
 #import "CodeGenerating.h"
 @interface CGRectAdapter : NSObject<TypeAdapter,CodeGenerating>
 {

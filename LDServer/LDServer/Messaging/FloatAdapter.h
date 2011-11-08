@@ -8,9 +8,9 @@
 
 
 #import "TypeAdapter.h"
-#import "InputRendering.h"
+
 #import "CodeGenerating.h"
-@interface FloatAdapter : NSObject<TypeAdapter,InputRendering,CodeGenerating>
+@interface FloatAdapter : NSObject<TypeAdapter,CodeGenerating>
 {
     float aFloat;
 }

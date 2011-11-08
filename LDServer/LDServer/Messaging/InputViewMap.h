@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ControlView.h"
+#import "InputView.h"
 @interface InputViewMap : NSObject
 {
     @private
@@ -15,6 +15,6 @@
 }
 +(InputViewMap*)defaultMap;
 +(void)setDefaultMap:(InputViewMap*)map;
--(void)setView:(ControlView*)view forType:(Class)type;
--(ControlView*)viewForType:(Class)type;
+-(void)setView:(NSView<InputView>*)view forType:(Class)type;
+-(NSView<InputView>*)viewForType:(Class)type;
 @end

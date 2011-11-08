@@ -17,10 +17,10 @@
 //  limitations under the License.
 
 #import <Foundation/Foundation.h>
-#import "ControlView.h"
+#import "InputView.h"
 #import "TypeAdapter.h"
 @protocol LMMessageParamDelegate;
-@interface LDMessageParam : NSObject<NSCoding,ControlViewDelegate,NSCopying>
+@interface LDMessageParam : NSObject<NSCoding,NSCopying>
 {
     NSString *displayName;
     
@@ -31,7 +31,6 @@
 @property(nonatomic,retain)NSString *displayName;
 @property(strong)id<TypeAdapter> value;
 -(void*)getValue;
--(ControlView*)viewForCollectingData;
 -(void)sendUpdate;
 
 /*!

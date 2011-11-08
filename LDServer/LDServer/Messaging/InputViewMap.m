@@ -7,17 +7,17 @@
 //
 
 #import "InputViewMap.h"
-#import "FrameControlView.h"
+#import "CGRectInputView.h"
 #import "CGRectAdapter.h"
-#import "ColorControlView.h"
+#import "UIColorInputView.h"
 #import "UIColorAdapter.h"
 #import "EnumAdapter.h"
-#import "EnumControlView.h"
+#import "EnumInputView.h"
 #import "FloatAdapter.h"
-#import "FloatControlView.h"
-#import "ImageControlView.h"
+#import "FloatInputView.h"
+#import "UIImageInputView.h"
 #import "UIImageAdapter.h"
-#import "StringControlView.h"
+#import "NSStringInputView.h"
 #import "NSStringAdapter.h"
 #import "IntegerAdapter.h"
 static InputViewMap *defaultMap = nil;
@@ -36,38 +36,38 @@ static InputViewMap *defaultMap = nil;
     
     //create default input views for each type.
     {
-        NSViewController *viewController = [[NSViewController alloc] initWithNibName:@"FrameControl" bundle:nil];
-        FrameControlView *view =(FrameControlView*) viewController.view;
+        NSViewController *viewController = [[NSViewController alloc] initWithNibName:@"CGRectInput" bundle:nil];
+        CGRectInputView *view =(CGRectInputView*) viewController.view;
         [defaultMap setView:view forType:[CGRectAdapter class]];
     }
     
     {
-        NSViewController *viewController = [[NSViewController alloc] initWithNibName:@"ColorControl" bundle:nil];
-        ColorControlView   *view = (ColorControlView*)viewController.view;
+        NSViewController *viewController = [[NSViewController alloc] initWithNibName:@"UIColorInput" bundle:nil];
+        UIColorInputView   *view = (UIColorInputView*)viewController.view;
         [defaultMap setView:view forType:[UIColorAdapter class]];
     }
     
     {
-        NSViewController *viewController = [[NSViewController alloc] initWithNibName:@"EnumControl" bundle:nil];
-        EnumControlView   *view = (EnumControlView*)viewController.view;
+        NSViewController *viewController = [[NSViewController alloc] initWithNibName:@"EnumInput" bundle:nil];
+        EnumInputView   *view = (EnumInputView*)viewController.view;
         [defaultMap setView:view forType:[EnumAdapter class]];
     }
     
     {
-        NSViewController *viewController = [[NSViewController alloc] initWithNibName:@"FloatControlView" bundle:nil];
-        FloatControlView   *view = (FloatControlView*)viewController.view;
+        NSViewController *viewController = [[NSViewController alloc] initWithNibName:@"FloatInput" bundle:nil];
+        FloatInputView   *view = (FloatInputView*)viewController.view;
         [defaultMap setView:view forType:[FloatAdapter class]];
     }
     
     {
-        NSViewController *viewController = [[NSViewController alloc] initWithNibName:@"ImageControl" bundle:nil];
-        ImageControlView   *view = (ImageControlView*)viewController.view;
+        NSViewController *viewController = [[NSViewController alloc] initWithNibName:@"UIImageInput" bundle:nil];
+        UIImageInputView   *view = (UIImageInputView*)viewController.view;
         [defaultMap setView:view forType:[UIImageAdapter class]];
     }
     
     {
-        NSViewController *viewController = [[NSViewController alloc] initWithNibName:@"StringControl" bundle:nil];
-        StringControlView   *view = (StringControlView*)viewController.view;
+        NSViewController *viewController = [[NSViewController alloc] initWithNibName:@"NSStringInput" bundle:nil];
+        NSStringInputView   *view = (NSStringInputView*)viewController.view;
         [defaultMap setView:view forType:[NSStringAdapter class]];
     }
     
@@ -96,11 +96,11 @@ static InputViewMap *defaultMap = nil;
     [super dealloc];
 }
 
--(void)setView:(ControlView*)view forType:(Class)type{
+-(void)setView:(NSView<InputView>*)view forType:(Class)type{
     [dictionaryOfInputViews setObject:view forKey:type];
 }
 
--(ControlView*)viewForType:(Class)type
+-(NSView<InputView>*)viewForType:(Class)type
 {
     return [dictionaryOfInputViews objectForKey:type];
 }

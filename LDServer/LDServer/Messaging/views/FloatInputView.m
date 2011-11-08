@@ -1,8 +1,8 @@
 //
-//  ControlView.m
+//  FloatControlView.m
 //  MacApplicationTest
 //
-//  Created by Ved Surtani on 08/09/11.
+//  Created by Ved Surtani on 12/09/11.
 //  Copyright 2011 Imaginea 
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //    you may not use this file except in compliance with the License.
@@ -16,13 +16,14 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-#import "ControlView.h"
-
-@implementation ControlView
+#import "FloatInputView.h"
+#import "FloatAdapter.h"
+@implementation FloatInputView
+@synthesize floatField;
 @synthesize delegate;
-- (id)initWithFrame:(NSRect)frame
+- (id)init
 {
-    self = [super initWithFrame:frame];
+    self = [super init];
     if (self) {
         // Initialization code here.
     }
@@ -30,14 +31,26 @@
     return self;
 }
 
-- (void)drawRect:(NSRect)dirtyRect
-{
-    // Drawing code here.
+- (IBAction)valueChanged:(id)sender {
+    if (delegate != nil) {
+        [delegate valueChanged:self];
+    }
 }
 
--(void)cleanup
+#pragma mark -
+#pragma InputView protocol
+-(void)setInitialValue:(id<TypeAdapter>)initialValue
 {
-    
+    NSParameterAssert([initialValue isKindOfClass:[FloatAdapter class]]);
+    [floatField setFloatValue:[(FloatAdapter*)initialValue aFloat]];
+
+}
+
+-(id<TypeAdapter>)getValue
+{
+    FloatAdapter *value = [[FloatAdapter alloc] init];
+    [value setAFloat:[floatField floatValue]];
+    return [value autorelease];
 }
 
 @end

@@ -76,14 +76,14 @@ NSString* const LDPropertyChangedNotificationPropertyInstanceKey    = @"LDProper
     
     for(NSView *v in [viewToBeUpdated subviews])
     {
-        if ([v isKindOfClass:[ControlView class]]) {
+        if ([v conformsToProtocol:@protocol(InputView)]) {
             [v removeFromSuperview];
         }
     }
     if (param != nil) {
         
         param.delegate = self;
-        ControlView *aView = [[InputViewMap defaultMap] viewForType:[param.value class]]; //[param viewForCollectingData];
+        NSView<InputView> *aView = [[InputViewMap defaultMap] viewForType:[param.value class]]; //[param viewForCollectingData];
         aView.delegate = self;
         [aView setInitialValue:param.value];
         [viewToBeUpdated addSubview:aView];
@@ -93,7 +93,7 @@ NSString* const LDPropertyChangedNotificationPropertyInstanceKey    = @"LDProper
 
 
 
--(void)valueChanged:(ControlView*)cView
+-(void)valueChanged:(NSView<InputView>*)cView
 {
     //get the new value
     id<TypeAdapter> newValue = [cView getValue];

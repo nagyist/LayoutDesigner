@@ -8,9 +8,9 @@
 
 
 #import "TypeAdapter.h"
-#import "InputRendering.h"
+
 #import "CodeGenerating.h"
-@interface UIImageAdapter : NSObject<TypeAdapter,InputRendering,CodeGenerating>
+@interface UIImageAdapter : NSObject<TypeAdapter,CodeGenerating>
 {
     NSData *imageData;
     

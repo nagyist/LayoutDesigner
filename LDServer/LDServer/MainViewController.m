@@ -190,12 +190,10 @@
     selectedItem = treeNode;
     [actionsBox reloadData];
     
-    //  NSView *viewToBeUpdated = [[[myTabView tabViewItems] objectAtIndex:0] view];
     for(NSView *v in [controlViewContainer subviews])
     {
-        if ([v isKindOfClass:[ControlView class]]) {
+        if ([v conformsToProtocol:@protocol(InputView)]) {
             [v removeFromSuperview];
-            [(ControlView*)v cleanup];
         }
         
     }

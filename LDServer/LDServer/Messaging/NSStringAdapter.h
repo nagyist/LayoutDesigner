@@ -7,9 +7,9 @@
 //
 
 #import "TypeAdapter.h"
-#import "InputRendering.h"
+
 #import "CodeGenerating.h"
-@interface NSStringAdapter : NSObject<TypeAdapter,InputRendering,CodeGenerating>
+@interface NSStringAdapter : NSObject<TypeAdapter,CodeGenerating>
 {
     NSString *text;
 }
