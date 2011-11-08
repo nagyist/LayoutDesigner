@@ -17,7 +17,7 @@
 //  limitations under the License.
 
 #import "StringControlView.h"
-
+#import "NSStringAdapter.h"
 @implementation StringControlView
 @synthesize stringField;
 
@@ -44,4 +44,19 @@
         [delegate valueChanged:self];
     }
 }
+
+
+-(void)setInitialValue:(id<TypeAdapter>)initialValue
+{
+    NSParameterAssert([initialValue isKindOfClass:[NSString class]]);
+    [stringField setTitleWithMnemonic:[(NSStringAdapter*)initialValue text]];
+}
+
+-(id<TypeAdapter>)getValue
+{
+    NSStringAdapter *value = [[NSStringAdapter alloc] init];
+    value.text = [stringField stringValue];
+    return [value autorelease];
+}
+
 @end

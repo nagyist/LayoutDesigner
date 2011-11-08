@@ -18,7 +18,7 @@
 
 #import "ImageControlView.h"
 #import "LDMessageParamImage.h"
-
+#import "UIImageAdapter.h"
 
 static NSArray *openFiles()
 {
@@ -65,4 +65,24 @@ static NSArray *openFiles()
         }
     }    
 }
+
+
+-(void)setInitialValue:(id<TypeAdapter>)initialValue
+{
+    NSParameterAssert([initialValue isKindOfClass:[UIImageAdapter class]]);
+    void *value = [initialValue value];
+    NSImage *image = (NSImage*)value;
+    [imageView setImage:image];
+    
+}
+
+-(id<TypeAdapter>)getValue
+{
+    UIImageAdapter *value = [[UIImageAdapter alloc] init];
+    if(imageView.image != nil){
+        value.imageData = [imageView.image TIFFRepresentation];
+    }
+    return [value autorelease];
+}
+
 @end

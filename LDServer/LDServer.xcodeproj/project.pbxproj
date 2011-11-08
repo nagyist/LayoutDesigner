@@ -15,6 +15,14 @@
 		3B56406E144C5F7800F1C427 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B56406C144C5F7800F1C427 /* LogViewController.m */; };
 		3B56406F144C5F7800F1C427 /* LogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B56406D144C5F7800F1C427 /* LogViewController.xib */; };
 		3B564072144C659E00F1C427 /* LogMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B564071144C659D00F1C427 /* LogMessage.m */; };
+		3B62F8C714640B6300773D7C /* CGRectAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B62F8B914640B6300773D7C /* CGRectAdapter.m */; };
+		3B62F8C814640B6300773D7C /* EnumAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B62F8BB14640B6300773D7C /* EnumAdapter.m */; };
+		3B62F8C914640B6300773D7C /* FloatAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B62F8BD14640B6300773D7C /* FloatAdapter.m */; };
+		3B62F8CA14640B6300773D7C /* IntegerAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B62F8BF14640B6300773D7C /* IntegerAdapter.m */; };
+		3B62F8CB14640B6300773D7C /* NSStringAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B62F8C114640B6300773D7C /* NSStringAdapter.m */; };
+		3B62F8CC14640B6300773D7C /* UIColorAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B62F8C414640B6300773D7C /* UIColorAdapter.m */; };
+		3B62F8CD14640B6300773D7C /* UIImageAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B62F8C614640B6300773D7C /* UIImageAdapter.m */; };
+		3B62F8D41467B92D00773D7C /* InputViewMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B62F8D31467B92D00773D7C /* InputViewMap.m */; };
 		3B9E5DF8144E059D007526A0 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9E5DF6144E059D007526A0 /* RootViewController.m */; };
 		3B9E5DF9144E059D007526A0 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B9E5DF7144E059D007526A0 /* RootViewController.xib */; };
 		3BE2482C143C54C000ED2176 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE2482B143C54C000ED2176 /* Cocoa.framework */; };
@@ -30,13 +38,6 @@
 		3BE248A5143C551600ED2176 /* LDCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24864143C551500ED2176 /* LDCommand.m */; };
 		3BE248A6143C551600ED2176 /* LDLayerProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24866143C551500ED2176 /* LDLayerProperty.m */; };
 		3BE248A7143C551600ED2176 /* LDMessageParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24868143C551500ED2176 /* LDMessageParam.m */; };
-		3BE248A8143C551600ED2176 /* LDMessageParamCGRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2486A143C551500ED2176 /* LDMessageParamCGRect.m */; };
-		3BE248A9143C551600ED2176 /* LDMessageParamColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2486C143C551500ED2176 /* LDMessageParamColor.m */; };
-		3BE248AA143C551600ED2176 /* LDMessageParamEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2486E143C551500ED2176 /* LDMessageParamEnum.m */; };
-		3BE248AB143C551600ED2176 /* LDMessageParamFloat.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24870143C551500ED2176 /* LDMessageParamFloat.m */; };
-		3BE248AC143C551600ED2176 /* LDMessageParamImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24872143C551500ED2176 /* LDMessageParamImage.m */; };
-		3BE248AD143C551600ED2176 /* LDMessageParamInt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24874143C551500ED2176 /* LDMessageParamInt.m */; };
-		3BE248AE143C551600ED2176 /* LDMessageParamString.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24876143C551500ED2176 /* LDMessageParamString.m */; };
 		3BE248AF143C551600ED2176 /* LDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24878143C551500ED2176 /* LDView.m */; };
 		3BE248B0143C551600ED2176 /* LDMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2487A143C551500ED2176 /* LDMessage.m */; };
 		3BE248B1143C551600ED2176 /* LDProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2487C143C551500ED2176 /* LDProperty.m */; };
@@ -88,6 +89,25 @@
 		3B56406D144C5F7800F1C427 /* LogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogViewController.xib; sourceTree = "<group>"; };
 		3B564070144C659D00F1C427 /* LogMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogMessage.h; sourceTree = "<group>"; };
 		3B564071144C659D00F1C427 /* LogMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogMessage.m; sourceTree = "<group>"; };
+		3B62F8B814640B6300773D7C /* CGRectAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRectAdapter.h; sourceTree = "<group>"; };
+		3B62F8B914640B6300773D7C /* CGRectAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRectAdapter.m; sourceTree = "<group>"; };
+		3B62F8BA14640B6300773D7C /* EnumAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumAdapter.h; sourceTree = "<group>"; };
+		3B62F8BB14640B6300773D7C /* EnumAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnumAdapter.m; sourceTree = "<group>"; };
+		3B62F8BC14640B6300773D7C /* FloatAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatAdapter.h; sourceTree = "<group>"; };
+		3B62F8BD14640B6300773D7C /* FloatAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloatAdapter.m; sourceTree = "<group>"; };
+		3B62F8BE14640B6300773D7C /* IntegerAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegerAdapter.h; sourceTree = "<group>"; };
+		3B62F8BF14640B6300773D7C /* IntegerAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegerAdapter.m; sourceTree = "<group>"; };
+		3B62F8C014640B6300773D7C /* NSStringAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdapter.h; sourceTree = "<group>"; };
+		3B62F8C114640B6300773D7C /* NSStringAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdapter.m; sourceTree = "<group>"; };
+		3B62F8C214640B6300773D7C /* TypeAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeAdapter.h; sourceTree = "<group>"; };
+		3B62F8C314640B6300773D7C /* UIColorAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorAdapter.h; sourceTree = "<group>"; };
+		3B62F8C414640B6300773D7C /* UIColorAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorAdapter.m; sourceTree = "<group>"; };
+		3B62F8C514640B6300773D7C /* UIImageAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageAdapter.h; sourceTree = "<group>"; };
+		3B62F8C614640B6300773D7C /* UIImageAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageAdapter.m; sourceTree = "<group>"; };
+		3B62F8D01465154B00773D7C /* CodeGenerating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeGenerating.h; sourceTree = "<group>"; };
+		3B62F8D1146515C100773D7C /* InputRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputRendering.h; sourceTree = "<group>"; };
+		3B62F8D21467B92D00773D7C /* InputViewMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewMap.h; sourceTree = "<group>"; };
+		3B62F8D31467B92D00773D7C /* InputViewMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewMap.m; sourceTree = "<group>"; };
 		3B9E5DF5144E059D007526A0 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = ../RootViewController.h; sourceTree = "<group>"; };
 		3B9E5DF6144E059D007526A0 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = ../RootViewController.m; sourceTree = "<group>"; };
 		3B9E5DF7144E059D007526A0 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RootViewController.xib; path = ../RootViewController.xib; sourceTree = "<group>"; };
@@ -116,20 +136,6 @@
 		3BE24866143C551500ED2176 /* LDLayerProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDLayerProperty.m; sourceTree = "<group>"; };
 		3BE24867143C551500ED2176 /* LDMessageParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageParam.h; sourceTree = "<group>"; };
 		3BE24868143C551500ED2176 /* LDMessageParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageParam.m; sourceTree = "<group>"; };
-		3BE24869143C551500ED2176 /* LDMessageParamCGRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageParamCGRect.h; sourceTree = "<group>"; };
-		3BE2486A143C551500ED2176 /* LDMessageParamCGRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageParamCGRect.m; sourceTree = "<group>"; };
-		3BE2486B143C551500ED2176 /* LDMessageParamColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageParamColor.h; sourceTree = "<group>"; };
-		3BE2486C143C551500ED2176 /* LDMessageParamColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageParamColor.m; sourceTree = "<group>"; };
-		3BE2486D143C551500ED2176 /* LDMessageParamEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageParamEnum.h; sourceTree = "<group>"; };
-		3BE2486E143C551500ED2176 /* LDMessageParamEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageParamEnum.m; sourceTree = "<group>"; };
-		3BE2486F143C551500ED2176 /* LDMessageParamFloat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageParamFloat.h; sourceTree = "<group>"; };
-		3BE24870143C551500ED2176 /* LDMessageParamFloat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageParamFloat.m; sourceTree = "<group>"; };
-		3BE24871143C551500ED2176 /* LDMessageParamImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageParamImage.h; sourceTree = "<group>"; };
-		3BE24872143C551500ED2176 /* LDMessageParamImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageParamImage.m; sourceTree = "<group>"; };
-		3BE24873143C551500ED2176 /* LDMessageParamInt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageParamInt.h; sourceTree = "<group>"; };
-		3BE24874143C551500ED2176 /* LDMessageParamInt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageParamInt.m; sourceTree = "<group>"; };
-		3BE24875143C551500ED2176 /* LDMessageParamString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageParamString.h; sourceTree = "<group>"; };
-		3BE24876143C551500ED2176 /* LDMessageParamString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageParamString.m; sourceTree = "<group>"; };
 		3BE24877143C551500ED2176 /* LDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDView.h; sourceTree = "<group>"; };
 		3BE24878143C551500ED2176 /* LDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDView.m; sourceTree = "<group>"; };
 		3BE24879143C551500ED2176 /* LDMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessage.h; sourceTree = "<group>"; };
@@ -228,6 +234,39 @@
 			path = logging;
 			sourceTree = "<group>";
 		};
+		3B62F89D146408D600773D7C /* supportedParams */ = {
+			isa = PBXGroup;
+			children = (
+				3B62F8B814640B6300773D7C /* CGRectAdapter.h */,
+				3B62F8B914640B6300773D7C /* CGRectAdapter.m */,
+				3B62F8BA14640B6300773D7C /* EnumAdapter.h */,
+				3B62F8BB14640B6300773D7C /* EnumAdapter.m */,
+				3B62F8BC14640B6300773D7C /* FloatAdapter.h */,
+				3B62F8BD14640B6300773D7C /* FloatAdapter.m */,
+				3B62F8BE14640B6300773D7C /* IntegerAdapter.h */,
+				3B62F8BF14640B6300773D7C /* IntegerAdapter.m */,
+				3B62F8C014640B6300773D7C /* NSStringAdapter.h */,
+				3B62F8C114640B6300773D7C /* NSStringAdapter.m */,
+				3B62F8C314640B6300773D7C /* UIColorAdapter.h */,
+				3B62F8C414640B6300773D7C /* UIColorAdapter.m */,
+				3B62F8C514640B6300773D7C /* UIImageAdapter.h */,
+				3B62F8C614640B6300773D7C /* UIImageAdapter.m */,
+				3B62F8C214640B6300773D7C /* TypeAdapter.h */,
+				3B62F8D01465154B00773D7C /* CodeGenerating.h */,
+				3B62F8D1146515C100773D7C /* InputRendering.h */,
+			);
+			name = supportedParams;
+			sourceTree = "<group>";
+		};
+		3B62F8CE1464211E00773D7C /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				3B62F8D21467B92D00773D7C /* InputViewMap.h */,
+				3B62F8D31467B92D00773D7C /* InputViewMap.m */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
 		3BE2481C143C54C000ED2176 = {
 			isa = PBXGroup;
 			children = (
@@ -318,46 +357,34 @@
 			isa = PBXGroup;
 			children = (
 				3B39A60314627916009B7A7E /* TreeAlgos */,
+				3B62F8CE1464211E00773D7C /* New Group */,
+				3B62F89D146408D600773D7C /* supportedParams */,
 				3BE24863143C551500ED2176 /* LDCommand.h */,
 				3BE24864143C551500ED2176 /* LDCommand.m */,
 				3BE24865143C551500ED2176 /* LDLayerProperty.h */,
 				3BE24866143C551500ED2176 /* LDLayerProperty.m */,
 				3BE24867143C551500ED2176 /* LDMessageParam.h */,
 				3BE24868143C551500ED2176 /* LDMessageParam.m */,
-				3BE24869143C551500ED2176 /* LDMessageParamCGRect.h */,
-				3BE2486A143C551500ED2176 /* LDMessageParamCGRect.m */,
-				3BE2486B143C551500ED2176 /* LDMessageParamColor.h */,
-				3BE2486C143C551500ED2176 /* LDMessageParamColor.m */,
-				3BE2486D143C551500ED2176 /* LDMessageParamEnum.h */,
-				3BE2486E143C551500ED2176 /* LDMessageParamEnum.m */,
-				3BE2486F143C551500ED2176 /* LDMessageParamFloat.h */,
-				3BE24870143C551500ED2176 /* LDMessageParamFloat.m */,
-				3BE24871143C551500ED2176 /* LDMessageParamImage.h */,
-				3BE24872143C551500ED2176 /* LDMessageParamImage.m */,
-				3BE24873143C551500ED2176 /* LDMessageParamInt.h */,
-				3BE24874143C551500ED2176 /* LDMessageParamInt.m */,
-				3BE24875143C551500ED2176 /* LDMessageParamString.h */,
-				3BE24876143C551500ED2176 /* LDMessageParamString.m */,
 				3BE24877143C551500ED2176 /* LDView.h */,
 				3BE24878143C551500ED2176 /* LDView.m */,
 				3BE24879143C551500ED2176 /* LDMessage.h */,
 				3BE2487A143C551500ED2176 /* LDMessage.m */,
 				3BE2487B143C551500ED2176 /* LDProperty.h */,
 				3BE2487C143C551500ED2176 /* LDProperty.m */,
-				3BE2487D143C551500ED2176 /* views */,
+				3BE2487D143C551500ED2176 /* Inputviews */,
 			);
 			path = Messaging;
 			sourceTree = "<group>";
 		};
-		3BE2487D143C551500ED2176 /* views */ = {
+		3BE2487D143C551500ED2176 /* Inputviews */ = {
 			isa = PBXGroup;
 			children = (
+				3BE24882143C551500ED2176 /* ControlView.h */,
+				3BE24883143C551500ED2176 /* ControlView.m */,
 				3BE2487E143C551500ED2176 /* CGRectControl.xib */,
 				3BE2487F143C551500ED2176 /* ColorControl.xib */,
 				3BE24880143C551500ED2176 /* ColorControlView.h */,
 				3BE24881143C551500ED2176 /* ColorControlView.m */,
-				3BE24882143C551500ED2176 /* ControlView.h */,
-				3BE24883143C551500ED2176 /* ControlView.m */,
 				3BE24884143C551500ED2176 /* EnumControl.xib */,
 				3BE24885143C551500ED2176 /* EnumControlView.h */,
 				3BE24886143C551500ED2176 /* EnumControlView.m */,
@@ -374,6 +401,7 @@
 				3BE24891143C551600ED2176 /* StringControlView.h */,
 				3BE24892143C551600ED2176 /* StringControlView.m */,
 			);
+			name = Inputviews;
 			path = views;
 			sourceTree = "<group>";
 		};
@@ -534,13 +562,6 @@
 				3BE248A5143C551600ED2176 /* LDCommand.m in Sources */,
 				3BE248A6143C551600ED2176 /* LDLayerProperty.m in Sources */,
 				3BE248A7143C551600ED2176 /* LDMessageParam.m in Sources */,
-				3BE248A8143C551600ED2176 /* LDMessageParamCGRect.m in Sources */,
-				3BE248A9143C551600ED2176 /* LDMessageParamColor.m in Sources */,
-				3BE248AA143C551600ED2176 /* LDMessageParamEnum.m in Sources */,
-				3BE248AB143C551600ED2176 /* LDMessageParamFloat.m in Sources */,
-				3BE248AC143C551600ED2176 /* LDMessageParamImage.m in Sources */,
-				3BE248AD143C551600ED2176 /* LDMessageParamInt.m in Sources */,
-				3BE248AE143C551600ED2176 /* LDMessageParamString.m in Sources */,
 				3BE248AF143C551600ED2176 /* LDView.m in Sources */,
 				3BE248B0143C551600ED2176 /* LDMessage.m in Sources */,
 				3BE248B1143C551600ED2176 /* LDProperty.m in Sources */,
@@ -564,6 +585,14 @@
 				3B9E5DF8144E059D007526A0 /* RootViewController.m in Sources */,
 				3B39A602146274F1009B7A7E /* NSOutlineView+Additions.m in Sources */,
 				3B39A60714627A54009B7A7E /* TreeUtil.m in Sources */,
+				3B62F8C714640B6300773D7C /* CGRectAdapter.m in Sources */,
+				3B62F8C814640B6300773D7C /* EnumAdapter.m in Sources */,
+				3B62F8C914640B6300773D7C /* FloatAdapter.m in Sources */,
+				3B62F8CA14640B6300773D7C /* IntegerAdapter.m in Sources */,
+				3B62F8CB14640B6300773D7C /* NSStringAdapter.m in Sources */,
+				3B62F8CC14640B6300773D7C /* UIColorAdapter.m in Sources */,
+				3B62F8CD14640B6300773D7C /* UIImageAdapter.m in Sources */,
+				3B62F8D41467B92D00773D7C /* InputViewMap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

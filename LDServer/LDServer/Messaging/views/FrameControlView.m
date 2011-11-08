@@ -8,7 +8,7 @@
 
 #import "FrameControlView.h"
 #import "LDMessage.h"
-
+#import "CGRectAdapter.h"
 @interface FrameControlView (Private)
 -(void)addMouseEventHandler;
 -(void)valueChanged;
@@ -89,5 +89,28 @@
     }
  
 }
+
+-(void)setInitialValue:(id<TypeAdapter>)initialValue
+{
+    NSParameterAssert([initialValue isKindOfClass:[CGRectAdapter class]]);
+    CGRect frame = [(CGRectAdapter*)initialValue rect];
+    [xField setTitleWithMnemonic:[NSString stringWithFormat:@"%f",frame.origin.x]];
+    [yField setTitleWithMnemonic:[NSString stringWithFormat:@"%f",frame.origin.y]];
+    [wField setTitleWithMnemonic:[NSString stringWithFormat:@"%f",frame.size.width]];
+    [hField setTitleWithMnemonic:[NSString stringWithFormat:@"%f",frame.size.height]];
+    
+}
+
+-(id<TypeAdapter>)getValue
+{
+    CGRectAdapter *value = [[CGRectAdapter alloc] init];
+    CGFloat x = [xField floatValue];
+    CGFloat y = [yField floatValue];
+    CGFloat w = [wField floatValue];
+    CGFloat h = [hField floatValue];
+    value.rect = CGRectMake(x,y , w, h);
+    return [value autorelease];
+}
+
 
 @end

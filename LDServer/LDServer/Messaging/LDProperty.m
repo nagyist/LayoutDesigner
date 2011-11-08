@@ -21,7 +21,8 @@
 
 #import "LDProperty.h"
 #import "LDHost.h"
-
+#import "InputViewMap.h"
+#import "CodeGenerating.h"
 NSString* const LDPropertyChangedNotification    = @"LDPropertyChangedNotification";
 NSString* const LDPropertyChangedNotificationPropertyInstanceKey    = @"LDPropertyChangedNotificationPropertyInstanceKey";
 
@@ -82,7 +83,9 @@ NSString* const LDPropertyChangedNotificationPropertyInstanceKey    = @"LDProper
     if (param != nil) {
         
         param.delegate = self;
-        ControlView *aView = [param viewForCollectingData];
+        ControlView *aView = [[InputViewMap defaultMap] viewForType:[param.value class]]; //[param viewForCollectingData];
+        aView.delegate = self;
+        [aView setInitialValue:param.value];
         [viewToBeUpdated addSubview:aView];
         
     }
@@ -90,8 +93,11 @@ NSString* const LDPropertyChangedNotificationPropertyInstanceKey    = @"LDProper
 
 
 
--(void)valueChanged:(LDMessageParam*)param
+-(void)valueChanged:(ControlView*)cView
 {
+    //get the new value
+    id<TypeAdapter> newValue = [cView getValue];
+    [param setValue:newValue];
     NSMutableDictionary *packet = [[NSMutableDictionary alloc] init];
     [packet setObject:[NSString stringWithFormat:@"%d",selectedView.identifier] forKey:@"id"];
     [packet setObject:self forKey:@"exc"];
@@ -102,6 +108,7 @@ NSString* const LDPropertyChangedNotificationPropertyInstanceKey    = @"LDProper
     NSLog([self getCode]);
 }
 
+
 -(NSString*)getCode
 {
    
@@ -110,8 +117,11 @@ NSString* const LDPropertyChangedNotificationPropertyInstanceKey    = @"LDProper
         return @"selectedView is nil. Cannot generate LHS code.";
     }
     
-    NSString *rhs = self.param.getCode;
-    NSString *variableName = selectedView.name;
+    if (![param.value conformsToProtocol:@protocol(CodeGenerating)]) {
+        return [NSString stringWithFormat:@"Value = %@ has not adopted the %@ protocol",param.value,@protocol(CodeGenerating)];
+    }
+    NSString *rhs = [(id<CodeGenerating>)param.value getCode];
+    ;    NSString *variableName = selectedView.name;
     NSString *code = [NSString stringWithFormat:@"%@.%@ = %@;",variableName,self.name,rhs];
 
     return code;

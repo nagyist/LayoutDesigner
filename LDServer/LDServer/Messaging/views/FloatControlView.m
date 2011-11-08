@@ -17,7 +17,7 @@
 //  limitations under the License.
 
 #import "FloatControlView.h"
-
+#import "FloatAdapter.h"
 @implementation FloatControlView
 @synthesize floatField;
 
@@ -36,4 +36,19 @@
         [delegate valueChanged:self];
     }
 }
+
+-(void)setInitialValue:(id<TypeAdapter>)initialValue
+{
+    NSParameterAssert([initialValue isKindOfClass:[FloatAdapter class]]);
+    [floatField setFloatValue:[(FloatAdapter*)initialValue aFloat]];
+
+}
+
+-(id<TypeAdapter>)getValue
+{
+    FloatAdapter *value = [[FloatAdapter alloc] init];
+    [value setAFloat:[floatField floatValue]];
+    return [value autorelease];
+}
+
 @end

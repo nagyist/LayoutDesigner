@@ -17,12 +17,16 @@
 //  limitations under the License.
 
 #import <Cocoa/Cocoa.h>
+#import "TypeAdapter.h"
+
 @protocol ControlViewDelegate;
 @interface ControlView : NSView
 {
     id<ControlViewDelegate> delegate;
 }
 
+-(void)setInitialValue:(id<TypeAdapter>)initialValue;
+-(id<TypeAdapter>)getValue;
 @property(nonatomic,assign)id<ControlViewDelegate> delegate;
 -(void)cleanup;
 @end

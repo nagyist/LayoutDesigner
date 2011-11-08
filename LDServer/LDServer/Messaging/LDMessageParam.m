@@ -19,6 +19,7 @@
 #import "LDMessageParam.h"
 @implementation LDMessageParam
 @synthesize displayName,delegate;
+@synthesize value;
 - (id)init
 {
     self = [super init];
@@ -34,12 +35,14 @@
     [self init];
     
     self.displayName = [aDecoder decodeObjectForKey:@"displayName"];
+    self.value = [aDecoder decodeObjectForKey:@"value"];
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:self.displayName forKey:@"displayName"];
+    [aCoder encodeObject:self.value forKey:@"value"];
 }
 
 
@@ -49,10 +52,9 @@
     [super dealloc];
 }
 
--(void*)value
+-(void*)getValue;
 {
-    //TODO: throw exception
-    return 0;
+    return [value value];
 }
 
 -(void)valueChanged:(LDMessageParam *)param
@@ -77,5 +79,13 @@
 
 -(NSString*)getCode{
     return @"Not implemented by the parameter!!!";
+}
+
+-(id)copyWithZone:(NSZone *)zone
+{
+    LDMessageParam *copy = [[LDMessageParam alloc] init];
+    copy.displayName = displayName;
+    copy.value = [value copyWithZone:nil];
+    return copy;
 }
 @end

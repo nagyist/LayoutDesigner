@@ -17,7 +17,7 @@
 //  limitations under the License.
 
 #import "EnumControlView.h"
-
+#import "EnumAdapter.h"
 @implementation EnumControlView
 @synthesize optionsBox;
 @synthesize options;
@@ -62,6 +62,21 @@
     if (delegate != nil) {
         [delegate valueChanged:self];
     }
-
 }
+
+-(void)setInitialValue:(id<TypeAdapter>)initialValue
+{
+    NSParameterAssert([initialValue isKindOfClass:[EnumAdapter class]]);
+    self.options = [(EnumAdapter*)initialValue displayNames];
+    //TODO: set the selected value
+}
+
+-(id<TypeAdapter>)getValue
+{
+    EnumAdapter *value = [[EnumAdapter alloc] init];
+    value.displayNames = self.options;
+    value.selectedValue = [optionsBox indexOfSelectedItem];
+    return [value autorelease];
+}
+
 @end

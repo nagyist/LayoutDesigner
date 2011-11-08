@@ -17,7 +17,7 @@
 //  limitations under the License.
 
 #import "ColorControlView.h"
-
+#import "UIColorAdapter.h"
 @implementation ColorControlView
 @synthesize colorWell;
 
@@ -46,9 +46,26 @@
 -(void)valueChanged
 {
     if (delegate != nil) {
-        [delegate valueChanged:self];
+       [delegate valueChanged:self];
     }
     
+}
+-(void)setInitialValue:(id<TypeAdapter>)initialValue
+{
+    NSParameterAssert([initialValue isKindOfClass:[UIColorAdapter class]]);
+    UIColorAdapter *initialColor = (UIColorAdapter*)initialValue;
+    NSColor *color = [NSColor colorWithDeviceRed:initialColor.red green:initialColor.green blue:initialColor.blue alpha:initialColor.alpha];
+    [colorWell setColor:color];
+}
+
+-(id<TypeAdapter>)getValue
+{
+    UIColorAdapter *color = [[UIColorAdapter alloc] init];
+    color.red = [colorWell.color redComponent];
+    color.blue = [colorWell.color blueComponent];
+    color.green = [colorWell.color greenComponent];
+    color.alpha = [colorWell.color alphaComponent];
+    return [color autorelease];
 }
 
 - (void)drawRect:(NSRect)dirtyRect

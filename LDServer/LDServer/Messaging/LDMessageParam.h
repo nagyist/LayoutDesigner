@@ -18,16 +18,19 @@
 
 #import <Foundation/Foundation.h>
 #import "ControlView.h"
+#import "TypeAdapter.h"
 @protocol LMMessageParamDelegate;
-@interface LDMessageParam : NSObject<NSCoding,ControlViewDelegate>
+@interface LDMessageParam : NSObject<NSCoding,ControlViewDelegate,NSCopying>
 {
     NSString *displayName;
+    
     id<LMMessageParamDelegate> delegate;
 
 }
 @property(nonatomic,assign)id<LMMessageParamDelegate>delegate;
 @property(nonatomic,retain)NSString *displayName;
--(void*)value;
+@property(strong)id<TypeAdapter> value;
+-(void*)getValue;
 -(ControlView*)viewForCollectingData;
 -(void)sendUpdate;
 
