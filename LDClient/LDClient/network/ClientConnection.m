@@ -9,18 +9,18 @@
 
 
 
-#import "Client.h"
+#import "ClientConnection.h"
 
 
 // Private properties
-@interface Client ()
+@interface ClientConnection ()
 @property(nonatomic,strong) Connection* connection;
 @end
 
 
 
 
-@implementation Client
+@implementation ClientConnection
 @synthesize connection;
 @synthesize delegate;
 // Setup connection but don't connect yet

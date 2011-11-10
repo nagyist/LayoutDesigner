@@ -15,7 +15,7 @@
 @protocol LMClientDelegate;
 
 
-@interface Client : NSObject<ConnectionDelegate >{
+@interface ClientConnection : NSObject<ConnectionDelegate>{
 // Our connection to the chat server
     Connection* connection;
     
@@ -39,7 +39,7 @@
 
 @protocol LMClientDelegate <NSObject>
 
--(void)failedToConnect:(Client*)client_;
--(void)connectionTerminated:(Client*)client_;
--(void)client:(Client*)client_ receivedNetworkPacket:(NSDictionary*)packet;
+-(void)failedToConnect:(ClientConnection*)client_;
+-(void)connectionTerminated:(ClientConnection*)client_;
+-(void)client:(ClientConnection*)client_ receivedNetworkPacket:(NSDictionary*)packet;
 @end
