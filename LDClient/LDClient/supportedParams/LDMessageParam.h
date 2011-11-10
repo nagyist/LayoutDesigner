@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "TypeAdapter.h"
 @interface LDMessageParam : NSObject<NSCoding,NSCopying>
 {
     NSString *displayName;
@@ -15,7 +15,8 @@
 }
 
 @property(nonatomic,strong)NSString *displayName;
+@property(strong)id<TypeAdapter> value;
 
-
--(void*)value;
+-(void*)getValue;
++(LDMessageParam*)paramWithValue:(id<TypeAdapter>)typeAdapter;
 @end

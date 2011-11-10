@@ -8,8 +8,7 @@
 
 #import "LDView.h"
 #import "LDMessage.h"
-#import "LDMessageParamCGRect.h"
-#import "MessageHelper.h"
+#import "PropertyMap.h"
 
 
 static int viewId = 0;
@@ -34,10 +33,6 @@ static int viewId = 0;
     [encoder encodeInt:identifier forKey:@"id"];
     [encoder encodeObject:name forKey:@"name"];
     [encoder encodeObject:children forKey:@"children"];
-    [encoder encodeFloat:frame.origin.x forKey:@"x"];
-    [encoder encodeFloat:frame.origin.y forKey:@"y"];
-    [encoder encodeFloat:frame.size.width forKey:@"w"];
-    [encoder encodeFloat:frame.size.height forKey:@"h"];
     [encoder encodeObject:messages forKey:@"messages"];
     [encoder encodeObject:properties  forKey:@"properties"];
 }
@@ -48,12 +43,6 @@ static int viewId = 0;
     self.name =   [aDecoder decodeObjectForKey:@"name"];
     self.identifier = [aDecoder decodeIntForKey:@"id"];
     children = [aDecoder decodeObjectForKey:@"children"];
-    
-    float x = [aDecoder decodeFloatForKey:@"x"];
-    float y = [aDecoder decodeFloatForKey:@"y"];
-    float w = [aDecoder decodeFloatForKey:@"w"];
-    float h = [aDecoder decodeFloatForKey:@"h"];
-    frame = CGRectMake(x, y, w, h);
     self.messages = [aDecoder decodeObjectForKey:@"messages"];
     self.properties = [aDecoder decodeObjectForKey:@"properties"];
     return  self;
@@ -78,7 +67,8 @@ static int viewId = 0;
     }
     
    // self.messages = [MessageHelper messagesForObject:view_];
-    self.messages = [MessageHelper propertiesForObject:view_];
+   // self.messages = [PropertyMap propertiesForObject:view_];
+    self.messages = [[PropertyMap defaultPropertyMap] propertiesForObject:view_];
 }
 
 @end

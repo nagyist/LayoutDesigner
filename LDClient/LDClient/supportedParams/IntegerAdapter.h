@@ -6,9 +6,8 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "LDMessageParam.h"
-
-@interface LDMessageParamInt : LDMessageParam
+#import "TypeAdapter.h"
+@interface IntegerAdapter : NSObject<TypeAdapter>
 {
     NSInteger integer;
 }

@@ -6,9 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "LDMessageParam.h"
 
-@interface LDMessageParamImage : LDMessageParam
+#import "TypeAdapter.h"
+@interface UIImageAdapter : NSObject<TypeAdapter>
 {
     NSData *imageData;
     

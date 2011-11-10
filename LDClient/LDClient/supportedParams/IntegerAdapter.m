@@ -6,9 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "LDMessageParamInt.h"
+#import "IntegerAdapter.h"
 
-@implementation LDMessageParamInt
+@implementation IntegerAdapter
 @synthesize integer;
 - (id)init
 {
@@ -21,14 +21,13 @@
 }
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithCoder:aDecoder];
+   self =   [super init];
    self.integer =  [aDecoder decodeIntForKey:@"integer"];
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [super encodeWithCoder:aCoder];
     [aCoder encodeInt:self.integer  forKey:@"integer"];
 }
 
@@ -38,10 +37,9 @@
     return &integer;
 }
 
--(id)copy
+-(id)copyWithZone:(NSZone *)zone
 {
-    LDMessageParamInt  *copy = [[LDMessageParamInt alloc] init];
-    copy.displayName = displayName;
+    IntegerAdapter  *copy = [[IntegerAdapter alloc] init];
     copy.integer = integer;
     return copy;
 }

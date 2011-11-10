@@ -6,9 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "LDMessageParamEnum.h"
+#import "EnumAdapter.h"
 
-@implementation LDMessageParamEnum
+@implementation EnumAdapter
 @synthesize displayNames,integerValuesAsString,selectedValue;
 - (id)init
 {
@@ -22,7 +22,7 @@
 
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [super encodeWithCoder:aCoder];
+    
     [aCoder encodeObject:displayNames forKey:@"displayNames"];
     [aCoder encodeObject:integerValuesAsString  forKey:@"integerValues"];
     [aCoder encodeInt:selectedValue forKey:@"value"];
@@ -31,7 +31,7 @@
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self =   [super initWithCoder:aDecoder];
+    self =   [super init];
     self.displayNames = [aDecoder decodeObjectForKey:@"displayNames"];
     self.integerValuesAsString = [aDecoder decodeObjectForKey:@"integerValues"];
     self.selectedValue = [aDecoder decodeIntForKey:@"value"];
@@ -44,10 +44,9 @@
     return &selectedValue;
 }
 
--(id)copy
+-(id)copyWithZone:(NSZone *)zone
 {
-    LDMessageParamEnum  *copy = [[LDMessageParamEnum alloc] init];
-    copy.displayName = displayName;
+    EnumAdapter  *copy = [[EnumAdapter alloc] init];
     copy.displayNames = displayNames;
     copy.integerValuesAsString = integerValuesAsString;
     copy.selectedValue = selectedValue;

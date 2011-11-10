@@ -7,7 +7,7 @@
 //
 
 #import "LDProperty.h"
-#import "MessageHelper.h"
+#import "PropertyMap.h"
 #import "LDMessageParam.h"
 
 @implementation LDProperty
@@ -15,7 +15,7 @@
 
 
 
-+(LDProperty*)propertyWithName:(NSString*)pName param:(LDMessageParam*)param_
++(LDProperty*)propertyWithName:(NSString*)pName param:(LDMessageParam*)param_;
 {
     NSAssert(pName!= nil && pName.length >0, @"Property Name should have one or more characters");
     LDProperty *aProperty = [[LDProperty alloc] init];
@@ -29,37 +29,14 @@
     return aProperty;
 }
 
-+(LDProperty*)propertyWithName:(NSString*)pName type:(Class)type target:(id)target
-{
-    NSAssert(pName!= nil && pName.length >0, @"Property Name should have one or more characters");
-    LDProperty *aProperty = [[LDProperty alloc] init];
-    aProperty.name = pName;
-    aProperty.getter = pName;
-    NSString *firstCharacterInUppercase = [[NSString stringWithFormat:@"%c",[pName characterAtIndex:0]] uppercaseString];
-    NSRange range = {0,1};
-    aProperty.setter = [NSString stringWithFormat:@"set%@:",[pName stringByReplacingCharactersInRange:range withString:firstCharacterInUppercase]];
-    
-    LDMessageParam *param =  [[type alloc] init];
-    param.displayName = pName;
-    aProperty.param = param;
-    [aProperty readExistingValueFromObject:target];
-    return aProperty;
-}
-
 
 +(LDProperty*)propertyWithName:(NSString*)pName type:(Class)type
 {
-    NSAssert(pName!= nil && pName.length >0, @"Property Name should have one or more characters");
-    LDProperty *aProperty = [[LDProperty alloc] init];
-    aProperty.name = pName;
-    aProperty.getter = pName;
-    NSString *firstCharacterInUppercase = [[NSString stringWithFormat:@"%c",[pName characterAtIndex:0]] uppercaseString];
-    NSRange range = {0,1};
-    aProperty.setter = [NSString stringWithFormat:@"set%@:",[pName stringByReplacingCharactersInRange:range withString:firstCharacterInUppercase]];
-    
-    LDMessageParam *param =  [[type alloc] init];
+    id<TypeAdapter> emptyValue = [[type alloc] init];
+    LDMessageParam *param =  [[LDMessageParam alloc] init];
+    param.value = emptyValue;
     param.displayName = pName;
-    aProperty.param = param;
+    LDProperty *aProperty = [LDProperty propertyWithName:pName param:param];
     return aProperty;
 }
 
@@ -94,70 +71,54 @@
 }
 
 
-
-
-
-
 -(void)setOnObject:(id)object
 {
     NSInvocation *invocation = [self setterInvocationForObject:object];
     [invocation invoke];
 }
 
+
+//TODO: externalize this logic for extension
 -(void)readExistingValueFromObject:(id)object
 {
     NSInvocation *invocation = [self getterInvocationForObject:object];
     [invocation invoke];
-    
-    [invocation getReturnValue:[param value]];
-    return;
-   
-    
-    if ([param isKindOfClass:[LDMessageParamCGRect class]]) {
-        CGRect returnValue;
-        [invocation getReturnValue:&returnValue];
-        //[(LDMessageParamCGRect*)param setRect:returnValue];
-    }
-    else if ([param isKindOfClass:[LDMessageParamColor class]]) {
-        ;      //do nothing for now
-    }
-    
-    else if ([param isKindOfClass:[LDMessageParamEnum class]]) {
-        int returnValue;
-        [invocation getReturnValue:&returnValue];
-        [(LDMessageParamEnum*)param setSelectedValue:returnValue];
-    }
-    
-    else if ([param isKindOfClass:[LDMessageParamFloat class]]) {
-        float returnValue;
-        [invocation getReturnValue:&returnValue];
-        [(LDMessageParamFloat*)param setAFloat:returnValue];
-    }
-    
-    else if ([param isKindOfClass:[LDMessageParamImage class]]) {
-        UIImage  __unsafe_unretained *returnValue;
-        
-        [invocation getReturnValue:&returnValue];
-        if (returnValue) {
-          NSData *imageData =   UIImagePNGRepresentation(returnValue);
-            [(LDMessageParamImage*)param setImageData:imageData];
+    if([param.value isKindOfClass:[UIColorAdapter class]])
+    {
+        UIColor *color;
+        [invocation getReturnValue:&color];
+        if(color != nil)
+        {
+            CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
+            if ([color respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
+                [color getRed:&red green:&green blue:&blue alpha:&alpha];
+            } else {
+                const CGFloat *components = CGColorGetComponents(color.CGColor);
+                red = components[0];
+                green = components[1];
+                blue = components[2];
+                alpha = components[3];
+            }
+            [(UIColorAdapter*)param.value setRed:red];
+            [(UIColorAdapter*)param.value setGreen:green];
+            [(UIColorAdapter*)param.value setBlue:blue];
+            [(UIColorAdapter*)param.value setAlpha:alpha];
         }
     }
+    else if([param.value isKindOfClass:[UIImageAdapter class]])
+    {
+         UIImage *image;
+        [invocation getReturnValue:&image];
+        if (image != nil) {
+            NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+            [(UIImageAdapter*)param.value setImageData:imageData];
+        }
+    }
+    else
+    {
+        [invocation getReturnValue:[param.value value]];
+    }
     
-    else if ([param isKindOfClass:[LDMessageParamInt class]]) {
-        int returnValue;
-        
-        [invocation getReturnValue:&returnValue];
-        [(LDMessageParamInt*)param setInteger:returnValue];
-    }
-
-    else if ([param isKindOfClass:[LDMessageParamString class]]) {
-        NSString __unsafe_unretained *returnValue;
-        
-        [invocation getReturnValue:&returnValue];
-        [(LDMessageParamString*)param setText:returnValue];
-    }
-
 }
 
 -(NSInvocation*)getterInvocationForObject:(id)object
@@ -171,7 +132,7 @@
     SEL selector = NSSelectorFromString(setter);
     NSInvocation *anInvocation = [self invocationForObject:object selector:selector];
     if (param != nil) {
-        void *val = [param value];
+        void *val = [param.value value];//[param getValue];
         [anInvocation setArgument:val atIndex:2];
     }
     return anInvocation;
@@ -187,6 +148,14 @@
     
 }
 
-
+-(id)copy
+{
+    LDProperty *copy = [[LDProperty alloc] init];
+    copy.getter = getter;
+    copy.setter = setter;
+    copy.name = name;
+    copy.param = [param copyWithZone:nil];
+    return  copy;
+}
 
 @end

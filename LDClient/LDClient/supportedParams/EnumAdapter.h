@@ -6,9 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "LDMessageParam.h"
 
-@interface LDMessageParamEnum : LDMessageParam
+#import "TypeAdapter.h"
+@interface EnumAdapter : NSObject<TypeAdapter>
 {
     NSArray *displayNames;
     NSArray *integerValuesAsString;

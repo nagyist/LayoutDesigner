@@ -6,9 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "LDMessageParamColor.h"
+#import "UIColorAdapter.h"
 
-@implementation LDMessageParamColor
+
+@implementation UIColorAdapter
 @synthesize red,blue,green,alpha;
 - (id)init
 {
@@ -22,7 +23,6 @@
 
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [super encodeWithCoder:aCoder];
     [aCoder encodeFloat:red forKey:@"r"];
     [aCoder encodeFloat:green forKey:@"g"];
     [aCoder encodeFloat:blue forKey:@"b"];
@@ -32,7 +32,7 @@
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
-  self =   [super initWithCoder:aDecoder];
+    self =   [self init];
     self.red = [aDecoder decodeFloatForKey:@"r"];
     self.green = [aDecoder decodeFloatForKey:@"g"];
     self.blue = [aDecoder decodeFloatForKey:@"b"];
@@ -47,10 +47,9 @@
 }
 
 
--(id)copy
+-(id)copyWithZone:(NSZone *)zone
 {
-    LDMessageParamColor  *copy = [[LDMessageParamColor alloc] init];
-    copy.displayName = displayName;
+    UIColorAdapter  *copy = [[UIColorAdapter alloc] init];
     copy.red = red;
     copy.green = green;
     copy.blue = blue;

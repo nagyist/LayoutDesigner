@@ -6,9 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "LDMessageParam.h"
 
-@interface LDMessageParamFloat : LDMessageParam
+#import "TypeAdapter.h"
+@interface FloatAdapter : NSObject<TypeAdapter>
 {
     float aFloat;
 }

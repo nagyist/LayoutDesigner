@@ -6,9 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "LDMessageParamString.h"
+#import "NSStringAdapter.h"
 
-@implementation LDMessageParamString
+@implementation NSStringAdapter
 @synthesize text;
 
 - (id)init
@@ -24,14 +24,13 @@
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithCoder:aDecoder];
+   self =   [super init];
     self.text = [aDecoder decodeObjectForKey:@"text"];
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [super encodeWithCoder:aCoder];
     [aCoder encodeObject:self.text forKey:@"text"];
 }
 
@@ -40,10 +39,9 @@
     return &text;
 }
 
--(id)copy
+-(id)copyWithZone:(NSZone *)zone
 {
-    LDMessageParamString  *copy = [[LDMessageParamString alloc] init];
-    copy.displayName = displayName;
+    NSStringAdapter  *copy = [[NSStringAdapter alloc] init];
     copy.text  = text;
     return copy;
 }

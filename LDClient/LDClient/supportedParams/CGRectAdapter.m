@@ -6,9 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "LDMessageParamCGRect.h"
+#import "CGRectAdapter.h"
 
-@implementation LDMessageParamCGRect
+@implementation CGRectAdapter
 @synthesize rect;
 - (id)init
 {
@@ -23,7 +23,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
-    [super encodeWithCoder:encoder];
+    
     [encoder encodeFloat:rect.origin.x forKey:@"x"];
     [encoder encodeFloat:rect.origin.y forKey:@"y"];
     [encoder encodeFloat:rect.size.width forKey:@"w"];
@@ -32,7 +32,7 @@
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithCoder:aDecoder];
+    self =   [super init];
    
     float x = [aDecoder decodeFloatForKey:@"x"];
     float y = [aDecoder decodeFloatForKey:@"y"];
@@ -48,10 +48,9 @@
     return &rect;
 }
 
--(id)copy
+-(id)copyWithZone:(NSZone *)zone
 {
-    LDMessageParamCGRect  *copy = [[LDMessageParamCGRect alloc] init];
-    copy.displayName = displayName;
+    CGRectAdapter  *copy = [[CGRectAdapter alloc] init];
     copy.rect = rect;
     return copy;
 }

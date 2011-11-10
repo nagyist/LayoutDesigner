@@ -6,9 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "LDMessageParam.h"
 
-@interface LDMessageParamColor : LDMessageParam
+#import "TypeAdapter.h"
+@interface UIColorAdapter : NSObject<TypeAdapter>
 {
     CGFloat red;
     CGFloat blue;

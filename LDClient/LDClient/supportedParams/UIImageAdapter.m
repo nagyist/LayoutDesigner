@@ -6,9 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "LDMessageParamImage.h"
+#import "UIImageAdapter.h"
 
-@implementation LDMessageParamImage
+@implementation UIImageAdapter
 @synthesize imageData;
 - (id)init
 {
@@ -23,17 +23,17 @@
 
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [super encodeWithCoder:aCoder];
     [aCoder encodeDataObject:imageData];
 
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self =   [super initWithCoder:aDecoder];
+   self =   [super init];
     self.imageData = [aDecoder decodeDataObject];
     return  self;
 }
+
 
 
 -(void*)value
@@ -42,10 +42,9 @@
     return &image;
 }
 
--(id)copy
+-(id)copyWithZone:(NSZone *)zone
 {
-    LDMessageParamImage  *copy = [[LDMessageParamImage alloc] init];
-    copy.displayName = displayName;
+    UIImageAdapter  *copy = [[UIImageAdapter alloc] init];
     copy.imageData = imageData;
     return copy;
 }

@@ -6,9 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "LDMessageParam.h"
+#import "TypeAdapter.h"
 
-@interface LDMessageParamString : LDMessageParam
+@interface NSStringAdapter : NSObject<TypeAdapter>
 {
     NSString *text;
 }

@@ -27,7 +27,8 @@
 
 +(LDLayerProperty*)propertyWithName:(NSString*)pName type:(Class)type
 {
-    LDMessageParam *param = [[type alloc] init];
+    id<TypeAdapter> emptyValue = [[type alloc] init];
+    LDMessageParam *param = [LDMessageParam paramWithValue:emptyValue];
     return [LDLayerProperty propertyWithName:pName param:param];
 }
 
@@ -41,5 +42,16 @@
 {
      UIView *view = (UIView*)object;
     [super readExistingValueFromObject:[view layer]];
+}
+
+
+-(id)copy
+{
+    LDLayerProperty *copy = [[LDLayerProperty alloc] init];
+    copy.name = name;
+    copy.getter = getter;
+    copy.setter = setter;
+    copy.param = [param copyWithZone:nil];
+    return copy;
 }
 @end

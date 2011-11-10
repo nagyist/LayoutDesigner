@@ -9,7 +9,16 @@
 #import "LDMessageParam.h"
 
 @implementation LDMessageParam
-@synthesize displayName;
+@synthesize displayName,value;
+
+
+
++(LDMessageParam*)paramWithValue:(id<TypeAdapter>)typeAdapter
+{
+    LDMessageParam *messageParam = [[LDMessageParam alloc] init];
+    messageParam.value = typeAdapter;
+    return messageParam;
+}
 - (id)init
 {
     self = [super init];
@@ -25,30 +34,28 @@
     self = [self init];
     
     self.displayName = [aDecoder decodeObjectForKey:@"displayName"];
+    self.value = [aDecoder decodeObjectForKey:@"value"];
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:self.displayName forKey:@"displayName"];
+    [aCoder encodeObject:self.value forKey:@"value"];
 }
 
 
 
--(void*)value
+-(void*)getValue
 {
-    //TODO: throw exception
-    return 0;
+    return [value value];
 }
 
--(void)setValue:(void*)val
-{
-    
-}
--(id)copy
+-(id)copyWithZone:(NSZone *)zone
 {
     LDMessageParam  *copy = [[LDMessageParam alloc] init];
     copy.displayName = displayName;
+    copy.value = [value copyWithZone:nil];
     return copy;
 }
 

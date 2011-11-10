@@ -6,9 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "LDMessageParamFloat.h"
+#import "FloatAdapter.h"
 
-@implementation LDMessageParamFloat
+@implementation FloatAdapter
 @synthesize aFloat;
 - (id)init
 {
@@ -21,13 +21,12 @@
 }
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
-    [super encodeWithCoder:encoder];
     [encoder encodeFloat:aFloat forKey:@"float"];
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithCoder:aDecoder];
+   self =   [super init];
     self.aFloat= [aDecoder decodeFloatForKey:@"float"];
     return  self;
 }
@@ -38,10 +37,9 @@
     return &aFloat;
 }
 
--(id)copy
+-(id)copyWithZone:(NSZone *)zone
 {
-    LDMessageParamFloat  *copy = [[LDMessageParamFloat alloc] init];
-    copy.displayName = displayName;
+    FloatAdapter  *copy = [[FloatAdapter alloc] init];
     copy.aFloat = aFloat;
     return copy;
 }

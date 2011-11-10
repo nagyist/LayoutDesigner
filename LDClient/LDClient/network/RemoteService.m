@@ -158,7 +158,7 @@ static RemoteService *sharedInstance = nil;
 
 -(void)sendViewUpdate:(NSDictionary*)packet
 {
-   
+    root = nil;
     root = [[LDView alloc] init];
     id appDelegate  = [[UIApplication sharedApplication] delegate];
     root.view = [appDelegate window];
@@ -171,7 +171,7 @@ static RemoteService *sharedInstance = nil;
 -(void)screenTapped:(UIGestureRecognizer*)sender
 {
     //this is the point in Window
-    CGPoint point = [sender locationInView:root.view];
+   // CGPoint point = [sender locationInView:root.view];
     
     
     LDView * touchedView = [self getTouchedViewIn:root sender:sender]; //[root.view hitTest:point withEvent:nil];

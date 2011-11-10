@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B39A6141462CA31009B7A7E /* EnumHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B39A6121462CA30009B7A7E /* EnumHelper.h */; };
-		3B39A6151462CA31009B7A7E /* EnumHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B39A6131462CA30009B7A7E /* EnumHelper.m */; };
+		3B39A6141462CA31009B7A7E /* EnumMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B39A6121462CA30009B7A7E /* EnumMap.h */; };
+		3B39A6151462CA31009B7A7E /* EnumMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B39A6131462CA30009B7A7E /* EnumMap.m */; };
+		3B62F89C1463E4F800773D7C /* TypeAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B62F89B1463E4F700773D7C /* TypeAdapter.h */; };
+		3B739D9A146A9A25004E8012 /* MessageUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B739D98146A9A25004E8012 /* MessageUtility.h */; };
+		3B739D9B146A9A25004E8012 /* MessageUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B739D99146A9A25004E8012 /* MessageUtility.m */; };
 		3BE24740143C4A5F00ED2176 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE2473F143C4A5F00ED2176 /* Foundation.framework */; };
 		3BE24746143C4A5F00ED2176 /* LDClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24745143C4A5F00ED2176 /* LDClient.m */; };
 		3BE2474E143C4A5F00ED2176 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE2474D143C4A5F00ED2176 /* SenTestingKit.framework */; };
@@ -25,10 +28,10 @@
 		3BE247F6143C516300ED2176 /* LDLayerProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247CB143C516300ED2176 /* LDLayerProperty.m */; };
 		3BE247F7143C516300ED2176 /* LDMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247CC143C516300ED2176 /* LDMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3BE247F8143C516300ED2176 /* LDMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247CD143C516300ED2176 /* LDMessage.m */; };
-		3BE247F9143C516300ED2176 /* MessageHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247CE143C516300ED2176 /* MessageHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3BE247FA143C516300ED2176 /* MessageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247CF143C516300ED2176 /* MessageHelper.m */; };
+		3BE247F9143C516300ED2176 /* PropertyMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247CE143C516300ED2176 /* PropertyMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BE247FA143C516300ED2176 /* PropertyMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247CF143C516300ED2176 /* PropertyMap.m */; };
 		3BE247FB143C516300ED2176 /* LDProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247D0143C516300ED2176 /* LDProperty.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3BE247FC143C516300ED2176 /* LDProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247D1143C516300ED2176 /* LDProperty.m */; };
+		3BE247FC143C516300ED2176 /* LDProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247D1143C516300ED2176 /* LDProperty.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3BE247FD143C516300ED2176 /* AppConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247D3143C516300ED2176 /* AppConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3BE247FE143C516300ED2176 /* AppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247D4143C516300ED2176 /* AppConfig.m */; };
 		3BE247FF143C516300ED2176 /* Connection.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247D5143C516300ED2176 /* Connection.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -46,20 +49,20 @@
 		3BE2480B143C516300ED2176 /* ServerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247E1143C516300ED2176 /* ServerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3BE2480C143C516300ED2176 /* LDMessageParam.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247E3143C516300ED2176 /* LDMessageParam.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3BE2480D143C516300ED2176 /* LDMessageParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247E4143C516300ED2176 /* LDMessageParam.m */; };
-		3BE2480E143C516300ED2176 /* LDMessageParamCGRect.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247E5143C516300ED2176 /* LDMessageParamCGRect.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3BE2480F143C516300ED2176 /* LDMessageParamCGRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247E6143C516300ED2176 /* LDMessageParamCGRect.m */; };
-		3BE24810143C516300ED2176 /* LDMessageParamColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247E7143C516300ED2176 /* LDMessageParamColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3BE24811143C516300ED2176 /* LDMessageParamColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247E8143C516300ED2176 /* LDMessageParamColor.m */; };
-		3BE24812143C516300ED2176 /* LDMessageParamEnum.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247E9143C516300ED2176 /* LDMessageParamEnum.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3BE24813143C516300ED2176 /* LDMessageParamEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247EA143C516300ED2176 /* LDMessageParamEnum.m */; };
-		3BE24814143C516300ED2176 /* LDMessageParamFloat.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247EB143C516300ED2176 /* LDMessageParamFloat.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3BE24815143C516300ED2176 /* LDMessageParamFloat.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247EC143C516300ED2176 /* LDMessageParamFloat.m */; };
-		3BE24816143C516300ED2176 /* LDMessageParamImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247ED143C516300ED2176 /* LDMessageParamImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3BE24817143C516300ED2176 /* LDMessageParamImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247EE143C516300ED2176 /* LDMessageParamImage.m */; };
-		3BE24818143C516300ED2176 /* LDMessageParamInt.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247EF143C516300ED2176 /* LDMessageParamInt.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3BE24819143C516300ED2176 /* LDMessageParamInt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247F0143C516300ED2176 /* LDMessageParamInt.m */; };
-		3BE2481A143C516300ED2176 /* LDMessageParamString.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247F1143C516300ED2176 /* LDMessageParamString.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3BE2481B143C516300ED2176 /* LDMessageParamString.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247F2143C516300ED2176 /* LDMessageParamString.m */; };
+		3BE2480E143C516300ED2176 /* CGRectAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247E5143C516300ED2176 /* CGRectAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BE2480F143C516300ED2176 /* CGRectAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247E6143C516300ED2176 /* CGRectAdapter.m */; };
+		3BE24810143C516300ED2176 /* UIColorAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247E7143C516300ED2176 /* UIColorAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BE24811143C516300ED2176 /* UIColorAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247E8143C516300ED2176 /* UIColorAdapter.m */; };
+		3BE24812143C516300ED2176 /* EnumAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247E9143C516300ED2176 /* EnumAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BE24813143C516300ED2176 /* EnumAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247EA143C516300ED2176 /* EnumAdapter.m */; };
+		3BE24814143C516300ED2176 /* FloatAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247EB143C516300ED2176 /* FloatAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BE24815143C516300ED2176 /* FloatAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247EC143C516300ED2176 /* FloatAdapter.m */; };
+		3BE24816143C516300ED2176 /* UIImageAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247ED143C516300ED2176 /* UIImageAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BE24817143C516300ED2176 /* UIImageAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247EE143C516300ED2176 /* UIImageAdapter.m */; };
+		3BE24818143C516300ED2176 /* IntegerAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247EF143C516300ED2176 /* IntegerAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BE24819143C516300ED2176 /* IntegerAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247F0143C516300ED2176 /* IntegerAdapter.m */; };
+		3BE2481A143C516300ED2176 /* NSStringAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247F1143C516300ED2176 /* NSStringAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BE2481B143C516300ED2176 /* NSStringAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247F2143C516300ED2176 /* NSStringAdapter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,8 +76,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3B39A6121462CA30009B7A7E /* EnumHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumHelper.h; sourceTree = "<group>"; };
-		3B39A6131462CA30009B7A7E /* EnumHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnumHelper.m; sourceTree = "<group>"; };
+		3B39A6121462CA30009B7A7E /* EnumMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumMap.h; sourceTree = "<group>"; };
+		3B39A6131462CA30009B7A7E /* EnumMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnumMap.m; sourceTree = "<group>"; };
+		3B62F89B1463E4F700773D7C /* TypeAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeAdapter.h; sourceTree = "<group>"; };
+		3B739D98146A9A25004E8012 /* MessageUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageUtility.h; sourceTree = "<group>"; };
+		3B739D99146A9A25004E8012 /* MessageUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageUtility.m; sourceTree = "<group>"; };
 		3BE2473C143C4A5F00ED2176 /* libLDClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLDClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BE2473F143C4A5F00ED2176 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3BE24743143C4A5F00ED2176 /* LDClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LDClient-Prefix.pch"; sourceTree = "<group>"; };
@@ -95,8 +101,8 @@
 		3BE247CB143C516300ED2176 /* LDLayerProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDLayerProperty.m; sourceTree = "<group>"; };
 		3BE247CC143C516300ED2176 /* LDMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessage.h; sourceTree = "<group>"; };
 		3BE247CD143C516300ED2176 /* LDMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessage.m; sourceTree = "<group>"; };
-		3BE247CE143C516300ED2176 /* MessageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageHelper.h; sourceTree = "<group>"; };
-		3BE247CF143C516300ED2176 /* MessageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageHelper.m; sourceTree = "<group>"; };
+		3BE247CE143C516300ED2176 /* PropertyMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyMap.h; sourceTree = "<group>"; };
+		3BE247CF143C516300ED2176 /* PropertyMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyMap.m; sourceTree = "<group>"; };
 		3BE247D0143C516300ED2176 /* LDProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDProperty.h; sourceTree = "<group>"; };
 		3BE247D1143C516300ED2176 /* LDProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDProperty.m; sourceTree = "<group>"; };
 		3BE247D3143C516300ED2176 /* AppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
@@ -116,20 +122,20 @@
 		3BE247E1143C516300ED2176 /* ServerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerDelegate.h; sourceTree = "<group>"; };
 		3BE247E3143C516300ED2176 /* LDMessageParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageParam.h; sourceTree = "<group>"; };
 		3BE247E4143C516300ED2176 /* LDMessageParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageParam.m; sourceTree = "<group>"; };
-		3BE247E5143C516300ED2176 /* LDMessageParamCGRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageParamCGRect.h; sourceTree = "<group>"; };
-		3BE247E6143C516300ED2176 /* LDMessageParamCGRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageParamCGRect.m; sourceTree = "<group>"; };
-		3BE247E7143C516300ED2176 /* LDMessageParamColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageParamColor.h; sourceTree = "<group>"; };
-		3BE247E8143C516300ED2176 /* LDMessageParamColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageParamColor.m; sourceTree = "<group>"; };
-		3BE247E9143C516300ED2176 /* LDMessageParamEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageParamEnum.h; sourceTree = "<group>"; };
-		3BE247EA143C516300ED2176 /* LDMessageParamEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageParamEnum.m; sourceTree = "<group>"; };
-		3BE247EB143C516300ED2176 /* LDMessageParamFloat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageParamFloat.h; sourceTree = "<group>"; };
-		3BE247EC143C516300ED2176 /* LDMessageParamFloat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageParamFloat.m; sourceTree = "<group>"; };
-		3BE247ED143C516300ED2176 /* LDMessageParamImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageParamImage.h; sourceTree = "<group>"; };
-		3BE247EE143C516300ED2176 /* LDMessageParamImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageParamImage.m; sourceTree = "<group>"; };
-		3BE247EF143C516300ED2176 /* LDMessageParamInt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageParamInt.h; sourceTree = "<group>"; };
-		3BE247F0143C516300ED2176 /* LDMessageParamInt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageParamInt.m; sourceTree = "<group>"; };
-		3BE247F1143C516300ED2176 /* LDMessageParamString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageParamString.h; sourceTree = "<group>"; };
-		3BE247F2143C516300ED2176 /* LDMessageParamString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDMessageParamString.m; sourceTree = "<group>"; };
+		3BE247E5143C516300ED2176 /* CGRectAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRectAdapter.h; sourceTree = "<group>"; };
+		3BE247E6143C516300ED2176 /* CGRectAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRectAdapter.m; sourceTree = "<group>"; };
+		3BE247E7143C516300ED2176 /* UIColorAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorAdapter.h; sourceTree = "<group>"; };
+		3BE247E8143C516300ED2176 /* UIColorAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorAdapter.m; sourceTree = "<group>"; };
+		3BE247E9143C516300ED2176 /* EnumAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumAdapter.h; sourceTree = "<group>"; };
+		3BE247EA143C516300ED2176 /* EnumAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnumAdapter.m; sourceTree = "<group>"; };
+		3BE247EB143C516300ED2176 /* FloatAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatAdapter.h; sourceTree = "<group>"; };
+		3BE247EC143C516300ED2176 /* FloatAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloatAdapter.m; sourceTree = "<group>"; };
+		3BE247ED143C516300ED2176 /* UIImageAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageAdapter.h; sourceTree = "<group>"; };
+		3BE247EE143C516300ED2176 /* UIImageAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageAdapter.m; sourceTree = "<group>"; };
+		3BE247EF143C516300ED2176 /* IntegerAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegerAdapter.h; sourceTree = "<group>"; };
+		3BE247F0143C516300ED2176 /* IntegerAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegerAdapter.m; sourceTree = "<group>"; };
+		3BE247F1143C516300ED2176 /* NSStringAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdapter.h; sourceTree = "<group>"; };
+		3BE247F2143C516300ED2176 /* NSStringAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdapter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,12 +241,14 @@
 				3BE247CB143C516300ED2176 /* LDLayerProperty.m */,
 				3BE247CC143C516300ED2176 /* LDMessage.h */,
 				3BE247CD143C516300ED2176 /* LDMessage.m */,
-				3BE247CE143C516300ED2176 /* MessageHelper.h */,
-				3BE247CF143C516300ED2176 /* MessageHelper.m */,
+				3BE247CE143C516300ED2176 /* PropertyMap.h */,
+				3BE247CF143C516300ED2176 /* PropertyMap.m */,
 				3BE247D0143C516300ED2176 /* LDProperty.h */,
 				3BE247D1143C516300ED2176 /* LDProperty.m */,
-				3B39A6121462CA30009B7A7E /* EnumHelper.h */,
-				3B39A6131462CA30009B7A7E /* EnumHelper.m */,
+				3B39A6121462CA30009B7A7E /* EnumMap.h */,
+				3B39A6131462CA30009B7A7E /* EnumMap.m */,
+				3B739D98146A9A25004E8012 /* MessageUtility.h */,
+				3B739D99146A9A25004E8012 /* MessageUtility.m */,
 			);
 			path = messages;
 			sourceTree = "<group>";
@@ -272,20 +280,21 @@
 			children = (
 				3BE247E3143C516300ED2176 /* LDMessageParam.h */,
 				3BE247E4143C516300ED2176 /* LDMessageParam.m */,
-				3BE247E5143C516300ED2176 /* LDMessageParamCGRect.h */,
-				3BE247E6143C516300ED2176 /* LDMessageParamCGRect.m */,
-				3BE247E7143C516300ED2176 /* LDMessageParamColor.h */,
-				3BE247E8143C516300ED2176 /* LDMessageParamColor.m */,
-				3BE247E9143C516300ED2176 /* LDMessageParamEnum.h */,
-				3BE247EA143C516300ED2176 /* LDMessageParamEnum.m */,
-				3BE247EB143C516300ED2176 /* LDMessageParamFloat.h */,
-				3BE247EC143C516300ED2176 /* LDMessageParamFloat.m */,
-				3BE247ED143C516300ED2176 /* LDMessageParamImage.h */,
-				3BE247EE143C516300ED2176 /* LDMessageParamImage.m */,
-				3BE247EF143C516300ED2176 /* LDMessageParamInt.h */,
-				3BE247F0143C516300ED2176 /* LDMessageParamInt.m */,
-				3BE247F1143C516300ED2176 /* LDMessageParamString.h */,
-				3BE247F2143C516300ED2176 /* LDMessageParamString.m */,
+				3BE247E5143C516300ED2176 /* CGRectAdapter.h */,
+				3BE247E6143C516300ED2176 /* CGRectAdapter.m */,
+				3BE247E7143C516300ED2176 /* UIColorAdapter.h */,
+				3BE247E8143C516300ED2176 /* UIColorAdapter.m */,
+				3BE247E9143C516300ED2176 /* EnumAdapter.h */,
+				3BE247EA143C516300ED2176 /* EnumAdapter.m */,
+				3BE247EB143C516300ED2176 /* FloatAdapter.h */,
+				3BE247EC143C516300ED2176 /* FloatAdapter.m */,
+				3BE247ED143C516300ED2176 /* UIImageAdapter.h */,
+				3BE247EE143C516300ED2176 /* UIImageAdapter.m */,
+				3BE247EF143C516300ED2176 /* IntegerAdapter.h */,
+				3BE247F0143C516300ED2176 /* IntegerAdapter.m */,
+				3BE247F1143C516300ED2176 /* NSStringAdapter.h */,
+				3BE247F2143C516300ED2176 /* NSStringAdapter.m */,
+				3B62F89B1463E4F700773D7C /* TypeAdapter.h */,
 			);
 			path = supportedParams;
 			sourceTree = "<group>";
@@ -301,7 +310,7 @@
 				3BE247F3143C516300ED2176 /* LDCommand.h in Headers */,
 				3BE247F5143C516300ED2176 /* LDLayerProperty.h in Headers */,
 				3BE247F7143C516300ED2176 /* LDMessage.h in Headers */,
-				3BE247F9143C516300ED2176 /* MessageHelper.h in Headers */,
+				3BE247F9143C516300ED2176 /* PropertyMap.h in Headers */,
 				3BE247FB143C516300ED2176 /* LDProperty.h in Headers */,
 				3BE247FD143C516300ED2176 /* AppConfig.h in Headers */,
 				3BE247FF143C516300ED2176 /* Connection.h in Headers */,
@@ -313,14 +322,16 @@
 				3BE2480A143C516300ED2176 /* ServerBrowserDelegate.h in Headers */,
 				3BE2480B143C516300ED2176 /* ServerDelegate.h in Headers */,
 				3BE2480C143C516300ED2176 /* LDMessageParam.h in Headers */,
-				3BE2480E143C516300ED2176 /* LDMessageParamCGRect.h in Headers */,
-				3BE24810143C516300ED2176 /* LDMessageParamColor.h in Headers */,
-				3BE24812143C516300ED2176 /* LDMessageParamEnum.h in Headers */,
-				3BE24814143C516300ED2176 /* LDMessageParamFloat.h in Headers */,
-				3BE24816143C516300ED2176 /* LDMessageParamImage.h in Headers */,
-				3BE24818143C516300ED2176 /* LDMessageParamInt.h in Headers */,
-				3BE2481A143C516300ED2176 /* LDMessageParamString.h in Headers */,
-				3B39A6141462CA31009B7A7E /* EnumHelper.h in Headers */,
+				3BE2480E143C516300ED2176 /* CGRectAdapter.h in Headers */,
+				3BE24810143C516300ED2176 /* UIColorAdapter.h in Headers */,
+				3BE24812143C516300ED2176 /* EnumAdapter.h in Headers */,
+				3BE24814143C516300ED2176 /* FloatAdapter.h in Headers */,
+				3BE24816143C516300ED2176 /* UIImageAdapter.h in Headers */,
+				3BE24818143C516300ED2176 /* IntegerAdapter.h in Headers */,
+				3BE2481A143C516300ED2176 /* NSStringAdapter.h in Headers */,
+				3B39A6141462CA31009B7A7E /* EnumMap.h in Headers */,
+				3B62F89C1463E4F800773D7C /* TypeAdapter.h in Headers */,
+				3B739D9A146A9A25004E8012 /* MessageUtility.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,7 +437,7 @@
 				3BE247F4143C516300ED2176 /* LDCommand.m in Sources */,
 				3BE247F6143C516300ED2176 /* LDLayerProperty.m in Sources */,
 				3BE247F8143C516300ED2176 /* LDMessage.m in Sources */,
-				3BE247FA143C516300ED2176 /* MessageHelper.m in Sources */,
+				3BE247FA143C516300ED2176 /* PropertyMap.m in Sources */,
 				3BE247FC143C516300ED2176 /* LDProperty.m in Sources */,
 				3BE247FE143C516300ED2176 /* AppConfig.m in Sources */,
 				3BE24800143C516300ED2176 /* Connection.m in Sources */,
@@ -435,14 +446,15 @@
 				3BE24807143C516300ED2176 /* Server.m in Sources */,
 				3BE24809143C516300ED2176 /* ServerBrowser.m in Sources */,
 				3BE2480D143C516300ED2176 /* LDMessageParam.m in Sources */,
-				3BE2480F143C516300ED2176 /* LDMessageParamCGRect.m in Sources */,
-				3BE24811143C516300ED2176 /* LDMessageParamColor.m in Sources */,
-				3BE24813143C516300ED2176 /* LDMessageParamEnum.m in Sources */,
-				3BE24815143C516300ED2176 /* LDMessageParamFloat.m in Sources */,
-				3BE24817143C516300ED2176 /* LDMessageParamImage.m in Sources */,
-				3BE24819143C516300ED2176 /* LDMessageParamInt.m in Sources */,
-				3BE2481B143C516300ED2176 /* LDMessageParamString.m in Sources */,
-				3B39A6151462CA31009B7A7E /* EnumHelper.m in Sources */,
+				3BE2480F143C516300ED2176 /* CGRectAdapter.m in Sources */,
+				3BE24811143C516300ED2176 /* UIColorAdapter.m in Sources */,
+				3BE24813143C516300ED2176 /* EnumAdapter.m in Sources */,
+				3BE24815143C516300ED2176 /* FloatAdapter.m in Sources */,
+				3BE24817143C516300ED2176 /* UIImageAdapter.m in Sources */,
+				3BE24819143C516300ED2176 /* IntegerAdapter.m in Sources */,
+				3BE2481B143C516300ED2176 /* NSStringAdapter.m in Sources */,
+				3B39A6151462CA31009B7A7E /* EnumMap.m in Sources */,
+				3B739D9B146A9A25004E8012 /* MessageUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

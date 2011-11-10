@@ -6,9 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "LDMessageParam.h"
 
-@interface LDMessageParamCGRect : LDMessageParam
+#import "TypeAdapter.h"
+@interface CGRectAdapter : NSObject<TypeAdapter>
 {
     CGRect rect;
 }

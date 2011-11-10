@@ -63,7 +63,7 @@
         for(int i=0;i<[params count];i++)
         {
             LDMessageParam *param = [params objectAtIndex:i];
-            void *val = [param value];
+            void *val = [param getValue];
             [anInvocation setArgument:val atIndex:i+2];
         }
     }
