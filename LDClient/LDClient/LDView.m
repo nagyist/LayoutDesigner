@@ -65,9 +65,6 @@ static int viewId = 0;
            
         }
     }
-    
-   // self.messages = [MessageHelper messagesForObject:view_];
-   // self.messages = [PropertyMap propertiesForObject:view_];
     self.messages = [[PropertyMap defaultPropertyMap] propertiesForObject:view_];
 }
 

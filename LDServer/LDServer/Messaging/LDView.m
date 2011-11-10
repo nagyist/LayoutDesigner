@@ -31,7 +31,6 @@
 
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
-    [encoder encodeRect:frame forKey:@"frame"];
     [encoder encodeInt:(int)identifier forKey:@"id"];
     [encoder encodeObject:name forKey:@"name"];
     [encoder encodeObject:children forKey:@"children"];
@@ -44,16 +43,7 @@
     [self init];
     self.name =   [aDecoder decodeObjectForKey:@"name"];
     self.identifier = [aDecoder decodeIntForKey:@"id"];
-    children = [aDecoder decodeObjectForKey:@"children"];
-    if (children != nil) {
-        [children retain];
-    }
-    
-    float x = [aDecoder decodeFloatForKey:@"x"];
-    float y = [aDecoder decodeFloatForKey:@"y"];
-    float w = [aDecoder decodeFloatForKey:@"w"];
-    float h = [aDecoder decodeFloatForKey:@"h"];
-    frame = CGRectMake(x, y, w, h);
+    self.children = [aDecoder decodeObjectForKey:@"children"];
     self.messages = [aDecoder decodeObjectForKey:@"messages"];
     self.properties = [aDecoder decodeObjectForKey:@"properties"];
     return  self;
