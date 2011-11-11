@@ -72,8 +72,9 @@ static NSArray *openFiles()
 -(void)setInitialValue:(id<TypeAdapter>)initialValue
 {
     NSParameterAssert([initialValue isKindOfClass:[UIImageAdapter class]]);
-    void *value = [initialValue value];
-    NSImage *image = (NSImage*)value;
+//    void *value = [initialValue value];
+//    NSImage *image = (NSImage*)value;
+    NSImage *image = [[[NSImage alloc] initWithData:[(UIImageAdapter*)initialValue imageData]] autorelease];
     [imageView setImage:image];
     
 }

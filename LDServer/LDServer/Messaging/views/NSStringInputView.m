@@ -52,7 +52,7 @@
 
 -(void)setInitialValue:(id<TypeAdapter>)initialValue
 {
-    NSParameterAssert([initialValue isKindOfClass:[NSString class]]);
+    NSParameterAssert([initialValue isKindOfClass:[NSStringAdapter class]]);
     [stringField setTitleWithMnemonic:[(NSStringAdapter*)initialValue text]];
 }
 
