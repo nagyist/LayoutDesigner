@@ -52,6 +52,7 @@ extern NSString* const LDPropertyChangedNotificationPropertyInstanceKey;
     LDMessageParam  *param;
     LDMessageParam *originalParam;
     LDView *selectedView;
+    LDView *viewTreeRoot;
     
 
     
@@ -61,7 +62,8 @@ extern NSString* const LDPropertyChangedNotificationPropertyInstanceKey;
 @property(nonatomic,retain)NSString *getter;
 @property(nonatomic,retain)NSString *setter;
 @property(nonatomic,retain)LDMessageParam *param;
-@property(nonatomic,retain)LDView *selectedView;
+@property(nonatomic,assign)LDView *selectedView;
+@property(nonatomic,assign)LDView *viewTreeRoot;
 /*!
  @property      dirty
  @brief         true if the value was modified from the server, false otherwise.

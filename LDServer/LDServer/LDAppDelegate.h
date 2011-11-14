@@ -7,9 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "MainViewController.h"
 @interface LDAppDelegate : NSObject <NSApplicationDelegate>
+{
+    NSMutableArray *arrayOfMainViewControllers;
+}
 
+-(MainViewController*)controllerForViewRoot:(NSInteger)identifier;
 @property (assign) IBOutlet NSWindow *window;
-
+@property(nonatomic,strong)MainViewController *viewControllerForClientApplicationMainWindow;
 @end

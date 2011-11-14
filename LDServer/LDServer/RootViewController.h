@@ -7,8 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "MainViewController.h"
 @interface RootViewController : NSViewController
 @property (assign) IBOutlet NSTabView *tabView;
+@property(nonatomic,readonly)MainViewController *viewControllerForClientMainScreen;
 
 @end

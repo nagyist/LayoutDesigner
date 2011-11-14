@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Tree.h"
+#import "TreeNode.h"
 
 @interface TreeUtil : NSObject
 +(NSArray*)allParentsOfNode:(id<TreeNode>)node inTreeRootedAt:(id<TreeNode>)root;

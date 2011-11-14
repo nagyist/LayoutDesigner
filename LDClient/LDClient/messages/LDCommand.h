@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 static const int default_SendListOfCommands = 0;
 
-
+extern const NSInteger serverCommandSendViewUpdate;
 
 @interface LDCommand : NSObject
 {

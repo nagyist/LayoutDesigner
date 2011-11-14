@@ -7,8 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-@interface LDView : NSObject<NSCoding>
+#import "LDCommandMap.h"
+#import "TreeNode.h"
+@protocol TreeNode;
+
+@interface LDView : NSObject<NSCoding,TreeNode>
+//@interface LDView: NSObject 
 {
+
     UIView *__weak view;
     NSString *name;
     NSInteger identifier;

@@ -9,9 +9,10 @@
 #import "RootViewController.h"
 #import "MainViewController.h"
 #import "Logger.h"
+#import "LDHost.h"
 @implementation RootViewController
 @synthesize tabView;
-
+@synthesize viewControllerForClientMainScreen;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,16 +27,18 @@
 -(void)loadView
 {
     [super loadView];
-    MainViewController *mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:[NSBundle mainBundle]];
+    [[LDHost sharedInstance] start];
     
+    MainViewController *mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:[NSBundle mainBundle]];
+    viewControllerForClientMainScreen = mainViewController;
     Logger *logger = [Logger sharedInstance];
     
    NSTabViewItem *applicationViewItem =   [[tabView tabViewItems] objectAtIndex:0];
     [applicationViewItem setView:mainViewController.view];
     
     NSTabViewItem *logViewItem = [[tabView tabViewItems] objectAtIndex:1];
-   // [logger.mViewController.view setBounds:[[logViewItem view] bounds]];
     [logViewItem setView:logger.mViewController.view];
 }
+
 
 @end

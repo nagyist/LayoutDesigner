@@ -10,11 +10,20 @@
 #import "LDProperty.h"
 #import "Logger.h"
 #import "TreeUtil.h"
-
+#import "LDCommandMap.h"
+#import "LDConstants.h"
 #import "NSOutlineView+Additions.h"
+#import "LDConstants.h"
+
+@interface MainViewController (Private)
+-(void)onItemSelect:(LDView*)item;
+-(void)sendHighlightForViewId:(NSInteger)viewId;
+-(LDView*)viewForId:(NSInteger)anIdentifier inRoot:(LDView*)aRoot;
+@end
+
 
 @implementation MainViewController
-@synthesize logWindow;
+@synthesize viewTreeRoot;
 @synthesize viewTreeOutlineView;
 @synthesize refreshButton;
 @synthesize optionsBox;
@@ -27,8 +36,6 @@
     if (self) {
         // initialize and start the sever
         host = [LDHost sharedInstance];
-        host.delegate = self;
-        [host start];
         
     }
     
@@ -45,72 +52,49 @@
     
 }
 
+
+-(void)selectViewWithIdentifier:(LDView*)anItem
+{
+    NSArray *allParents = [TreeUtil allParentsOfNode:anItem inTreeRootedAt:viewTreeRoot];
+    for(id parent in allParents)
+    {
+        [viewTreeOutlineView expandItem:parent];
+    }
+    [viewTreeOutlineView selectItem:anItem];
+    [self onItemSelect:anItem];
+}
 - (IBAction)optionsBoxValueChanged:(id)sender {
 }
 
 - (IBAction)refreshButtonClicked:(id)sender {
     NSMutableDictionary *packet = [[NSMutableDictionary alloc] init];
-    NSString *commandId = [NSString stringWithFormat:@"%d",[[LDCommand broadcastViewTreeCommand] identifier]];
-    [packet setObject:commandId forKey:@"cmd"];
+  //  NSString *commandId = [NSString stringWithFormat:@"%d",[[LDCommand broadcastViewTreeCommand] identifier]];
+    
+    [packet setObject:ClientCommandSendCurrentViewTree forKey:NetworkPacketKeyCommand];
     [host broadcastPacket:packet];
     
 }
 
-
-
-
-#pragma mark -
-#pragma mark LMHostDelegate
--(void)receivedNewPacket:(NSDictionary*)packet
+-(void)setViewTreeRoot:(LDView *)viewTree
 {
-    LDView *treeObject =  [packet objectForKey:@"data"];
-    if(treeObject != nil){
-        subviewRoot = [treeObject retain];
-        if (viewTreeOutlineView!= nil) {
-            [viewTreeOutlineView reloadData];
-        }
+    if (viewTree == nil) {
+        [viewTreeRoot release];
+        viewTreeRoot = nil;
+        return;
     }
-    else if([packet objectForKey:@"selectedview"] != nil)
-    {
-        LDView *selectedView = [packet objectForKey:@"selectedview"];
-       
-        LDView *item = [self viewForId:selectedView.identifier inRoot:subviewRoot];
-        
-        NSArray *parents = [self getParents:item fromRoot:subviewRoot];
-        for(id parent in parents)
-        {
-            [viewTreeOutlineView expandItem:parent];   
-        }
-        [viewTreeOutlineView selectItem:item];
-        [self sendHighlightForViewId:item.identifier];
-
+    LDView *temp = viewTreeRoot;
+    viewTreeRoot = [viewTree retain];
+    [temp release];
+    if (viewTreeOutlineView!= nil) {
+        [viewTreeOutlineView reloadData];
     }
-    
 }
+
 
 -(NSArray*)getParents:(LDView*)view fromRoot:(LDView*)root
 {
    return [TreeUtil allParentsOfNode:view inTreeRootedAt:root];
 
-//    //start finding form the root with backtracking
-//    
-//    if([root.children containsObject:view])
-//        return [NSArray arrayWithObject:root];
-//    else{
-//        for(LDView* child in root.children)
-//        {
-//            NSArray * parents = [self getParents:view fromRoot:child];
-//            if(parents != nil)
-//            {
-//                NSMutableArray *parentsToReturn = [[NSMutableArray alloc] init];
-//                [parentsToReturn addObject:root];
-//                [parentsToReturn addObjectsFromArray:parents];
-//                return [parentsToReturn autorelease];
-//            }
-//        }
-//        
-//    }
-//    return nil;
 }
 
 
@@ -118,18 +102,6 @@
 {
     
     return (LDView*)[TreeUtil findNode:anIdentifier inTreeRootedAt:aRoot];
-//    if (aRoot.identifier == anIdentifier)
-//        return aRoot;
-//    else if(aRoot.children != nil){
-//        for(LDView *v in aRoot.children)
-//        {
-//            LDView *viewToBeReturned = [self viewForId:anIdentifier inRoot:v];
-//            if (viewToBeReturned != nil) {
-//                return viewToBeReturned;
-//            }
-//        }
-//    }
-//    return nil;
 }
 
 #pragma mark -
@@ -137,8 +109,8 @@
 
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item{
     if (item == nil) {
-        item = subviewRoot;
-        return subviewRoot;
+        item = viewTreeRoot;
+        return viewTreeRoot;
     }
     LDView *treeNode = (LDView*)item;
     return [treeNode.children objectAtIndex:index];
@@ -159,8 +131,8 @@
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item{
     if (item == nil) {
-        if (subviewRoot != nil && subviewRoot.children != nil) {
-            return [subviewRoot.children count];
+        if (viewTreeRoot != nil && viewTreeRoot.children != nil) {
+            return [viewTreeRoot.children count];
         }
         return 1;
     }
@@ -175,7 +147,7 @@
 {
     if (item == nil) {
         // item = root;
-        item = subviewRoot;
+        item = viewTreeRoot;
     }    
     return  [(LDView*)item name];
 }
@@ -187,7 +159,14 @@
 {
     /*select item*/
     LDView *treeNode = (LDView*)item;
-    selectedItem = treeNode;
+    [self onItemSelect:treeNode];
+    
+    return YES;
+}
+
+-(void)onItemSelect:(LDView*)item
+{
+    selectedItem = item;
     [actionsBox reloadData];
     
     for(NSView *v in [controlViewContainer subviews])
@@ -198,8 +177,6 @@
         
     }
     [self sendHighlightForViewId:selectedItem.identifier];
-    
-    return YES;
 }
 
 
@@ -238,37 +215,19 @@
     else if ([aMessage isKindOfClass:[LDProperty class]])
     {
         [(LDProperty*)aMessage setSelectedView:selectedItem ];
+        [(LDProperty*)aMessage setViewTreeRoot:viewTreeRoot ];
         [(LDProperty*)aMessage populateControls:controlViewContainer];
     }
     
     
 }
 
-
-- (IBAction)showLogButtonClicked:(id)sender {
-    
-    static NSString *titleForHideLog  = @"hide logs";
-    static NSString  *titleForShowLog = @"show logs";
-    NSButton *button = (NSButton*)sender;
-    NSString *title = button.title;
-    if ([title isEqualToString:titleForHideLog]) {
-        [button setTitle:titleForShowLog];
-        [logWindow setIsVisible:YES];
-    }
-    else
-    {
-        [button setTitle:titleForHideLog];
-        [logWindow setIsVisible:NO];
-    }
-}
-
 -(void)sendHighlightForViewId:(NSInteger)viewId
 {
-    NSMutableDictionary *packet = [[NSMutableDictionary alloc] init];
-    NSString *commandId = [NSString stringWithFormat:@"%d",[[LDCommand highlightViewCommand] identifier]];
-    [packet setObject:commandId forKey:@"cmd"];
-    [packet setObject:[NSString stringWithFormat:@"%d",viewId] forKey:@"id"];
-    [host broadcastPacket:packet];
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
+    [data setObject:[NSString stringWithFormat:@"%d",viewId] forKey:NetworkPacketDataKeyViewId];
+    [data setObject:[NSString stringWithFormat:@"%d",viewTreeRoot.identifier] forKey:NetworkPacketDataKeyRootViewId];
+    [host sendCommand:ClientCommandHighlightView withData:data];
 }
 
 

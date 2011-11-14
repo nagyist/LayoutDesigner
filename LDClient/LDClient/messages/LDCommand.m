@@ -14,7 +14,6 @@ static NSLock *identifierLock = nil;
 static NSMutableArray *allCommands;
 
 
-
 static LDCommand *broadCastViewTree = nil;
 static LDCommand *highlightSelectedView = nil;
 static LDCommand *updateFrame = nil;

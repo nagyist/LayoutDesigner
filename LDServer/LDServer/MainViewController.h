@@ -15,13 +15,14 @@
 #import "LDCommand.h"
 
 
-@interface MainViewController : NSViewController<NSOutlineViewDelegate,NSOutlineViewDataSource,LMHostDelegate,NSComboBoxDelegate,NSComboBoxDataSource>
+@interface MainViewController : NSViewController<NSOutlineViewDelegate,NSOutlineViewDataSource,NSComboBoxDelegate,NSComboBoxDataSource>
 {
-    LDView *subviewRoot;
+    LDView *viewTreeRoot;
     LDView *selectedItem;
     LDHost *host;
    
 }
+@property(nonatomic,strong)LDView *viewTreeRoot;
 @property (assign) IBOutlet OutlineViewWithKeyDownHandling *viewTreeOutlineView;
 @property (assign) IBOutlet NSButton *refreshButton;
 @property (assign) IBOutlet NSComboBox *optionsBox;
@@ -31,11 +32,6 @@
 - (IBAction)optionsBoxValueChanged:(id)sender;
 - (IBAction)refreshButtonClicked:(id)sender;
 
-@property (assign) IBOutlet NSWindow *logWindow;
-- (IBAction)showLogButtonClicked:(id)sender;
+-(void)selectViewWithIdentifier:(LDView*)anItem;
 
--(void)sendHighlightForViewId:(NSInteger)viewId;
-
-
--(LDView*)viewForId:(NSInteger)anIdentifier inRoot:(LDView*)aRoot;
 @end

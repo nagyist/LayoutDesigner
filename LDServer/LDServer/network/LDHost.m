@@ -19,6 +19,13 @@
 
 #import "LDHost.h"
 #import "LDCommand.h"
+#import "LDConstants.h"
+#import "LDCommandMap.h"
+#import "LDProperty.h"
+
+static inline NSString* stringValue(long val){
+    return [NSString stringWithFormat:@"%d",val];
+}
 
 // Private properties
 @interface LDHost ()
@@ -40,7 +47,6 @@ static LDHost *sharedInstance = nil;
 {
     if (sharedInstance == nil) {
         sharedInstance = [[LDHost alloc] init];
-        [LDCommand initialize];
     }
     return  sharedInstance;
 }
@@ -134,9 +140,35 @@ static LDHost *sharedInstance = nil;
 // One of connected clients sent a chat message. Propagate it further.
 - (void) receivedNetworkPacket:(NSDictionary*)packet viaConnection:(Connection*)connection {
     NSLog(@"received newtwork packet");
-    if (delegate != nil && [delegate respondsToSelector:@selector(receivedNewPacket:)]) {
-        [delegate receivedNewPacket:packet];
+    
+    NSString *commandId = [packet valueForKey:NetworkPacketKeyCommand];
+    id<LDCommandHandler> handler = [LDCommandMap handlerForCommand:commandId];
+    if (handler != nil) {
+        NSDictionary *commandInfo = [LDCommandMap infoForCommand:commandId];
+        [handler executeCommand:commandId withData:packet commandInfo:commandInfo];
     }
 }
 
+-(void)sendCommand:(NSString*)commandId withData:(NSDictionary*)data
+{
+    NSMutableDictionary *packet = [[NSMutableDictionary alloc] init];
+    [packet setObject:commandId forKey:NetworkPacketKeyCommand];
+    [packet setObject:data forKey:NetowrkPacketKeyData];
+    [self broadcastPacket:packet];
+}
+
+-(void)propertyChanged:(LDProperty*)property
+{
+    if(property.selectedView == nil || property.viewTreeRoot == nil)
+    {
+        NSLog(@"Error sending property change to client, viewTreeRoot or selectedView is nil, selectedView %@  viewTreeRoot %@ ",property.selectedView,property.viewTreeRoot);
+        return;
+    }
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
+    [data setObject:property forKey:NetworkPacketDataKeyProperty];
+    [data setObject:stringValue([property.selectedView identifier]) forKey:NetworkPacketDataKeyViewId];
+    [data setObject:stringValue(property.viewTreeRoot.identifier) forKey:NetworkPacketDataKeyRootViewId];
+    [self sendCommand:ClientCommandSetProperty withData:data];
+    [data release];
+}
 @end

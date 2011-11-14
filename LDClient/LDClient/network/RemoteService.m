@@ -11,11 +11,15 @@
 #import "LDCommand.h"
 #import "LDMessageParam.h"
 #import "LDProperty.h"
-
+#import "DefaultCommandHandler.h"
+#import "LDCommandMap.h"
+#import "LDConstants.h"
+#import "ViewTreeManager.h"
 
 static RemoteService *sharedInstance = nil;
 @implementation RemoteService
 @synthesize client;
+@synthesize root;
 +(RemoteService*)sharedInstance
 {
     if (sharedInstance == nil) {
@@ -28,56 +32,78 @@ static RemoteService *sharedInstance = nil;
 {
     self = [super init];
     if (self) {
+        
         // Initialization code here.
+         [self setupClient];
+        
        // [self replaceTouchHandler];
         [self findAndJoinServer];
+       
     }
     
     return self;
 }
 
 
--(void)failedToConnect:(Client*)client_{
+-(void)setupClient
+{
+    //add client supported commands
+    DefaultCommandHandler *defaultHandler = [[DefaultCommandHandler alloc] init];
+    NSMutableDictionary *commandInfo = [[NSMutableDictionary alloc] init];
+    
+    [commandInfo setObject:@"sendCurrentViewTree:" forKey:@"selector"];                                 
+    [LDCommandMap setHandler:defaultHandler forCommand:ClientCommandSendCurrentViewTree info:[commandInfo copy]];
+    
+    [commandInfo setObject:@"sendViewUpdate:" forKey:@"selector"];                                 
+    [LDCommandMap setHandler:defaultHandler forCommand:ClientCommandSendViewUpdate info:[commandInfo copy]];
+    
+    [commandInfo setObject:@"highlightView:" forKey:@"selector"];                                 
+    [LDCommandMap setHandler:defaultHandler forCommand:ClientCommandHighlightView info:[commandInfo copy]];
+    
+    [commandInfo setObject:@"setProperty:" forKey:@"selector"];                                 
+    [LDCommandMap setHandler:defaultHandler forCommand:ClientCommandSetProperty info:[commandInfo copy]];
+    
+    [commandInfo setObject:@"sendMessage:" forKey:@"selector"];                                 
+    [LDCommandMap setHandler:defaultHandler forCommand:ClientCommandSendMessage info:[commandInfo copy]];
+     
+    
+    //create a viewRoot from applicationWindow and set it as currentView
+    //UIWindow *appWindow = [[[UIApplication sharedApplication] delegate] window];
+    //[[ViewTreeManager sharedInstance] createViewTreeWithRootView:appWindow];
+    
+    //give the developer a chance to do his own initialization
+    //TODO:
+}
+
+-(void)sendCommand:(NSString*)commandId withData:(id)data
+{
+    NSMutableDictionary *packet = [[NSMutableDictionary alloc] init];
+    [packet setObject:commandId forKey:NetworkPacketKeyCommand];
+    [packet setObject:data forKey:NetowrkPacketKeyData];
+    [client broadcastPacket:packet];
+}
+-(void)failedToConnect:(ClientConnection*)client_{
     self.client = nil;
     //attempt again
     [self findAndJoinServer];
 }
--(void)connectionTerminated:(Client*)client_
+-(void)connectionTerminated:(ClientConnection*)client_
 {
     self.client = nil;
     //attempt again
     [self findAndJoinServer];
 }
--(void)client:(Client*)client_ receivedNetworkPacket:(NSDictionary*)packet{
+-(void)client:(ClientConnection*)client_ receivedNetworkPacket:(NSDictionary*)packet{
    
-    id object = [packet objectForKey:@"exc"];
-   
-    if (object != nil) {
-        if ([object isKindOfClass:[LDMessage class]]) {
-             LDMessage *m = (LDMessage*)object;
-            NSInteger viewId = [[packet objectForKey:@"id"] integerValue];
-            UIView *viewToBeUpdated = [self viewForId:viewId inRoot:root];
-            if (viewToBeUpdated != nil) {
-                [m executeOnObject:viewToBeUpdated];
-            }
-            return;
-        }
-        else if([object isKindOfClass:[LDProperty class ]])
-        {
-            LDProperty *p = (LDProperty*)object;
-            NSInteger viewId = [[packet objectForKey:@"id"] integerValue];
-            UIView *viewToBeUpdated = [self viewForId:viewId inRoot:root];
-            if (viewToBeUpdated != nil) {
-                [p setOnObject:viewToBeUpdated];
-            }
-            return;
-        }
+    NSString *commandId = [packet valueForKey:NetworkPacketKeyCommand];
+    id<LDCommandHandler> handler = [LDCommandMap handlerForCommand:commandId];
+    if (handler == nil) {
+        NSLog(@"No handler found for command %@, packet %@",commandId,packet);
     }
-   
-    NSInteger commandId =  [[packet objectForKey:@"cmd"] integerValue];
-    LDCommand *cmd = [LDCommand commandWithIdentifier:commandId];
-    if (cmd != nil) {
-        [cmd executeWithObject:packet];
+    else
+    {
+        NSDictionary *commandInfo = [LDCommandMap infoForCommand:commandId];
+        [handler executeCommand:commandId withData:packet commandInfo:commandInfo];
     }
 }
 -(void)findAndJoinServer
@@ -95,7 +121,7 @@ static RemoteService *sharedInstance = nil;
 {
     NSNetService* selectedServer = [serverBrowser.servers objectAtIndex:0];
     
-    self.client = [[Client alloc] initWithNetService:selectedServer];
+    self.client = [[ClientConnection alloc] initWithNetService:selectedServer];
     client.delegate = self;
     [client start];
 
@@ -177,7 +203,7 @@ static RemoteService *sharedInstance = nil;
     LDView * touchedView = [self getTouchedViewIn:root sender:sender]; //[root.view hitTest:point withEvent:nil];
     if (touchedView != nil) {
         NSLog(@"touched %@",[touchedView.view class]);
-        [self sendSelectViewCommand:touchedView];
+//        [self sendSelectViewCommand:touchedView inViewTree:<#(LDView *)#>:touchedView];
     }
 }
 
@@ -217,45 +243,15 @@ static RemoteService *sharedInstance = nil;
     return !([arrayOfClassNames containsObject:[[view class] description]]);
 }
 
--(void)sendSelectViewCommand:(LDView*)selectedView
-{
-    NSMutableDictionary * packet = [[NSMutableDictionary alloc] init];
-    [packet setObject:selectedView forKey:@"selectedview"];
-    [client broadcastPacket:packet];
-    
-}
 
--(void)updateFrame:(NSDictionary*)packet
+-(void)sendSelectViewCommand:(LDView*)selectedView inViewTree:(LDView*)treeRoot
 {
-    NSInteger viewId = [[packet objectForKey:@"id"] integerValue];
-    UIView *viewToBeUpdated = [self viewForId:viewId inRoot:root];
+    NSMutableDictionary * data = [[NSMutableDictionary alloc] init];
+    [data setObject:[NSString stringWithFormat:@"%d",selectedView.identifier] forKey:NetworkPacketDataKeyViewId];
+     [data setObject:[NSString stringWithFormat:@"%d",treeRoot.identifier] forKey:NetworkPacketDataKeyRootViewId];
+   // [client broadcastPacket:data];
+    [self sendCommand:ServerCommandSelectView withData:data];
     
-    if (viewToBeUpdated == nil) {
-        UIAlertView *alert = [[UIAlertView  alloc] initWithTitle:@"" message:@"No Matching View" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        return; 
-    }
-    
-    CGRect frame = viewToBeUpdated.frame;
-    NSString *xStr = [packet objectForKey:@"x"];
-    NSString *yStr = [packet objectForKey:@"y"];
-    NSString *wStr = [packet objectForKey:@"w"];
-    NSString *hStr = [packet objectForKey:@"h"];
-    
-    if (xStr != nil && xStr.length >0) {
-        frame.origin.x = [xStr floatValue];
-    }
-    if (yStr != nil && yStr.length >0) {
-        frame.origin.y = [yStr floatValue];
-    }
-    if (wStr != nil && wStr.length >0) {
-        frame.size.width = [wStr floatValue];
-    }
-    if (hStr != nil && hStr.length >0) {
-        frame.size.height = [hStr floatValue];
-    }
-    viewToBeUpdated.frame = frame;
-    [viewToBeUpdated setNeedsLayout];
 }
 
 -(void)highlightSelectedView:(NSDictionary*)packet

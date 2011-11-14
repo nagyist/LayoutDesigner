@@ -18,7 +18,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
-#import "Tree.h"
+#import "TreeNode.h"
 @interface LDView : NSObject<NSCoding,TreeNode>
 {
     NSString *name;

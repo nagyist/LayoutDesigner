@@ -22,7 +22,7 @@
 #import "ServerDelegate.h"
 #import "ConnectionDelegate.h"
 
-
+@class LDProperty;
 @protocol LMHostDelegate;
 
 @interface LDHost : NSObject<ConnectionDelegate,ServerDelegate>
@@ -42,6 +42,8 @@
 - (BOOL)start;
 - (void)stop;
 -(void)broadcastPacket:(NSDictionary*)packet;
+-(void)sendCommand:(NSString*)commandId withData:(NSDictionary*)data;
+-(void)propertyChanged:(LDProperty*)property;
 @end
 
 

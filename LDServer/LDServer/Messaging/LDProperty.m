@@ -33,7 +33,7 @@ NSString* const LDPropertyChangedNotificationPropertyInstanceKey    = @"LDProper
 @end
 
 @implementation LDProperty
-@synthesize name,getter,setter,param,selectedView,dirty;
+@synthesize name,getter,setter,param,selectedView, viewTreeRoot , dirty;
 
 - (id)init
 {
@@ -98,11 +98,14 @@ NSString* const LDPropertyChangedNotificationPropertyInstanceKey    = @"LDProper
     //get the new value
     id<TypeAdapter> newValue = [cView getValue];
     [param setValue:newValue];
-    NSMutableDictionary *packet = [[NSMutableDictionary alloc] init];
-    [packet setObject:[NSString stringWithFormat:@"%d",selectedView.identifier] forKey:@"id"];
-    [packet setObject:self forKey:@"exc"];
     
-    [[LDHost sharedInstance] broadcastPacket:packet];
+    
+//    
+//    NSMutableDictionary *packet = [[NSMutableDictionary alloc] init];
+//    [packet setObject:[NSString stringWithFormat:@"%d",selectedView.identifier] forKey:@"id"];
+//    [packet setObject:self forKey:@"exc"];
+    
+    [[LDHost sharedInstance] propertyChanged:self];
     self.dirty = YES;
     [self despatchNotification];
     NSLog([self getCode]);
