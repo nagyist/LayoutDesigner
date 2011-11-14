@@ -8,6 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LDClient : NSObject
+
+@class ServerBrowser;
+@class ClientConnection;
+@class LDView;
+@protocol ClientConnectionDelegate;
+@protocol ServerBrowserDelegate;
+@interface LDClient : NSObject<ClientConnectionDelegate,ServerBrowserDelegate>
+{
+    @private
+    ServerBrowser *serverBrowser;
+    ClientConnection *client;
+    
+}
+
++(void)start;
++(LDClient*)sharedInstance;
+-(void)sendCommand:(NSString*)commandId withData:(id)data;  
+-(void)sendSelectViewCommand:(LDView*)selectedView inViewTree:(LDView*)treeRoot;
+
 
 @end
+
