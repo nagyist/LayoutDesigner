@@ -14,11 +14,10 @@
     NSMutableArray *viewTrees;
     NSMutableArray *gestureRecognizersForViewTrees;
 }
+
+
 +(ViewTreeManager*)sharedInstance;
-//public
 -(LDView*)viewTreeForWithRootId:(NSInteger)identifier;
 -(LDView*)createViewTreeForApplicationWindow;
-//private
--(LDView*)createViewTreeWithRootView:(UIView*)aView;
 -(void)removeViewTreeWithRootId:(NSInteger)identifier;
 @end
