@@ -3,10 +3,24 @@
 //  LDClientTests
 //
 //  Created by Ved Surtani on 05/10/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
-//
+//  Copyright 2011 Imaginea 
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//    you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+
+//  http://www.apache.org/licenses/LICENSE-2.0
+
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 
 #import "LDClientTests.h"
+#import "LDPropertyMap.h"
+#import "LDProperty.h"
+#import "LDCommandMap.h"
+#import "DefaultCommandHandler.h"
 
 @implementation LDClientTests
 
@@ -15,6 +29,8 @@
     [super setUp];
     
     // Set-up code here.
+    [LDClient start];
+
 }
 
 - (void)tearDown
@@ -24,9 +40,19 @@
     [super tearDown];
 }
 
-- (void)testExample
+-(void)testLDClientSharedInstance
 {
-    STFail(@"Unit tests are not implemented yet in LDClientTests");
+    LDClient *client = [LDClient sharedInstance];
+    STAssertNotNil(client, @"client is nil");
 }
+
+//tests if all the commands have handlers.
+-(void)testCommandHandlerInitialization
+{
+    //the map should have handlers for all.
+}
+
+
+
 
 @end
