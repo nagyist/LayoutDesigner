@@ -1,5 +1,5 @@
 //
-//  ViewTreeManager.h
+//  LDViewTreeManager.h
 //  LDClient
 //
 //  Created by Ved Surtani on 10/11/11.
@@ -21,12 +21,12 @@
 
 
 /*!
- @class     ViewTreeManager
+ @class     LDViewTreeManager
  @brief     Singleton class, manages all the viewTrees that are being edited or accessed from remote LDServer.
  @details   Generally all the views, especially each window in the application will represent one view tree. View tree is a Root View with all it's subviews 
  with subviews having it's own tree of subviews. This is a manager class tht stores all such view trees that are being modified or accessed from LDServer.
  */
-@interface ViewTreeManager : NSObject
+@interface LDViewTreeManager : NSObject
 {
     @private
     NSMutableArray *viewTrees;
@@ -37,7 +37,7 @@
 /*!
  @brief     returns the singlton shared instance.
  */
-+(ViewTreeManager*)sharedInstance;
++(LDViewTreeManager*)sharedInstance;
 
 /*!
  @brief     returns the @ref LDView instance whose identifier is the one specifed.

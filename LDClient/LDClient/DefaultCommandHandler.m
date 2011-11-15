@@ -19,7 +19,7 @@
 #import "DefaultCommandHandler.h"
 #import "RemoteService.h"
 #import "LDConstants.h"
-#import "ViewTreeManager.h"
+#import "LDViewTreeManager.h"
 #import "TreeUtil.h"
 #import "LDProperty.h"
 #import "LDMessage.h"
@@ -46,7 +46,7 @@
 
 -(void)sendCurrentViewTree:(NSDictionary*)packet
 {
-    LDView *currentVisibleViewTree = [[ViewTreeManager sharedInstance] createViewTreeForApplicationWindow];
+    LDView *currentVisibleViewTree = [[LDViewTreeManager sharedInstance] createViewTreeForApplicationWindow];
     [[RemoteService sharedInstance] sendCommand:ServerCommandHandleCurrentViewTreeResponse withData:currentVisibleViewTree];
     
 }
@@ -54,7 +54,7 @@
 {
     NSDictionary *data = [packet objectForKey:NetowrkPacketKeyData];
     NSInteger rootId = [[data valueForKey:NetworkPacketDataKeyRootViewId] intValue];
-    LDView *root = [[ViewTreeManager sharedInstance] viewTreeForWithRootId:rootId];
+    LDView *root = [[LDViewTreeManager sharedInstance] viewTreeForWithRootId:rootId];
     
     [[RemoteService sharedInstance] sendCommand:ServerCommandHandleViewUpdateResponse withData:root];
 }
@@ -66,7 +66,7 @@
     NSDictionary *data = [packet objectForKey:NetowrkPacketKeyData];
     NSInteger rootId = [[data valueForKey:NetworkPacketDataKeyRootViewId] intValue];
     NSInteger selectedViewId = [[data    valueForKey:NetworkPacketDataKeyViewId] intValue];
-    LDView *root = [[ViewTreeManager sharedInstance] viewTreeForWithRootId:rootId];
+    LDView *root = [[LDViewTreeManager sharedInstance] viewTreeForWithRootId:rootId];
     
     LDView *selectedViewNode = (LDView*)[TreeUtil findNode:selectedViewId inTreeRootedAt:root];
     
@@ -95,7 +95,7 @@
     NSInteger selectedViewId = [[data    valueForKey:NetworkPacketDataKeyViewId] intValue];
     LDProperty *propertyToSet = [data objectForKey:NetworkPacketDataKeyProperty];
     
-    LDView *root = [[ViewTreeManager sharedInstance] viewTreeForWithRootId:rootId];
+    LDView *root = [[LDViewTreeManager sharedInstance] viewTreeForWithRootId:rootId];
     LDView *selectedViewNode = (LDView*)[TreeUtil findNode:selectedViewId inTreeRootedAt:root];
     
     if (selectedViewNode == nil || selectedViewNode.view == nil) {

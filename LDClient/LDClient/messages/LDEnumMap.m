@@ -1,5 +1,5 @@
 //
-//  EnumMap.m
+//  LDEnumMap.m
 //  LDClient
 //
 //  Created by Ved Surtani on 03/11/11.
@@ -16,7 +16,7 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-#import "EnumMap.h"
+#import "LDEnumMap.h"
 #import "EnumAdapter.h"
 
 static inline NSString* stringValue(int val){
@@ -26,7 +26,7 @@ static inline NSString* stringValue(int val){
 static EnumAdapter *textAlignment;
 
 static NSMutableDictionary *enums;
-@implementation EnumMap
+@implementation LDEnumMap
 +(void)initialize
 {
     enums = [[NSMutableDictionary alloc] init];

@@ -1,5 +1,5 @@
 //
-//  PropertyMap.m
+//  LDPropertyMap.m
 //  LDClient
 //
 //  Created by Ved Surtani on 12/09/11.
@@ -17,10 +17,10 @@
 //  limitations under the License.
 //
 
-#import "PropertyMap.h"
+#import "LDPropertyMap.h"
 #import "LDProperty.h"
 #import "LDLayerProperty.h"
-#import "EnumMap.h"
+#import "LDEnumMap.h"
 @implementation NSArray (deepCopy)
 -(NSArray*)deepCopy
 {
@@ -33,25 +33,25 @@
 }
 @end
 
-@interface PropertyMap (Private)
+@interface LDPropertyMap (Private)
 +(void)addDefaultClassesAndProperties;
 @end
 
-static PropertyMap *defaultPropertyMap;
-@implementation PropertyMap
+static LDPropertyMap *defaultPropertyMap;
+@implementation LDPropertyMap
 
 
 
-+(PropertyMap*)defaultPropertyMap
++(LDPropertyMap*)defaultPropertyMap
 {
     if (defaultPropertyMap == nil) {
-        defaultPropertyMap = [[PropertyMap alloc] init];
-        [PropertyMap addDefaultClassesAndProperties];
+        defaultPropertyMap = [[LDPropertyMap alloc] init];
+        [LDPropertyMap addDefaultClassesAndProperties];
     }
     return defaultPropertyMap;
 }
 
-+(void)setDefaultMap:(PropertyMap*)map
++(void)setDefaultMap:(LDPropertyMap*)map
 {
     defaultPropertyMap = map;
 }
@@ -176,7 +176,7 @@ static PropertyMap *defaultPropertyMap;
     [arrayOfProperties addObject:[LDProperty propertyWithName:@"textColor" type:[UIColorAdapter class]]];
     
     [arrayOfProperties addObject:[LDProperty propertyWithName:@"textAlignment" param:
-                                  [LDMessageParam paramWithValue:[EnumMap enumForTextAlignment]]]];
+                                  [LDMessageParam paramWithValue:[LDEnumMap enumForTextAlignment]]]];
     return arrayOfProperties;
 }
 

@@ -1,5 +1,5 @@
 //
-//  ViewTreeManager.m
+//  LDViewTreeManager.m
 //  LDClient
 //
 //  Created by Ved Surtani on 10/11/11.
@@ -16,23 +16,23 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-#import "ViewTreeManager.h"
+#import "LDViewTreeManager.h"
 #import "RemoteService.h"
-static ViewTreeManager *sharedInstance;
+static LDViewTreeManager *sharedInstance;
 
-@interface ViewTreeManager(Private)
+@interface LDViewTreeManager(Private)
 -(id)initPrivate;
 -(LDView*)getTouchedViewIn:(LDView*)rootView sender:(UIGestureRecognizer*)sender;
 -(BOOL)shouldGoInside:(UIView*)view;
 @end
 
-@implementation ViewTreeManager
+@implementation LDViewTreeManager
 
 
-+(ViewTreeManager*)sharedInstance
++(LDViewTreeManager*)sharedInstance
 {
     if (sharedInstance == nil) {
-        sharedInstance = [[ViewTreeManager alloc] initPrivate];
+        sharedInstance = [[LDViewTreeManager alloc] initPrivate];
     }
     return sharedInstance;
 }

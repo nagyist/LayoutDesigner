@@ -1,5 +1,5 @@
 //
-//  PropertyMap.h
+//  LDPropertyMap.h
 //  LDClient
 //
 //  Created by Ved Surtani on 12/09/11.
@@ -31,13 +31,13 @@
 #import "LDProperty.h"
 
 /*!
- @class     PropertyMap
+ @class     LDPropertyMap
  @brief     Editable Dictionary of supported properties. This class serves as a map of supported classes, instances of which can be modified from LDServer.
  @details   Supported classes are the ones whose instances can be modified by LDServer by applying properties and sending messages to them. Only those 
  properties can be modified which are present in this map. The map stores an array of @ref LDProperty instances for each supported class.
  @ref LDProperty. The list of properties is not only for the class of object, but it includes properties of all it's super classes that are in the map.
  */
-@interface PropertyMap : NSObject
+@interface LDPropertyMap : NSObject
 {
    @private 
     NSMutableDictionary *propertiesForClassDictionary;
@@ -45,18 +45,18 @@
 }
 
 /*!
- @brief     returns the default PropertyMap instance.
+ @brief     returns the default LDPropertyMap instance.
  @details   the default instance has the default supported properties and their classes already initialized. If you want a fresh map create using alloc init 
  and add the supported properties.
  */
-+(PropertyMap*)defaultPropertyMap;
++(LDPropertyMap*)defaultPropertyMap;
 
 /*!
  @brief     sets the defaultPropertyMap for entire application.
  @details   setting this to a different map will make the entire application use this map and all the properties and classes in this map are then available 
  for modification/editing.
  */
-+(void)setDefaultMap:(PropertyMap*)map;
++(void)setDefaultMap:(LDPropertyMap*)map;
 
 /*!
  @brief     adds a supported class in the map.
@@ -79,7 +79,7 @@
 /*!
  @brief     returns an array of @ref LDProperty instances for the given object.
  @details   The array contains all the properties that this object can respond to and are supported. That is all the properties registered in the map for 
- the class of this object and also all the supert classes which are in the @ref PropertyMap.
+ the class of this object and also all the supert classes which are in the @ref LDPropertyMap.
  */
 -(NSArray*)propertiesForObject:(id)object;
 

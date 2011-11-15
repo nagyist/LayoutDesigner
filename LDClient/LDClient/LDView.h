@@ -86,7 +86,7 @@
  @property      properties
  @brief         array of @ref LDProperty instances. It gives all the supported properties that can be read/set on the UIView this instance wraps.
  @details       Example: text can be one property in this array if the LDView instance is wrapping a UILabel and provided text is supported property 
- for UILabel. See @ref PropertyMap for more infor on supported properties.
+ for UILabel. See @ref LDPropertyMap for more infor on supported properties.
  */
 @property(nonatomic,strong)NSArray *properties;
 @end

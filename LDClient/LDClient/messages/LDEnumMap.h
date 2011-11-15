@@ -1,5 +1,5 @@
 //
-//  EnumMap.h
+//  LDEnumMap.h
 //  LDClient
 //
 //  Created by Ved Surtani on 03/11/11.
@@ -20,14 +20,14 @@
 #import "EnumAdapter.h"
 
 /*!
- @class     EnumMap
+ @class     LDEnumMap
  @brief     Map of Supported Enums as properties or message parameters.
  @details   Enums as parameters or properties are represented in @ref EnumAdapter. This is different from other adapters because it had display names and 
  corresponding values. It's actual type is integer but only the enum constants can be valid values. EnumMap provides a map of all supported enums in 
  LDClient. At the time of initialization (or even later), @ref EnumAdapters can be created for each enum that we like to be editable in LDServer and add 
  it in this map. 
  */
-@interface EnumMap : NSObject
+@interface LDEnumMap : NSObject
 +(EnumAdapter*)enumForTextAlignment;
 /*!
  @brief     adds the enum for the specified key in the map.

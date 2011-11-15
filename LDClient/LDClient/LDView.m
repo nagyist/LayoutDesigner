@@ -19,7 +19,7 @@
 
 #import "LDView.h"
 #import "LDMessage.h"
-#import "PropertyMap.h"
+#import "LDPropertyMap.h"
 //#import "TreeUtil.h"
 
 static int viewId = 0;
@@ -75,7 +75,7 @@ static int viewId = 0;
            
         }
     }
-    self.messages = [[PropertyMap defaultPropertyMap] propertiesForObject:view_];
+    self.messages = [[LDPropertyMap defaultPropertyMap] propertiesForObject:view_];
 }
 
 @end

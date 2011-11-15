@@ -18,7 +18,7 @@
 //
 
 #import "LDProperty.h"
-#import "PropertyMap.h"
+#import "LDPropertyMap.h"
 #import "LDMessageParam.h"
 
 

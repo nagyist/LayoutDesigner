@@ -25,7 +25,7 @@
 #import "DefaultCommandHandler.h"
 #import "LDCommandMap.h"
 #import "LDConstants.h"
-#import "ViewTreeManager.h"
+#import "LDViewTreeManager.h"
 
 static RemoteService *sharedInstance = nil;
 @implementation RemoteService
