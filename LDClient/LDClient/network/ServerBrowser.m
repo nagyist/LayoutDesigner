@@ -76,7 +76,7 @@
 	}
 
 	netServiceBrowser.delegate = (__strong id)self;
-	[netServiceBrowser searchForServicesOfType:@"_chatty._tcp." inDomain:@""];
+	[netServiceBrowser searchForServicesOfType:@"_ldserver._tcp." inDomain:@""];
   
   return YES;
 }

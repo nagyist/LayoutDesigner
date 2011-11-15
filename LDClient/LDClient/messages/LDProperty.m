@@ -3,12 +3,31 @@
 //  LaMo
 //
 //  Created by Ved Surtani on 13/09/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Imaginea 
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//    you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+
+//  http://www.apache.org/licenses/LICENSE-2.0
+
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "LDProperty.h"
 #import "PropertyMap.h"
 #import "LDMessageParam.h"
+
+
+
+@interface LDProperty (Private)
+-(NSInvocation*)invocationForObject:(id)object selector:(SEL)selector;
+-(NSInvocation*)getterInvocationForObject:(id)object;
+-(NSInvocation*)setterInvocationForObject:(id)object;
+@end
 
 @implementation LDProperty
 @synthesize name,getter,setter,param;
@@ -93,11 +112,11 @@
             if ([color respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
                 [color getRed:&red green:&green blue:&blue alpha:&alpha];
             } else {
-                const CGFloat *components = CGColorGetComponents(color.CGColor);
-                red = components[0];
-                green = components[1];
-                blue = components[2];
-                alpha = components[3];
+//                const CGFloat *components = CGColorGetComponents(color.CGColor);
+//                red = components[0];
+//                green = components[1];
+//                blue = components[2];
+//                alpha = components[3];
             }
             [(UIColorAdapter*)param.value setRed:red];
             [(UIColorAdapter*)param.value setGreen:green];

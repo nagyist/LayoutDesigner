@@ -1,9 +1,20 @@
 //
-//  MessageHelper.m
-//  LaMo
+//  PropertyMap.m
+//  LDClient
 //
 //  Created by Ved Surtani on 12/09/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Imaginea 
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//    you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+
+//  http://www.apache.org/licenses/LICENSE-2.0
+
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "PropertyMap.h"
@@ -26,10 +37,8 @@
 +(void)addDefaultClassesAndProperties;
 @end
 
-static NSMutableSet *supportedClasses;
 static PropertyMap *defaultPropertyMap;
 @implementation PropertyMap
-@synthesize targetObject;
 
 
 
@@ -76,44 +85,12 @@ static PropertyMap *defaultPropertyMap;
 
 }
 
-+(void)initialize
-{
-    supportedClasses = [[NSMutableSet alloc] init];
-    [supportedClasses addObject:[UIView class]];
-    [supportedClasses addObject:[UILabel class]];
-    [supportedClasses addObject:[UIImageView class]];
-    
-}
 
 -(id)init
 {
     self = [super init];
     propertiesForClassDictionary = [[NSMutableDictionary alloc] init];
     return self;
-}
-+(NSArray*)propertiesForObject:(id)object
-{
-    NSMutableArray *properties = [[NSMutableArray alloc] init];
-    PropertyMap *helper = [[PropertyMap alloc] init];
-    helper.targetObject = object;
-    for(Class type in supportedClasses)
-    {
-        if ([object isKindOfClass:type]) {
-            NSString *selectorString = [NSString stringWithFormat:@"propertiesFor%@",type];
-            SEL selector = NSSelectorFromString(selectorString);
-            if ([helper respondsToSelector:selector]) {
-                NSArray *propertiesForType = [helper performSelector:selector];
-                [properties addObjectsFromArray:propertiesForType];
-            }
-            else
-            {
-                NSLog(@"%@ method not found! Implement and return property list",selectorString);
-            }
-        }
-    }
-    DLog(@"Property Count = %d", [properties count]);
-    [properties makeObjectsPerformSelector:@selector(readExistingValueFromObject:) withObject:object];
-    return properties;
 }
 
 
