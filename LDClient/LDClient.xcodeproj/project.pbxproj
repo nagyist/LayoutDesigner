@@ -16,7 +16,6 @@
 		3B460D6814714F3300357114 /* libLDClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE2473C143C4A5F00ED2176 /* libLDClient.a */; };
 		3B460D6A1471521000357114 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B460D691471521000357114 /* CoreGraphics.framework */; };
 		3B460D7C14729E1100357114 /* LDPropertyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B460D7B14729E1100357114 /* LDPropertyTests.m */; };
-		3B62F89C1463E4F800773D7C /* TypeAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B62F89B1463E4F700773D7C /* TypeAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3BB92957146BDDD400F8BC2B /* DefaultCommandHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BB92955146BDDD400F8BC2B /* DefaultCommandHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3BB92958146BDDD400F8BC2B /* DefaultCommandHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB92956146BDDD400F8BC2B /* DefaultCommandHandler.m */; };
 		3BB9295B146BF8DF00F8BC2B /* LDViewTreeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BB92959146BF8DF00F8BC2B /* LDViewTreeManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -54,20 +53,6 @@
 		3BE2480B143C516300ED2176 /* ServerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247E1143C516300ED2176 /* ServerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3BE2480C143C516300ED2176 /* LDMessageParam.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247E3143C516300ED2176 /* LDMessageParam.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3BE2480D143C516300ED2176 /* LDMessageParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247E4143C516300ED2176 /* LDMessageParam.m */; };
-		3BE2480E143C516300ED2176 /* CGRectAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247E5143C516300ED2176 /* CGRectAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3BE2480F143C516300ED2176 /* CGRectAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247E6143C516300ED2176 /* CGRectAdapter.m */; };
-		3BE24810143C516300ED2176 /* UIColorAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247E7143C516300ED2176 /* UIColorAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3BE24811143C516300ED2176 /* UIColorAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247E8143C516300ED2176 /* UIColorAdapter.m */; };
-		3BE24812143C516300ED2176 /* EnumAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247E9143C516300ED2176 /* EnumAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3BE24813143C516300ED2176 /* EnumAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247EA143C516300ED2176 /* EnumAdapter.m */; };
-		3BE24814143C516300ED2176 /* FloatAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247EB143C516300ED2176 /* FloatAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3BE24815143C516300ED2176 /* FloatAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247EC143C516300ED2176 /* FloatAdapter.m */; };
-		3BE24816143C516300ED2176 /* UIImageAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247ED143C516300ED2176 /* UIImageAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3BE24817143C516300ED2176 /* UIImageAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247EE143C516300ED2176 /* UIImageAdapter.m */; };
-		3BE24818143C516300ED2176 /* IntegerAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247EF143C516300ED2176 /* IntegerAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3BE24819143C516300ED2176 /* IntegerAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247F0143C516300ED2176 /* IntegerAdapter.m */; };
-		3BE2481A143C516300ED2176 /* NSStringAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE247F1143C516300ED2176 /* NSStringAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3BE2481B143C516300ED2176 /* NSStringAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE247F2143C516300ED2176 /* NSStringAdapter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,7 +94,6 @@
 		3B460D691471521000357114 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3B460D7A14729E1100357114 /* LDPropertyTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDPropertyTests.h; sourceTree = "<group>"; };
 		3B460D7B14729E1100357114 /* LDPropertyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDPropertyTests.m; sourceTree = "<group>"; };
-		3B62F89B1463E4F700773D7C /* TypeAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeAdapter.h; sourceTree = "<group>"; };
 		3BB92955146BDDD400F8BC2B /* DefaultCommandHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultCommandHandler.h; sourceTree = "<group>"; };
 		3BB92956146BDDD400F8BC2B /* DefaultCommandHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultCommandHandler.m; sourceTree = "<group>"; };
 		3BB92959146BF8DF00F8BC2B /* LDViewTreeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDViewTreeManager.h; path = messages/LDViewTreeManager.h; sourceTree = "<group>"; };
@@ -152,20 +136,6 @@
 		3BE247E1143C516300ED2176 /* ServerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerDelegate.h; sourceTree = "<group>"; };
 		3BE247E3143C516300ED2176 /* LDMessageParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDMessageParam.h; path = ../supportedParams/LDMessageParam.h; sourceTree = "<group>"; };
 		3BE247E4143C516300ED2176 /* LDMessageParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDMessageParam.m; path = ../supportedParams/LDMessageParam.m; sourceTree = "<group>"; };
-		3BE247E5143C516300ED2176 /* CGRectAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRectAdapter.h; sourceTree = "<group>"; };
-		3BE247E6143C516300ED2176 /* CGRectAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRectAdapter.m; sourceTree = "<group>"; };
-		3BE247E7143C516300ED2176 /* UIColorAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorAdapter.h; sourceTree = "<group>"; };
-		3BE247E8143C516300ED2176 /* UIColorAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorAdapter.m; sourceTree = "<group>"; };
-		3BE247E9143C516300ED2176 /* EnumAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumAdapter.h; sourceTree = "<group>"; };
-		3BE247EA143C516300ED2176 /* EnumAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnumAdapter.m; sourceTree = "<group>"; };
-		3BE247EB143C516300ED2176 /* FloatAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatAdapter.h; sourceTree = "<group>"; };
-		3BE247EC143C516300ED2176 /* FloatAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloatAdapter.m; sourceTree = "<group>"; };
-		3BE247ED143C516300ED2176 /* UIImageAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageAdapter.h; sourceTree = "<group>"; };
-		3BE247EE143C516300ED2176 /* UIImageAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageAdapter.m; sourceTree = "<group>"; };
-		3BE247EF143C516300ED2176 /* IntegerAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegerAdapter.h; sourceTree = "<group>"; };
-		3BE247F0143C516300ED2176 /* IntegerAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegerAdapter.m; sourceTree = "<group>"; };
-		3BE247F1143C516300ED2176 /* NSStringAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdapter.h; sourceTree = "<group>"; };
-		3BE247F2143C516300ED2176 /* NSStringAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdapter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,35 +167,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3B0EB407147125D600E913C5 /* protocol */ = {
-			isa = PBXGroup;
-			children = (
-				3B62F89B1463E4F700773D7C /* TypeAdapter.h */,
-			);
-			name = protocol;
-			sourceTree = "<group>";
-		};
-		3B0EB408147125E900E913C5 /* adapters */ = {
-			isa = PBXGroup;
-			children = (
-				3BE247E5143C516300ED2176 /* CGRectAdapter.h */,
-				3BE247E6143C516300ED2176 /* CGRectAdapter.m */,
-				3BE247E7143C516300ED2176 /* UIColorAdapter.h */,
-				3BE247E8143C516300ED2176 /* UIColorAdapter.m */,
-				3BE247E9143C516300ED2176 /* EnumAdapter.h */,
-				3BE247EA143C516300ED2176 /* EnumAdapter.m */,
-				3BE247EB143C516300ED2176 /* FloatAdapter.h */,
-				3BE247EC143C516300ED2176 /* FloatAdapter.m */,
-				3BE247ED143C516300ED2176 /* UIImageAdapter.h */,
-				3BE247EE143C516300ED2176 /* UIImageAdapter.m */,
-				3BE247EF143C516300ED2176 /* IntegerAdapter.h */,
-				3BE247F0143C516300ED2176 /* IntegerAdapter.m */,
-				3BE247F1143C516300ED2176 /* NSStringAdapter.h */,
-				3BE247F2143C516300ED2176 /* NSStringAdapter.m */,
-			);
-			name = adapters;
-			sourceTree = "<group>";
-		};
 		3B0EB4091471264900E913C5 /* mappers */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,8 +308,6 @@
 			children = (
 				3BE24783143C4AFC00ED2176 /* LDView.h */,
 				3BE24784143C4AFC00ED2176 /* LDView.m */,
-				3B0EB408147125E900E913C5 /* adapters */,
-				3B0EB407147125D600E913C5 /* protocol */,
 			);
 			name = supportedTypes;
 			path = supportedParams;
@@ -394,18 +333,10 @@
 				3BE24808143C516300ED2176 /* ServerBrowser.h in Headers */,
 				3BE2480A143C516300ED2176 /* ServerBrowserDelegate.h in Headers */,
 				3B39A6141462CA31009B7A7E /* LDEnumMap.h in Headers */,
-				3B62F89C1463E4F800773D7C /* TypeAdapter.h in Headers */,
 				3BB92957146BDDD400F8BC2B /* DefaultCommandHandler.h in Headers */,
 				3BB9295B146BF8DF00F8BC2B /* LDViewTreeManager.h in Headers */,
 				3BE2480B143C516300ED2176 /* ServerDelegate.h in Headers */,
 				3BE2480C143C516300ED2176 /* LDMessageParam.h in Headers */,
-				3BE2480E143C516300ED2176 /* CGRectAdapter.h in Headers */,
-				3BE24810143C516300ED2176 /* UIColorAdapter.h in Headers */,
-				3BE24812143C516300ED2176 /* EnumAdapter.h in Headers */,
-				3BE24814143C516300ED2176 /* FloatAdapter.h in Headers */,
-				3BE24816143C516300ED2176 /* UIImageAdapter.h in Headers */,
-				3BE24818143C516300ED2176 /* IntegerAdapter.h in Headers */,
-				3BE2481A143C516300ED2176 /* NSStringAdapter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,13 +473,6 @@
 				3BE24805143C516300ED2176 /* RemoteService.m in Sources */,
 				3BE24809143C516300ED2176 /* ServerBrowser.m in Sources */,
 				3BE2480D143C516300ED2176 /* LDMessageParam.m in Sources */,
-				3BE2480F143C516300ED2176 /* CGRectAdapter.m in Sources */,
-				3BE24811143C516300ED2176 /* UIColorAdapter.m in Sources */,
-				3BE24813143C516300ED2176 /* EnumAdapter.m in Sources */,
-				3BE24815143C516300ED2176 /* FloatAdapter.m in Sources */,
-				3BE24817143C516300ED2176 /* UIImageAdapter.m in Sources */,
-				3BE24819143C516300ED2176 /* IntegerAdapter.m in Sources */,
-				3BE2481B143C516300ED2176 /* NSStringAdapter.m in Sources */,
 				3B39A6151462CA31009B7A7E /* LDEnumMap.m in Sources */,
 				3BB92958146BDDD400F8BC2B /* DefaultCommandHandler.m in Sources */,
 				3BB9295C146BF8DF00F8BC2B /* LDViewTreeManager.m in Sources */,

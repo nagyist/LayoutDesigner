@@ -15,13 +15,6 @@
 		3B56406E144C5F7800F1C427 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B56406C144C5F7800F1C427 /* LogViewController.m */; };
 		3B56406F144C5F7800F1C427 /* LogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B56406D144C5F7800F1C427 /* LogViewController.xib */; };
 		3B564072144C659E00F1C427 /* LogMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B564071144C659D00F1C427 /* LogMessage.m */; };
-		3B62F8C714640B6300773D7C /* CGRectAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B62F8B914640B6300773D7C /* CGRectAdapter.m */; };
-		3B62F8C814640B6300773D7C /* EnumAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B62F8BB14640B6300773D7C /* EnumAdapter.m */; };
-		3B62F8C914640B6300773D7C /* FloatAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B62F8BD14640B6300773D7C /* FloatAdapter.m */; };
-		3B62F8CA14640B6300773D7C /* IntegerAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B62F8BF14640B6300773D7C /* IntegerAdapter.m */; };
-		3B62F8CB14640B6300773D7C /* NSStringAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B62F8C114640B6300773D7C /* NSStringAdapter.m */; };
-		3B62F8CC14640B6300773D7C /* UIColorAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B62F8C414640B6300773D7C /* UIColorAdapter.m */; };
-		3B62F8CD14640B6300773D7C /* UIImageAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B62F8C614640B6300773D7C /* UIImageAdapter.m */; };
 		3B62F8D41467B92D00773D7C /* InputViewMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B62F8D31467B92D00773D7C /* InputViewMap.m */; };
 		3B9E5DF8144E059D007526A0 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9E5DF6144E059D007526A0 /* RootViewController.m */; };
 		3B9E5DF9144E059D007526A0 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B9E5DF7144E059D007526A0 /* RootViewController.xib */; };
@@ -109,21 +102,6 @@
 		3B56406D144C5F7800F1C427 /* LogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogViewController.xib; sourceTree = "<group>"; };
 		3B564070144C659D00F1C427 /* LogMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogMessage.h; sourceTree = "<group>"; };
 		3B564071144C659D00F1C427 /* LogMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogMessage.m; sourceTree = "<group>"; };
-		3B62F8B814640B6300773D7C /* CGRectAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRectAdapter.h; sourceTree = "<group>"; };
-		3B62F8B914640B6300773D7C /* CGRectAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRectAdapter.m; sourceTree = "<group>"; };
-		3B62F8BA14640B6300773D7C /* EnumAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumAdapter.h; sourceTree = "<group>"; };
-		3B62F8BB14640B6300773D7C /* EnumAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnumAdapter.m; sourceTree = "<group>"; };
-		3B62F8BC14640B6300773D7C /* FloatAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatAdapter.h; sourceTree = "<group>"; };
-		3B62F8BD14640B6300773D7C /* FloatAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloatAdapter.m; sourceTree = "<group>"; };
-		3B62F8BE14640B6300773D7C /* IntegerAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegerAdapter.h; sourceTree = "<group>"; };
-		3B62F8BF14640B6300773D7C /* IntegerAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegerAdapter.m; sourceTree = "<group>"; };
-		3B62F8C014640B6300773D7C /* NSStringAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdapter.h; sourceTree = "<group>"; };
-		3B62F8C114640B6300773D7C /* NSStringAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdapter.m; sourceTree = "<group>"; };
-		3B62F8C214640B6300773D7C /* TypeAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeAdapter.h; sourceTree = "<group>"; };
-		3B62F8C314640B6300773D7C /* UIColorAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorAdapter.h; sourceTree = "<group>"; };
-		3B62F8C414640B6300773D7C /* UIColorAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorAdapter.m; sourceTree = "<group>"; };
-		3B62F8C514640B6300773D7C /* UIImageAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageAdapter.h; sourceTree = "<group>"; };
-		3B62F8C614640B6300773D7C /* UIImageAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageAdapter.m; sourceTree = "<group>"; };
 		3B62F8D01465154B00773D7C /* CodeGenerating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeGenerating.h; sourceTree = "<group>"; };
 		3B62F8D21467B92D00773D7C /* InputViewMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewMap.h; sourceTree = "<group>"; };
 		3B62F8D31467B92D00773D7C /* InputViewMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewMap.m; sourceTree = "<group>"; };
@@ -256,21 +234,6 @@
 		3B62F89D146408D600773D7C /* supportedParams */ = {
 			isa = PBXGroup;
 			children = (
-				3B62F8B814640B6300773D7C /* CGRectAdapter.h */,
-				3B62F8B914640B6300773D7C /* CGRectAdapter.m */,
-				3B62F8BA14640B6300773D7C /* EnumAdapter.h */,
-				3B62F8BB14640B6300773D7C /* EnumAdapter.m */,
-				3B62F8BC14640B6300773D7C /* FloatAdapter.h */,
-				3B62F8BD14640B6300773D7C /* FloatAdapter.m */,
-				3B62F8BE14640B6300773D7C /* IntegerAdapter.h */,
-				3B62F8BF14640B6300773D7C /* IntegerAdapter.m */,
-				3B62F8C014640B6300773D7C /* NSStringAdapter.h */,
-				3B62F8C114640B6300773D7C /* NSStringAdapter.m */,
-				3B62F8C314640B6300773D7C /* UIColorAdapter.h */,
-				3B62F8C414640B6300773D7C /* UIColorAdapter.m */,
-				3B62F8C514640B6300773D7C /* UIImageAdapter.h */,
-				3B62F8C614640B6300773D7C /* UIImageAdapter.m */,
-				3B62F8C214640B6300773D7C /* TypeAdapter.h */,
 				3B62F8D01465154B00773D7C /* CodeGenerating.h */,
 			);
 			name = supportedParams;
@@ -634,13 +597,6 @@
 				3B564072144C659E00F1C427 /* LogMessage.m in Sources */,
 				3B9E5DF8144E059D007526A0 /* RootViewController.m in Sources */,
 				3B39A602146274F1009B7A7E /* NSOutlineView+Additions.m in Sources */,
-				3B62F8C714640B6300773D7C /* CGRectAdapter.m in Sources */,
-				3B62F8C814640B6300773D7C /* EnumAdapter.m in Sources */,
-				3B62F8C914640B6300773D7C /* FloatAdapter.m in Sources */,
-				3B62F8CA14640B6300773D7C /* IntegerAdapter.m in Sources */,
-				3B62F8CB14640B6300773D7C /* NSStringAdapter.m in Sources */,
-				3B62F8CC14640B6300773D7C /* UIColorAdapter.m in Sources */,
-				3B62F8CD14640B6300773D7C /* UIImageAdapter.m in Sources */,
 				3B62F8D41467B92D00773D7C /* InputViewMap.m in Sources */,
 				3B3B9FED146D310D0050585D /* DefaultCommandHandler.m in Sources */,
 			);

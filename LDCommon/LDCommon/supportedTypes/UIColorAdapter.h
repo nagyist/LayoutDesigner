@@ -31,9 +31,13 @@
     CGFloat blue;
     CGFloat green;
     CGFloat alpha;
-    
+#if TARGET_OS_IPHONE
     @private
     UIColor *color;
+#else
+    @private
+    NSColor *color;
+#endif
 }
 /*!
  @property      red

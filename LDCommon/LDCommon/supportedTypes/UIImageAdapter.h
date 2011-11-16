@@ -29,9 +29,12 @@
 @interface UIImageAdapter : NSObject<TypeAdapter>
 {
     NSData *imageData;
-    
+#if TARGET_OS_IPHONE
+    @private UIImage *image;
+#else
     @private
-    UIImage *image;
+    NSImage *image;
+#endif
 }
 
 /*!

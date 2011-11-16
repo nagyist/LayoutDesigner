@@ -41,8 +41,6 @@ extern NSString* const LDPropertyChangedNotificationPropertyInstanceKey;
 /*! @} */
 
 
-
-
 @interface LDProperty : NSObject<NSCoding,LMMessageParamDelegate>
 {
     NSString *name;
@@ -54,7 +52,6 @@ extern NSString* const LDPropertyChangedNotificationPropertyInstanceKey;
     LDView *selectedView;
     LDView *viewTreeRoot;
     
-
     
 }
 

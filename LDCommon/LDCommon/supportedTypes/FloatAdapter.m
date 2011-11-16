@@ -1,8 +1,8 @@
 //
-//  LMMessageParamString.m
+//  LMMessageParamFloat.m
 //  LaMo
 //
-//  Created by Ved Surtani on 07/09/11.
+//  Created by Ved Surtani on 09/09/11.
 //  Copyright 2011 Imaginea 
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //    you may not use this file except in compliance with the License.
@@ -17,11 +17,10 @@
 //  limitations under the License.
 //
 
-#import "NSStringAdapter.h"
+#import "FloatAdapter.h"
 
-@implementation NSStringAdapter
-@synthesize text;
-
+@implementation FloatAdapter
+@synthesize aFloat;
 - (id)init
 {
     self = [super init];
@@ -31,29 +30,36 @@
     
     return self;
 }
-
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeFloat:aFloat forKey:@"float"];
+}
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
    self =   [super init];
-    self.text = [aDecoder decodeObjectForKey:@"text"];
-    return self;
+    self.aFloat= [aDecoder decodeFloatForKey:@"float"];
+    return  self;
 }
 
--(void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [aCoder encodeObject:self.text forKey:@"text"];
-}
 
 -(void*)value
 {
-    return &text;
+    return &aFloat;
 }
 
 -(id)copyWithZone:(NSZone *)zone
 {
-    NSStringAdapter  *copy = [[NSStringAdapter alloc] init];
-    copy.text  = text;
+    FloatAdapter  *copy = [[FloatAdapter alloc] init];
+    copy.aFloat = aFloat;
     return copy;
 }
+
+#if TARGET_OS_IPHONE
+#else
+-(NSString*)getCode
+{
+    return [NSString stringWithFormat:@"%f",self.aFloat];
+}
+#endif
 @end

@@ -1,8 +1,8 @@
 //
-//  LMMessageParamInt.m
+//  LMMessageParamImage.m
 //  LaMo
 //
-//  Created by Ved Surtani on 07/09/11.
+//  Created by Ved Surtani on 12/09/11.
 //  Copyright 2011 Imaginea 
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //    you may not use this file except in compliance with the License.
@@ -17,10 +17,10 @@
 //  limitations under the License.
 //
 
-#import "IntegerAdapter.h"
+#import "UIImageAdapter.h"
 
-@implementation IntegerAdapter
-@synthesize integer;
+@implementation UIImageAdapter
+@synthesize imageData;
 - (id)init
 {
     self = [super init];
@@ -30,28 +30,47 @@
     
     return self;
 }
--(id)initWithCoder:(NSCoder *)aDecoder
-{
-   self =   [super init];
-   self.integer =  [aDecoder decodeIntForKey:@"integer"];
-    return self;
-}
+
 
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeInt:self.integer  forKey:@"integer"];
+    [aCoder encodeDataObject:imageData];
+
 }
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+   self =   [super init];
+    self.imageData = [aDecoder decodeDataObject];
+    return  self;
+}
+
 
 
 -(void*)value
 {
-    return &integer;
+#if TARGET_OS_IPHONE
+    image = [[UIImage alloc] initWithData:imageData];
+#else
+    image = [[NSImage alloc] initWithData:imageData];
+#endif
+    return &image;
 }
 
 -(id)copyWithZone:(NSZone *)zone
 {
-    IntegerAdapter  *copy = [[IntegerAdapter alloc] init];
-    copy.integer = integer;
+    UIImageAdapter  *copy = [[UIImageAdapter alloc] init];
+    copy.imageData = imageData;
     return copy;
 }
+
+#if TARGET_OS_IPHONE
+#else
+-(NSString*)getCode
+{
+    return @"Not suppoerted YET!!";
+}
+#endif
+
+
 @end

@@ -24,6 +24,7 @@
  @class     CGRectAdapter
  @brief     Adapter/wrapper for CGrect.
  */
+
 @interface CGRectAdapter : NSObject<TypeAdapter>
 {
     CGRect rect;
