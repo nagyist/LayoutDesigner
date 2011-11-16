@@ -7,13 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B0EB4001471250000E913C5 /* LDCommandMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B0EB3F91471250000E913C5 /* LDCommandMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3B0EB4011471250000E913C5 /* LDCommandMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0EB3FA1471250000E913C5 /* LDCommandMap.m */; };
-		3B0EB4021471250000E913C5 /* LDConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B0EB3FB1471250000E913C5 /* LDConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3B0EB4031471250000E913C5 /* LDConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0EB3FC1471250000E913C5 /* LDConstants.m */; };
-		3B0EB4041471250000E913C5 /* TreeNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B0EB3FD1471250000E913C5 /* TreeNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3B0EB4051471250000E913C5 /* TreeUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B0EB3FE1471250000E913C5 /* TreeUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3B0EB4061471250000E913C5 /* TreeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0EB3FF1471250000E913C5 /* TreeUtil.m */; };
 		3B39A6141462CA31009B7A7E /* LDEnumMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B39A6121462CA30009B7A7E /* LDEnumMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3B39A6151462CA31009B7A7E /* LDEnumMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B39A6131462CA30009B7A7E /* LDEnumMap.m */; };
 		3B460D6014714D2200357114 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B460D5F14714D2200357114 /* QuartzCore.framework */; };
@@ -28,6 +21,7 @@
 		3BB92958146BDDD400F8BC2B /* DefaultCommandHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB92956146BDDD400F8BC2B /* DefaultCommandHandler.m */; };
 		3BB9295B146BF8DF00F8BC2B /* LDViewTreeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BB92959146BF8DF00F8BC2B /* LDViewTreeManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3BB9295C146BF8DF00F8BC2B /* LDViewTreeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB9295A146BF8DF00F8BC2B /* LDViewTreeManager.m */; };
+		3BC4D5A7147386D00098AA08 /* libLDCommonIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BC4D5A4147386B70098AA08 /* libLDCommonIOS.a */; };
 		3BE24740143C4A5F00ED2176 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE2473F143C4A5F00ED2176 /* Foundation.framework */; };
 		3BE24746143C4A5F00ED2176 /* LDClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24745143C4A5F00ED2176 /* LDClient.m */; };
 		3BE2474E143C4A5F00ED2176 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE2474D143C4A5F00ED2176 /* SenTestingKit.framework */; };
@@ -84,16 +78,30 @@
 			remoteGlobalIDString = 3BE2473B143C4A5F00ED2176;
 			remoteInfo = LDClient;
 		};
+		3BC4D5A1147386B70098AA08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BC4D599147386B60098AA08 /* LDCommon.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3BC28EA21472DB65002EF7F4;
+			remoteInfo = LDCommonMac;
+		};
+		3BC4D5A3147386B70098AA08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BC4D599147386B60098AA08 /* LDCommon.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3BC4D5821473847F0098AA08;
+			remoteInfo = LDCommonIOS;
+		};
+		3BC4D5A5147386C70098AA08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BC4D599147386B60098AA08 /* LDCommon.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BC4D5811473847F0098AA08;
+			remoteInfo = LDCommonIOS;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3B0EB3F91471250000E913C5 /* LDCommandMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDCommandMap.h; sourceTree = "<group>"; };
-		3B0EB3FA1471250000E913C5 /* LDCommandMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDCommandMap.m; sourceTree = "<group>"; };
-		3B0EB3FB1471250000E913C5 /* LDConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDConstants.h; sourceTree = "<group>"; };
-		3B0EB3FC1471250000E913C5 /* LDConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDConstants.m; sourceTree = "<group>"; };
-		3B0EB3FD1471250000E913C5 /* TreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeNode.h; sourceTree = "<group>"; };
-		3B0EB3FE1471250000E913C5 /* TreeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeUtil.h; sourceTree = "<group>"; };
-		3B0EB3FF1471250000E913C5 /* TreeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeUtil.m; sourceTree = "<group>"; };
 		3B39A6121462CA30009B7A7E /* LDEnumMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDEnumMap.h; path = messages/LDEnumMap.h; sourceTree = "<group>"; };
 		3B39A6131462CA30009B7A7E /* LDEnumMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDEnumMap.m; path = messages/LDEnumMap.m; sourceTree = "<group>"; };
 		3B460D5F14714D2200357114 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -106,6 +114,7 @@
 		3BB92956146BDDD400F8BC2B /* DefaultCommandHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultCommandHandler.m; sourceTree = "<group>"; };
 		3BB92959146BF8DF00F8BC2B /* LDViewTreeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDViewTreeManager.h; path = messages/LDViewTreeManager.h; sourceTree = "<group>"; };
 		3BB9295A146BF8DF00F8BC2B /* LDViewTreeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDViewTreeManager.m; path = messages/LDViewTreeManager.m; sourceTree = "<group>"; };
+		3BC4D599147386B60098AA08 /* LDCommon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LDCommon.xcodeproj; path = ../LDCommon/LDCommon.xcodeproj; sourceTree = "<group>"; };
 		3BE2473C143C4A5F00ED2176 /* libLDClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLDClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BE2473F143C4A5F00ED2176 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3BE24743143C4A5F00ED2176 /* LDClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LDClient-Prefix.pch"; sourceTree = "<group>"; };
@@ -164,6 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BC4D5A7147386D00098AA08 /* libLDCommonIOS.a in Frameworks */,
 				3B460D6A1471521000357114 /* CoreGraphics.framework in Frameworks */,
 				3B460D6314714DE800357114 /* UIKit.framework in Frameworks */,
 				3B460D6114714DD400357114 /* QuartzCore.framework in Frameworks */,
@@ -227,23 +237,19 @@
 			name = mappers;
 			sourceTree = "<group>";
 		};
-		3B18586C146D579A007C10E2 /* common */ = {
+		3BC4D59A147386B60098AA08 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3B0EB3F91471250000E913C5 /* LDCommandMap.h */,
-				3B0EB3FA1471250000E913C5 /* LDCommandMap.m */,
-				3B0EB3FB1471250000E913C5 /* LDConstants.h */,
-				3B0EB3FC1471250000E913C5 /* LDConstants.m */,
-				3B0EB3FD1471250000E913C5 /* TreeNode.h */,
-				3B0EB3FE1471250000E913C5 /* TreeUtil.h */,
-				3B0EB3FF1471250000E913C5 /* TreeUtil.m */,
+				3BC4D5A2147386B70098AA08 /* libLDCommonMac.a */,
+				3BC4D5A4147386B70098AA08 /* libLDCommonIOS.a */,
 			);
-			name = common;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		3BE24731143C4A5F00ED2176 = {
 			isa = PBXGroup;
 			children = (
+				3BC4D599147386B60098AA08 /* LDCommon.xcodeproj */,
 				3B460D691471521000357114 /* CoreGraphics.framework */,
 				3B460D6214714DE800357114 /* UIKit.framework */,
 				3B460D5F14714D2200357114 /* QuartzCore.framework */,
@@ -282,7 +288,6 @@
 				3BB92956146BDDD400F8BC2B /* DefaultCommandHandler.m */,
 				3BB92959146BF8DF00F8BC2B /* LDViewTreeManager.h */,
 				3BB9295A146BF8DF00F8BC2B /* LDViewTreeManager.m */,
-				3B18586C146D579A007C10E2 /* common */,
 				3B0EB4091471264900E913C5 /* mappers */,
 				3BE247C7143C516300ED2176 /* messaging */,
 				3BE247D2143C516300ED2176 /* network */,
@@ -401,10 +406,6 @@
 				3BE24816143C516300ED2176 /* UIImageAdapter.h in Headers */,
 				3BE24818143C516300ED2176 /* IntegerAdapter.h in Headers */,
 				3BE2481A143C516300ED2176 /* NSStringAdapter.h in Headers */,
-				3B0EB4001471250000E913C5 /* LDCommandMap.h in Headers */,
-				3B0EB4021471250000E913C5 /* LDConstants.h in Headers */,
-				3B0EB4041471250000E913C5 /* TreeNode.h in Headers */,
-				3B0EB4051471250000E913C5 /* TreeUtil.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +423,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3BC4D5A6147386C70098AA08 /* PBXTargetDependency */,
 			);
 			name = LDClient;
 			productName = LDClient;
@@ -465,6 +467,12 @@
 			mainGroup = 3BE24731143C4A5F00ED2176;
 			productRefGroup = 3BE2473D143C4A5F00ED2176 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3BC4D59A147386B60098AA08 /* Products */;
+					ProjectRef = 3BC4D599147386B60098AA08 /* LDCommon.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3BE2473B143C4A5F00ED2176 /* LDClient */,
@@ -472,6 +480,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3BC4D5A2147386B70098AA08 /* libLDCommonMac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libLDCommonMac.a;
+			remoteRef = 3BC4D5A1147386B70098AA08 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3BC4D5A4147386B70098AA08 /* libLDCommonIOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libLDCommonIOS.a;
+			remoteRef = 3BC4D5A3147386B70098AA08 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3BE24749143C4A5F00ED2176 /* Resources */ = {
@@ -527,9 +552,6 @@
 				3B39A6151462CA31009B7A7E /* LDEnumMap.m in Sources */,
 				3BB92958146BDDD400F8BC2B /* DefaultCommandHandler.m in Sources */,
 				3BB9295C146BF8DF00F8BC2B /* LDViewTreeManager.m in Sources */,
-				3B0EB4011471250000E913C5 /* LDCommandMap.m in Sources */,
-				3B0EB4031471250000E913C5 /* LDConstants.m in Sources */,
-				3B0EB4061471250000E913C5 /* TreeUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +571,11 @@
 			isa = PBXTargetDependency;
 			target = 3BE2473B143C4A5F00ED2176 /* LDClient */;
 			targetProxy = 3B460D6614714F2A00357114 /* PBXContainerItemProxy */;
+		};
+		3BC4D5A6147386C70098AA08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LDCommonIOS;
+			targetProxy = 3BC4D5A5147386C70098AA08 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -583,7 +610,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../LDCommon/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -602,7 +629,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../LDCommon/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";

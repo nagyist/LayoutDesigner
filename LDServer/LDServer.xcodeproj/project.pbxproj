@@ -25,9 +25,7 @@
 		3B62F8D41467B92D00773D7C /* InputViewMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B62F8D31467B92D00773D7C /* InputViewMap.m */; };
 		3B9E5DF8144E059D007526A0 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9E5DF6144E059D007526A0 /* RootViewController.m */; };
 		3B9E5DF9144E059D007526A0 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B9E5DF7144E059D007526A0 /* RootViewController.xib */; };
-		3BB92962146BFB8800F8BC2B /* LDCommandMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB9295F146BFB8800F8BC2B /* LDCommandMap.m */; };
-		3BB92963146BFB8800F8BC2B /* LDConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB92961146BFB8800F8BC2B /* LDConstants.m */; };
-		3BB92968146BFC1C00F8BC2B /* TreeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB92967146BFC1C00F8BC2B /* TreeUtil.m */; };
+		3BC4D5BB1473877E0098AA08 /* libLDCommonMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BC4D5B6147387640098AA08 /* libLDCommonMac.a */; };
 		3BE2482C143C54C000ED2176 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE2482B143C54C000ED2176 /* Cocoa.framework */; };
 		3BE24836143C54C000ED2176 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3BE24834143C54C000ED2176 /* InfoPlist.strings */; };
 		3BE24838143C54C000ED2176 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24837143C54C000ED2176 /* main.m */; };
@@ -66,6 +64,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3BC4D5B5147387640098AA08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BC4D5AD147387640098AA08 /* LDCommon.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3BC28EA21472DB65002EF7F4;
+			remoteInfo = LDCommonMac;
+		};
+		3BC4D5B7147387640098AA08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BC4D5AD147387640098AA08 /* LDCommon.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3BC4D5821473847F0098AA08;
+			remoteInfo = LDCommonIOS;
+		};
+		3BC4D5B9147387790098AA08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BC4D5AD147387640098AA08 /* LDCommon.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BC28EA11472DB65002EF7F4;
+			remoteInfo = LDCommonMac;
+		};
 		3BE2484C143C54C100ED2176 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3BE2481E143C54C000ED2176 /* Project object */;
@@ -111,13 +130,7 @@
 		3B9E5DF5144E059D007526A0 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = ../RootViewController.h; sourceTree = "<group>"; };
 		3B9E5DF6144E059D007526A0 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = ../RootViewController.m; sourceTree = "<group>"; };
 		3B9E5DF7144E059D007526A0 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RootViewController.xib; path = ../RootViewController.xib; sourceTree = "<group>"; };
-		3BB9295E146BFB8800F8BC2B /* LDCommandMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDCommandMap.h; sourceTree = "<group>"; };
-		3BB9295F146BFB8800F8BC2B /* LDCommandMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDCommandMap.m; sourceTree = "<group>"; };
-		3BB92960146BFB8800F8BC2B /* LDConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDConstants.h; sourceTree = "<group>"; };
-		3BB92961146BFB8800F8BC2B /* LDConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDConstants.m; sourceTree = "<group>"; };
-		3BB92965146BFC1C00F8BC2B /* TreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; name = TreeNode.h; path = ../../../common/TreeNode.h; sourceTree = "<group>"; };
-		3BB92966146BFC1C00F8BC2B /* TreeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TreeUtil.h; path = ../../../common/TreeUtil.h; sourceTree = "<group>"; };
-		3BB92967146BFC1C00F8BC2B /* TreeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TreeUtil.m; path = ../../../common/TreeUtil.m; sourceTree = "<group>"; };
+		3BC4D5AD147387640098AA08 /* LDCommon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LDCommon.xcodeproj; path = ../LDCommon/LDCommon.xcodeproj; sourceTree = "<group>"; };
 		3BE24827143C54C000ED2176 /* LDServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LDServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BE2482B143C54C000ED2176 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3BE2482E143C54C000ED2176 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -191,6 +204,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BC4D5BB1473877E0098AA08 /* libLDCommonMac.a in Frameworks */,
 				3BE2482C143C54C000ED2176 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,17 +228,6 @@
 				3B39A601146274F1009B7A7E /* NSOutlineView+Additions.m */,
 			);
 			name = Additions;
-			sourceTree = "<group>";
-		};
-		3B39A60314627916009B7A7E /* TreeAlgos */ = {
-			isa = PBXGroup;
-			children = (
-				3BB92965146BFC1C00F8BC2B /* TreeNode.h */,
-				3BB92966146BFC1C00F8BC2B /* TreeUtil.h */,
-				3BB92967146BFC1C00F8BC2B /* TreeUtil.m */,
-			);
-			name = TreeAlgos;
-			path = ../LDServer/LDServer/Messaging;
 			sourceTree = "<group>";
 		};
 		3B3B9FE9146D30EF0050585D /* CommandHandler */ = {
@@ -282,22 +285,19 @@
 			name = "New Group";
 			sourceTree = "<group>";
 		};
-		3BB9295D146BFB8800F8BC2B /* common */ = {
+		3BC4D5AE147387640098AA08 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3B39A60314627916009B7A7E /* TreeAlgos */,
-				3BB9295E146BFB8800F8BC2B /* LDCommandMap.h */,
-				3BB9295F146BFB8800F8BC2B /* LDCommandMap.m */,
-				3BB92960146BFB8800F8BC2B /* LDConstants.h */,
-				3BB92961146BFB8800F8BC2B /* LDConstants.m */,
+				3BC4D5B6147387640098AA08 /* libLDCommonMac.a */,
+				3BC4D5B8147387640098AA08 /* libLDCommonIOS.a */,
 			);
-			name = common;
-			path = ../../common;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		3BE2481C143C54C000ED2176 = {
 			isa = PBXGroup;
 			children = (
+				3BC4D5AD147387640098AA08 /* LDCommon.xcodeproj */,
 				3BE24831143C54C000ED2176 /* LDServer */,
 				3BE2484E143C54C100ED2176 /* LDServerTests */,
 				3BE2482A143C54C000ED2176 /* Frameworks */,
@@ -338,7 +338,6 @@
 			isa = PBXGroup;
 			children = (
 				3B3B9FE9146D30EF0050585D /* CommandHandler */,
-				3BB9295D146BFB8800F8BC2B /* common */,
 				3B39A5FE146274AF009B7A7E /* Additions */,
 				3BF4C9F4144E950F00697DCC /* UI */,
 				3B564066144C51F500F1C427 /* logging */,
@@ -482,6 +481,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3BC4D5BA147387790098AA08 /* PBXTargetDependency */,
 			);
 			name = LDServer;
 			productName = LDServer;
@@ -525,6 +525,12 @@
 			mainGroup = 3BE2481C143C54C000ED2176;
 			productRefGroup = 3BE24828143C54C000ED2176 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3BC4D5AE147387640098AA08 /* Products */;
+					ProjectRef = 3BC4D5AD147387640098AA08 /* LDCommon.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3BE24826143C54C000ED2176 /* LDServer */,
@@ -532,6 +538,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3BC4D5B6147387640098AA08 /* libLDCommonMac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libLDCommonMac.a;
+			remoteRef = 3BC4D5B5147387640098AA08 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3BC4D5B8147387640098AA08 /* libLDCommonIOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libLDCommonIOS.a;
+			remoteRef = 3BC4D5B7147387640098AA08 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3BE24825143C54C000ED2176 /* Resources */ = {
@@ -619,9 +642,6 @@
 				3B62F8CC14640B6300773D7C /* UIColorAdapter.m in Sources */,
 				3B62F8CD14640B6300773D7C /* UIImageAdapter.m in Sources */,
 				3B62F8D41467B92D00773D7C /* InputViewMap.m in Sources */,
-				3BB92962146BFB8800F8BC2B /* LDCommandMap.m in Sources */,
-				3BB92963146BFB8800F8BC2B /* LDConstants.m in Sources */,
-				3BB92968146BFC1C00F8BC2B /* TreeUtil.m in Sources */,
 				3B3B9FED146D310D0050585D /* DefaultCommandHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -637,6 +657,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3BC4D5BA147387790098AA08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LDCommonMac;
+			targetProxy = 3BC4D5B9147387790098AA08 /* PBXContainerItemProxy */;
+		};
 		3BE2484D143C54C100ED2176 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3BE24826143C54C000ED2176 /* LDServer */;
@@ -700,6 +725,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../LDCommon/**";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -720,6 +746,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../LDCommon/**";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 			};
