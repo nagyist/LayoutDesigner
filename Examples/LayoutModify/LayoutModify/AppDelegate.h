@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RemoteService.h"
+#import "LDClient.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

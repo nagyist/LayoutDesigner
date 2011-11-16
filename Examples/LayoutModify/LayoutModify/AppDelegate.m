@@ -36,7 +36,7 @@
     
     
     //Initialize RemoteService and start the magic
-    [RemoteService sharedInstance];
+    [LDClient start];
     
     return YES;
 }
