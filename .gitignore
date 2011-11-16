@@ -9,6 +9,9 @@ Build
 *.pbxuser
 *.mode1v3
 *.xcuserstate
+xcuserdata
+xcdebugger
+xcdebugger/*
 
 #repository stuff
 svn
