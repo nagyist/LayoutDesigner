@@ -29,7 +29,6 @@
 		3BE2484B143C54C100ED2176 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE2482B143C54C000ED2176 /* Cocoa.framework */; };
 		3BE24853143C54C100ED2176 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3BE24851143C54C100ED2176 /* InfoPlist.strings */; };
 		3BE24856143C54C100ED2176 /* LDServerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24855143C54C100ED2176 /* LDServerTests.m */; };
-		3BE248A5143C551600ED2176 /* LDCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24864143C551500ED2176 /* LDCommand.m */; };
 		3BE248A6143C551600ED2176 /* LDLayerProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24866143C551500ED2176 /* LDLayerProperty.m */; };
 		3BE248A7143C551600ED2176 /* LDMessageParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24868143C551500ED2176 /* LDMessageParam.m */; };
 		3BE248AF143C551600ED2176 /* LDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE24878143C551500ED2176 /* LDView.m */; };
@@ -128,8 +127,6 @@
 		3BE24852143C54C100ED2176 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3BE24854143C54C100ED2176 /* LDServerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDServerTests.h; sourceTree = "<group>"; };
 		3BE24855143C54C100ED2176 /* LDServerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDServerTests.m; sourceTree = "<group>"; };
-		3BE24863143C551500ED2176 /* LDCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDCommand.h; sourceTree = "<group>"; };
-		3BE24864143C551500ED2176 /* LDCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDCommand.m; sourceTree = "<group>"; };
 		3BE24865143C551500ED2176 /* LDLayerProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDLayerProperty.h; sourceTree = "<group>"; };
 		3BE24866143C551500ED2176 /* LDLayerProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDLayerProperty.m; sourceTree = "<group>"; };
 		3BE24867143C551500ED2176 /* LDMessageParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDMessageParam.h; sourceTree = "<group>"; };
@@ -350,8 +347,6 @@
 			children = (
 				3B62F8CE1464211E00773D7C /* New Group */,
 				3B62F89D146408D600773D7C /* supportedParams */,
-				3BE24863143C551500ED2176 /* LDCommand.h */,
-				3BE24864143C551500ED2176 /* LDCommand.m */,
 				3BE24865143C551500ED2176 /* LDLayerProperty.h */,
 				3BE24866143C551500ED2176 /* LDLayerProperty.m */,
 				3BE24867143C551500ED2176 /* LDMessageParam.h */,
@@ -573,7 +568,6 @@
 			files = (
 				3BE24838143C54C000ED2176 /* main.m in Sources */,
 				3BE2483F143C54C000ED2176 /* LDAppDelegate.m in Sources */,
-				3BE248A5143C551600ED2176 /* LDCommand.m in Sources */,
 				3BE248A6143C551600ED2176 /* LDLayerProperty.m in Sources */,
 				3BE248A7143C551600ED2176 /* LDMessageParam.m in Sources */,
 				3BE248AF143C551600ED2176 /* LDView.m in Sources */,

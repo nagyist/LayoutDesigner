@@ -12,7 +12,6 @@
 #import "LDView.h"
 #import "InputView.h"
 #import "LDMessage.h"
-#import "LDCommand.h"
 
 
 @interface MainViewController : NSViewController<NSOutlineViewDelegate,NSOutlineViewDataSource,NSComboBoxDelegate,NSComboBoxDataSource>
