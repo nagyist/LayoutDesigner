@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'LDCommonMac' target in the 'LDCommonMac' project
-//
-
-#ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
-#endif
